@@ -1,4 +1,4 @@
-## 2. semestr [letní]
+## 2. semestr (letní)
 
 - [IMA]	Matematická analýza
 - [INC]	Návrh číslicových systémů

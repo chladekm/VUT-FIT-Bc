@@ -1,4 +1,4 @@
-## 1. semestr [zimní]
+## 1. semestr (zimní)
 
 - [IDA]	Diskrétní matematika
 - [IEL]	Elektronika pro informační technologie
