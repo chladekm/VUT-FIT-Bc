@@ -1,0 +1,201 @@
+.title h2{color: white !important;}
+
+.searchbar{height: 30vw !important;}
+#search{margin-top: 12vw !important;}
+
+/*** EXHIBIT IMAGE ***/
+
+.exhibit
+{
+	background-image: url("images/exhibits/navbar_image.png");
+	height: 30vw;
+	width: 100%;
+	background-size: cover;
+  	background-repeat:no-repeat;
+  	margin: 0 auto;
+  	position: relative;
+  	z-index: -99;
+  	display: inline-block;
+  	margin-top: -5px;
+  	box-shadow: 0px 7px 81px 87px rgba(255,255,255,1);
+}
+
+
+/*** MAIN CONTENT ***/
+
+#intro
+{
+	text-align: center;
+	width: 80%;
+	margin: auto;
+	padding-bottom: 10px;
+}
+
+#intro h2{font-size: 1.8em; color: rgb(30,30,30);}
+#intro p{color: rgb(80,80,80);}
+
+#intro img{margin: auto; opacity: 0.6; margin-bottom: 5%; width:80%;}
+
+.box h3:first-child{font-size: 1.5em;  margin: 20px 0 0 0; padding: 0;}
+.box h3:nth-child(2){font-weight: normal; text-decoration: line-through; margin: 0 0 20px 0; padding: 0;}
+
+
+.bg1 {background: linear-gradient(to right top, #0e4300, #1e5b02, #307403, #438e03, #58a800);}
+.bg2 {background: linear-gradient(to right top, #37000a, #570012, #790014, #9b000f, #bb0000);}
+.bg3 {background: linear-gradient(to right top, #00132c, #003756, #005f80, #008aa7, #03b8c9);}
+.bg4 {background: linear-gradient(to right top, #1e1407, #2a1e11, #362817, #44321c, #513d22);}
+
+/* Price Reduction */
+
+.minicontainer
+{
+	width: 100%;
+	display: block;
+	overflow: hidden;
+}
+
+.minicontainer:after
+{
+    content: "";
+    display: block;
+    margin-top: 30px;
+    width: 48%;
+    overflow: hidden;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.left{float: left; width: 45%; padding: 20px; margin-top: -20px; overflow: hidden;}
+.right{float: left; width: 49%; margin-top: -20px; overflow: hidden;}
+
+.description{border-collapse: collapse;}
+.description tbody tr:nth-child(odd){background-color: rgb(240,240,240);}
+.description th{text-align: right; font-size: 1em;}
+.description td{padding-left: 10px; font-size: 0.9em;}
+
+.right p{margin-top: -10px; font-size: 0.9em;}
+
+.photo{width: 100%;}
+
+.text{padding: 0 20px;}
+
+/* ------------------- Find your new home -------------------- */
+
+.float_right_button
+{
+	float: right;
+	margin-right: 5px;
+	margin-top: -7px;
+	font-size: 1.2em;
+	color: rgba(255,255,255,0.5);
+}
+
+.line{width: 100%; overflow: hidden;}
+
+.line:not(:nth-child(1)){margin-top: 10px;}
+.line:last-child{margin-bottom: 20px;}
+
+.caption_box
+{
+	width: 20%;
+	display: inline-block;
+	float: left;
+}
+
+.caption_box h4
+{
+	text-align: right;
+	margin: auto;
+	padding: 10px 0;
+}
+
+.content_box
+{
+	width: 78%;
+	float: right;
+	min-height: 40px;
+}
+
+.content_box select
+{
+	width: 100%;
+	height: 40px;
+}
+
+.choice{line-height: 40px;}
+.longchoice{margin-top: 5px; margin-bottom: -5px; height: 90px;}
+
+
+.content_box input[type="text"]
+{
+	text-align: center;
+	width: 90%;
+	height: 40px;
+}
+
+.content_box button
+{
+	width: 98.5%; 
+	height: 43px; 
+	float: right;
+}
+
+.double:nth-child(2) input[type="text"]{float: right;}
+
+.content_box input[type="radio"]{margin-left: 10px;}
+.content_box input[type="checkbox"]{margin-left: 10px;}
+.content_box label{padding-left: 10px; font-size: 0.9em;}
+
+.gap{margin-left: -20px;}
+.twolines{padding: 0 !important;}
+
+/* --------------------Join your newsletter & Follow us ------------ */
+
+.split_left
+{
+	display: block;
+	float: left;
+	width: 67.5%;
+	height: 130px;
+}
+
+.text input
+{
+	width: 508px;
+	height: 40px;
+	font-size: 0.9em;
+}
+
+.text button
+{
+	width: 111px;
+	height: 43px;
+	margin-right: 3.8px;
+	float:right;
+}
+
+.split_right
+{
+	display: block;
+	float: right;
+	width: 30%;
+	height: 130px;
+}
+
+.iconbox{padding-left: 20px;}
+
+.iconbox .fab
+{
+	font-size: 50px;
+	color: #dcdcdc;
+	margin-top: -5px;
+}
+
+.iconbox .fab:hover
+{
+	color: rgb(180,180,180);
+}
+
+.iconbox a:not(:nth-child(1))
+{
+	padding-left: 5px;
+}

@@ -1,0 +1,160 @@
+.bg1{background: linear-gradient(to right top, #37000a, #570012, #790014, #9b000f, #bb0000);}
+
+.title h2{color:white;}
+
+/* ------------------- Exhibit -------------------- */
+
+.exhibit
+{
+	background-image: url("images/exhibits/sale_blurred_title.jpg");
+	height: 17vw;
+	width: 100%;
+	background-size: cover;
+  	background-repeat:no-repeat;
+  	margin: 0 auto;
+  	position: relative;
+  	z-index: -99;
+  	display: inline-block;
+  	margin-top: -5px;
+  	box-shadow: 0px 7px 81px 87px rgba(255,255,255,1);
+}
+
+/* ------------------- Find your new home -------------------- */
+
+.line{width: 100%; overflow: hidden;}
+
+.line:not(:nth-child(1)){padding-top: 10px;}
+.line:last-child{padding-bottom: 20px;}
+
+.caption_box
+{
+	width: 20%;
+	display: inline-block;
+	float: left;
+}
+
+.caption_box h4
+{
+	text-align: right;
+	margin: auto;
+	padding: 10px 0;
+}
+
+.content_box
+{
+	width: 78%;
+	float: right;
+	min-height: 40px;
+}
+
+.content_box select
+{
+	width: 100%;
+	height: 40px;
+}
+
+.choice{line-height: 40px;}
+.longchoice{margin-top: 5px; margin-bottom: -5px; height: 90px;}
+
+.content_box input[type="text"]
+{
+	text-align: center;
+	width: 90%;
+	height: 40px;
+}
+
+.content_box button
+{
+	width: 98.5%; 
+	height: 43px; 
+	float: right;
+}
+
+.double:nth-child(2) input[type="text"]{float: right;}
+
+.content_box input[type="radio"]{margin-left: 10px;}
+.content_box input[type="checkbox"]{margin-left: 10px;}
+.content_box label{padding-left: 10px; font-size: 0.9em;}
+
+.gap{margin-left: -20px;}
+.twolines{padding: 0 !important;}
+
+/*** --------------------Results--------------------***/
+
+.minicontainer
+{
+	width: 100%;
+	display: block;
+	overflow: hidden;
+	display: block;
+	margin-top: -20px;
+}
+
+.minicontainer:first-child
+{
+	margin-top: 0px !important; 
+}
+
+.minicontainer:after
+{
+    content: "";
+    display: block;
+    margin-top: 30px;
+    width: 48%;
+    overflow: hidden;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.left
+{
+	float: left; 
+	width: 45%; 
+	padding: 20px; 
+	overflow: hidden; 
+	position: relative;
+}
+
+.right
+{
+	float: left; 
+	width: 49%; 
+	overflow: hidden; 
+	position: relative
+}
+
+.description{border-collapse: collapse;}
+.description tbody tr:nth-child(odd){background-color: rgb(240,240,240);}
+.description th{text-align: right; font-size: 1em;}
+.description td{padding-left: 10px; font-size: 0.9em;}
+
+.right h3:first-child{font-size: 1.4em; margin-bottom: -10px;}
+.right p{margin-top: -15px; font-size: 0.9em;}
+
+.right table{margin-bottom: -10px;}
+
+.right a
+{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 0.8em;
+	margin-top: -10px;
+	margin-right: 10px;
+	color: #282828;
+	float: right;
+}
+
+.photo{width: 100%;}
+
+.photocontainer
+{
+	background-color: #282828;
+	padding: 20px !important;
+	text-align: center;
+	color: #8c8c8c;
+	display: block;
+	margin-bottom: 20px;
+}
+
+.photocontainer:last-child{margin-bottom: 0px !important;}
+
+.text{padding: 0 20px;}
+

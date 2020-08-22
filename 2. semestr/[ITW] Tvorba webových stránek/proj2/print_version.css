@@ -1,0 +1,9 @@
+/* ---------- Print version edit ---------*/
+
+header {display: none !important;}
+footer {display: none !important;}
+.about_menu{display: none !important;}
+.noprint{display: none !important;}
+
+* {color: black !important; opacity: 1;}
+

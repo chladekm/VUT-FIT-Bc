@@ -1,0 +1,243 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[total={17cm,24cm}, left=2cm, top=3cm]{geometry}
+\usepackage{times}
+\usepackage[IL2]{fontenc}
+\usepackage[unicode, hidelinks]{hyperref}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{hhline}
+\usepackage[hypcap=false]{caption}
+\usepackage{algorithmic}
+\usepackage[ruled,vlined,czech,linesnumbered]{algorithm2e}
+\usepackage{pdflscape}
+
+\author{Martin Chládek}
+\date{6.3.2018}
+
+\newtheorem{def1}{Definice}
+\newtheorem{sent1}{Věta}
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+    
+\textsc{\Huge Vysoké učení technické v Brně\\[0.4em]
+\huge Fakulta informačních technologií} \\\vspace{\stretch{0.382}}
+{\LARGE{Typografie a publikování -- 3. projekt}\\[0.3em] \Huge{Tabulky a obrázky}}\\ \vspace{\stretch{0.618}}
+\end{center}
+{\Large \today \hfill Martin Chládek}
+
+\end{titlepage}
+
+\newpage
+\section{Úvodní strana}
+Název práce umístěte do zlatého řezu a nezapomeňte uvést dnešní datum a vaše jméno a příjmení.
+
+\section{Tabulky}
+
+Pro sázení tabulek můžeme použít buď prostředí \verb|tabbing| nebo prostředí \verb|tabular|.
+
+\subsection{Prostředí \texttt{tabbing}}
+Při použití \verb|tabbing| vypadá tabulka následovně:
+
+\begin{tabbing}
+\hspace*{3cm}\=\hspace*{1,5cm}\= \kill
+\textbf{Ovoce} \> \textbf{Cena} \> \textbf{Množství}\\
+Jablka \> 25,90 \> 3 kg\\
+Hrušky \> 27,40 \> 2,5 kg\\
+Vodní melouny \> 35,-- \> 1 kus 
+\end{tabbing}
+
+\noindent
+Toto prostředí se dá také použít pro sázení algoritmů, ovšem vhodnější je použít prostředí \verb|algorithm| nebo \verb|algorithm2e| (viz sekce \ref{sekce_3}).
+
+
+\subsection{Prostředí \texttt{tabular}}
+Další možností, jak vytvořit tabluku, je použít prostředí \verb|tabular|. Tabulky pak budou vypadat takto\footnote{Kdyby byl problem s \texttt{cline}, zkuste se podívat třeba sem: \urlstyle{same}\url{http://www.abclinuxu.cz/tex/poradna/show/325037.}}:\\
+\shorthandoff{-}
+\begin{table}[h]
+    \begin{center}
+        \begin{tabular}{|c|c|c|} \hline
+                & \multicolumn{2}{c|}{\textbf{Cena}} \\ \cline{2-3}
+                \textbf{Měna} & \textbf{nákup} & \textbf{prodej} \\ \hline
+                EUR & 27,02 & 27,20 \\
+                GBP & 31,08 & 31,80 \\
+                USD & 25,15 & 25,51 \\
+                \hline
+        \end{tabular}
+    \caption{Tabulka kurzů k dnešnímu dni}\label{tab_1}
+    \end{center}
+\end{table}
+
+\begin{table}[h]
+\begin{center}
+    \begin{tabular}{|c|c|}
+    \hline
+         A & $\neg$ A \\ \hline
+         \textbf{P} & N \\ \hline
+         \textbf{O} & O \\ \hline
+         \textbf{X} & X \\ \hline
+         \textbf{N} & P \\ \hline
+    \end{tabular}
+    \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+        \multicolumn{2}{|c|}{\multirow{2}{*}{{A $\land$ B}}} & \multicolumn{4}{c|}{B} \\
+        \cline{3-6}
+        \multicolumn{2}{|c|}{} & \textbf{P} & \textbf{O} &\textbf{X}& \textbf{N} \\
+        \hline
+        \multirow{4}{*}{A} & \textbf{P} & P & O & X & N \\
+        \cline{2-6}
+        & \textbf{O} & O & O & N & N \\
+        \cline{2-6}
+        & \textbf{X} & X & N & X & N \\
+        \cline{2-6}
+        & \textbf{N} & N & N & N & N \\
+        \hline
+    \end{tabular}
+    \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+        \multicolumn{2}{|c|}{\multirow{2}{*}{{A $\lor$ B}}} & \multicolumn{4}{c|}{B} \\
+        \cline{3-6}
+        \multicolumn{2}{|c|}{} & \textbf{P} & \textbf{O} &\textbf{X}& \textbf{N} \\
+        \hline
+        \multirow{4}{*}{A} & \textbf{P} & P & P & P & P \\
+        \cline{2-6}
+        & \textbf{O} & P & O & P & O \\
+        \cline{2-6}
+        & \textbf{X} & P & P & X & X \\
+        \cline{2-6}
+        & \textbf{N} & P & O & X & N \\
+        \hline
+    \end{tabular}
+    \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+        \multicolumn{2}{|c|}{\multirow{2}{*}{{A $\to$ B}}} & \multicolumn{4}{c|}{B} \\
+        \cline{3-6}
+        \multicolumn{2}{|c|}{} & \textbf{P} & \textbf{O} &\textbf{X}& \textbf{N} \\
+        \hline
+        \multirow{4}{*}{A} & \textbf{P} & P & O & X & N \\
+        \cline{2-6}
+        & \textbf{O} & P & O & P & O \\
+        \cline{2-6}
+        & \textbf{X} & P & P & X & X \\
+        \cline{2-6}
+        & \textbf{N} & P & P & P & P \\
+        \hline
+    \end{tabular}
+    \end{center}
+    \caption{Protože Kleeneho trojhodnotová logika už je \uv{zastaralá}, uvádíme si zde příklad čtyřhodnotové logiky}\label{tab_2}
+\end{table}
+
+\newpage
+\section{Algoritmy} \label{sekce_3}
+Pokud budeme chtít vysázet algoritmus, můžeme použít prostředí \verb|algorithm|\footnote{Pro nápovědu, jak zacházet s prostředím \texttt{algorithm}, můžeme zkusit tuhle stránku: \\\urlstyle{same}\url{http://ftp.cstug.cz/pub/tex/CTAN/macros/latex/contrib/algorithms/algorithms.pdf}.} nebo \;\verb|algorithm2e|\;\footnote{Pro \texttt{algorithm2e} zase tuhle: \urlstyle{same}\url{http://ftp.cstug.cz/pub/tex/CTAN/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf}.}. Příklad použití prostředí \;\verb|algorithm2e|\; viz Algoritmus \ref{alg_1}. 
+
+\begin{algorithm}[h]
+    \SetAlgoNoLine
+    \SetKwInput{KwInput}{Input}
+    \SetKwInput{KwOutput}{Output}
+    \SetKwFor{For}{for}{do}{end\ for}
+    \SetNlSty{textup}{}{:}
+    \SetAlgoNlRelativeSize{-1}
+    \SetNlSkip{-1.5em}
+    \caption{\textsc{Fast}SLAM} \label{alg_1}
+    \KwInput{$(X_{t-1},u_t,z_t)$}
+    \KwOutput{$X_t$}
+    \BlankLine
+    \Indp\Indpp
+    $\overline{X_t} = X_t = 0$\\
+    \For{$k=1$ to $M$}
+    {
+    \Indpp
+    $x_t^{[k]} =$ \emph{sample\_motion\_model}$(u_t,x_{t-1}^{[k]})$\\
+    $\omega_t^{[k]} =$ \emph{measurement\_model}$(z_t,x_t^{[k]},m_{t-1})$\\
+    $m_t^{[k]} = updated\_occupancy\_grid(z_t,x_t^{[k]},m_{t-1}^{[k]})$\\
+    $\overline{X_t} = \overline{X_t} + \langle x_x^{[m]}, \omega_t^{[m]}\rangle$
+    }
+    \For{$k=1$ to $M$}
+    {
+    \Indpp draw $i$ with probability $\approx \omega_t^{[i]}$\\
+    add $\langle x_x^{[k]}, m_t^{[k]}\rangle$ to $X_t$\\
+    }
+    \Return $X_t$
+\end{algorithm}
+
+\section{Obrázky}
+Do našich článků můžeme samozřejmě vkládat obrázky. Pokud je obrázkem fotografie, můžeme klidně použít bitmapový soubor. Pokud by to ale mělo být nějaké schéma nebo něco podobného, je dobrým zvykem takovýto obrázek vytvořit vektorově.
+
+\begin{center}
+\scalebox{0.4}{\includegraphics{etiopan.eps}
+\reflectbox{\includegraphics{etiopan.eps}}}
+\\
+\captionof{figure}{Malý Etiopánek a jeho bratříček} \label{pic_1}
+\end{center}
+
+\newpage
+
+Rozdíl mezi vektorovým\dots
+\begin{center}
+\includegraphics[width=0.45\textwidth]{oniisan.eps}
+\captionof{figure}{Vektorový obrázek} \label{pic_2}
+\end{center}
+\vspace{1em}
+\dots a bitmapovým obrázkem
+\begin{center}
+\includegraphics[width=0.5\textwidth]{oniisan2.eps}    
+\captionof{figure}{Bitmapový obrázek} \label{pic_3}
+\end{center}
+\vspace{1em}
+se projeví například při zvětšení.
+
+Odkazy (nejen ty) na obrázky \ref{pic_1}, \ref{pic_2} a \ref{pic_3}, na tabulky \ref{tab_1} a \ref{tab_2} a také na algoritmus \ref{alg_1} jsou udělány pomocí křížových odkazů. Pak je ovšem potřeba zdrojový soubor přeložit dvakrát.
+
+Vektorové obrázky lze vytvořit i přímo v \LaTeX u, například pomocí prostředí \verb|picture.|
+
+
+\begin{landscape}
+\begin{figure}[ht]
+\begin{center}
+\begin{picture}(570,280)
+\linethickness{1.5px}
+\put(0,0){\framebox(570,280){}}
+\linethickness{4px}
+\put(10,40){\line(1,0){550}}
+\linethickness{1px}
+\put(70,40){\line(0,1){100}}
+\put(70,140){\line(1,0){120}}
+\put(190,125){\line(0,1){30}}
+\put(190,155){\line(1,0){160}}
+\put(350,125){\line(0,1){30}}
+\put(350,132.5){\line(1,0){140}}
+\put(490,125){\line(0,1){7.5}}
+\put(120,125){\line(1,0){400}}
+\put(120,110){\line(0,1){15}}
+\put(520,110){\line(0,1){15}}
+\put(120,110){\line(1,0){400}}
+\put(120,110){\line(1,-1){30}}
+\put(100,40){\line(0,1){40}}
+\put(100,80){\line(1,0){100}}
+\put(200,80){\line(3,-1){115}}
+\put(520,40){\line(0,1){25}}
+\put(245,65){\line(1,0){275}}
+\put(515,65){\line(0,1){40}}
+\put(215,105){\line(1,0){300}}
+\put(215,75){\line(0,1){30}}
+\put(485,225){\circle{40}}
+\end{picture}
+    
+\end{center}
+\captionof{figure}{Vektorový obrázek.}\label{pic_4}
+\end{figure}
+
+
+\end{landscape}
+
+\end{document}

@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>BuyDream</title>
+        
+        <link rel=stylesheet href="print_version.css" media="print">
+
+        <link rel="stylesheet" href="style_template.css">
+        <link rel="stylesheet" href="style_main.css">
+  
+        
+        <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+    
+        <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css?family=Philosopher:400,700" rel="stylesheet">
+
+        <script type="application/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+
+        <script type="text/javascript" src="script.js"></script>
+
+    </head>
+    <body>
+        <header>
+            <nav id="navbar">
+              <div class="logobox">
+                <a href="http://chladasm.tode.cz/BuyDream/index.html"><h1>BuyDream</h1><img class="logo" src="images/logo.png" alt="Logo"></a>
+               </div>
+                <div class="menu">
+                  <div class="menu-left links">
+                    <ul> 
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="sale.html">Sale</a></li>
+                        <li><a href="sublet.html">Sublet</a></li>
+                    </ul>
+                    </div>
+                    <div class="menu-right links">
+                      <ul> 
+                        <li><a href="#"><span class="search_click">Search</span></a></li>
+                        <li><a href="contacts.html">Contacts</a></li>
+                        <li><a href="about.html">About us</a></li>
+                    </ul>
+                    </div> 
+                </div>
+            </nav>
+            <div class="searchbar">
+              <div id="search">
+                 <input type="text" placeholder="Write down what you want to search..." name="search" autofocus>
+                 <button onclick="RealButton()"><i class="fas fa-search"></i></button>
+              </div>
+            </div>
+
+      <!-- PART TO EDIT ON DIFFERENT LINKS -->
+
+            <div class="exhibit">
+            </div>
+
+        </header>
+        
+        <div id="main">
+          <div id="intro">
+            <h2>Why you should choose us</h2>
+            <p>Lorem ipsum dolor sit amet, te pro tamquam intellegam, te veri perfecto vim, vim at hendrerit tincidunt. Eam no laoreet tacimates expetendis, mea ut vidit deserunt. Vim sale petentium expetendis ea, sed habemus docendi omittantur ad. No omnis decore omnium vis. Has an ullum fierent corrumpit, per ex putant voluptatum. Laudem ocurreret forensibus in quo, usu ne admodum atomorum, homero minimum qualisque.</p>
+          <img class="decorative_line" src="images/line.png" alt="Decorative line">
+          </div>
+           
+           <div class="box">
+              <div class="title bg1">
+                <h2>Price Reduction</h2>
+              </div>
+              <div class="minicontainer">
+                <div class="left">
+                  <img class="photo" src="images/villa1.jpg" alt="Villa n.1">
+                </div>
+                <div class="right">
+                  <h3>4 000 000$</h3><h3>4 250 000$</h3>
+                  <table class="description">
+                  <tbody>
+                <tr>
+                  <th>Country</th>
+                  <td>Sardinia/Italy</td>
+                </tr>
+                <tr>
+                  <th>Place</th>
+                  <td>Cala Goloritzè – Baunei</td>
+                </tr>
+                <tr>
+                  <th>Area</th>
+                  <td>422 m<sup>2</sup></td>
+                </tr>
+                <tr>
+                  <th>Rooms</th>
+                  <td>4 bedrooms, 4 bathrooms, living room, kitchen, dining room</td>
+                </tr>
+                <tr>
+                  <th>Special equipment</th>
+                  <td>Garage, 2 Pools, Gym</td>
+                </tr>
+              </tbody>
+              </table>
+              <h3>About</h3>
+              <p>
+                Lorem ipsum dolor sit amet, qui eu suas simul democritum, ea iriure fierent ius. Et nobis explicari nec, ut reque concludaturque eam. Vix atqui docendi accusata ex, et viderer alienum concludaturque mel. 
+              </p>
+                </div>
+              </div>
+
+              <div class="minicontainer">
+                <div class="left">
+                  <img src="images/villa2.jpg" class="photo" alt="Villa n.2">
+                </div>
+                <div class="right">
+                  <h3>6 700 000$</h3><h3>7 320 000$</h3>
+                  <table class="description">
+                  <tbody>
+                <tr>
+                  <th>Country</th>
+                  <td>Mallorca/Spain</td>
+                </tr>
+                <tr>
+                  <th>Place</th>
+                  <td> Playa de Muro</td>
+                </tr>
+                <tr>
+                  <th>Area</th>
+                  <td>722 m<sup>2</sup></td>
+                </tr>
+                <tr>
+                  <th>Rooms</th>
+                  <td>3 bedrooms, 2 bathrooms, 2 living rooms, kitchen, dining room</td>
+                </tr>
+                <tr>
+                  <th>Special equipment</th>
+                  <td>Garage, Pool, Sauna</td>
+                </tr>
+              </tbody>
+              </table>
+              <h3>About</h3>
+              <p>
+                Lorem ipsum dolor sit amet, qui eu suas simul democritum, ea iriure fierent ius. Et nobis explicari nec, ut reque concludaturque eam. Vix atqui docendi accusata ex, et viderer alienum concludaturque mel. 
+              </p>
+                </div>
+              </div>
+           </div>
+
+           <div class="box">
+              <div class="title bg2">
+                <h2>Find your new home<span class="float_right_button"><i class="fas fa-chevron-circle-down"></i></span></h2>
+              </div>
+              <div id="find_your_new_home" class="container">
+                <div class="double">
+                  <div class="line">
+                    <div class="caption_box">
+                      <h4>Country</h4>
+                    </div>
+                    <div class="content_box">
+                      <select name="country">
+                    <option value="australia">Australia</option>
+                    <option value="croatia">Croatia</option>
+                    <option value="frace">France</option>
+                    <option value="gb">Great Britain</option>
+                    <option value="greece">Greece</option>
+                    <option value="italy">Italy</option>
+                    <option value="maldives">Maldives</option>
+                    <option value="norway">Norway</option>
+                    <option value="spain">Spain</option>
+                    <option value="turkey">Turkey</option>
+                    <option value="usa">USA</option>
+                  </select>
+                    </div>
+                  </div>
+
+                <div class="line">
+                  <div class="caption_box">
+                    <h4>Type</h4>
+                  </div>
+                  <div class="content_box choice">
+                    <div class="double">
+                        <input type="radio" value="house" id="house"><label for="house">House</label>
+                      </div>
+                      <div class="double">
+                                  <input type="radio" value="flat" id="flat"><label for="flat">Flat</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="line">
+                  <div class="caption_box">
+                    <h4>Area</h4>
+                  </div>
+                  <div class="content_box">
+                    <div class="double">
+                        <input type="text" placeholder="min.">
+                      </div>
+                      <div class="double">
+                                  <input type="text" placeholder="max.">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="line">
+                  <div class="caption_box">
+                    <h4>Floors</h4>
+                  </div>
+                  <div class="content_box">
+                    <div class="double">
+                        <input type="text" placeholder="min.">
+                      </div>
+                      <div class="double">
+                                  <input type="text" placeholder="max.">
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+                <div class="double gap">
+                  
+                  <div class="line">
+                  <div class="caption_box">
+                    <h4>Floors</h4>
+                  </div>
+                  <div class="content_box">
+                    <div class="double">
+                        <input type="text" placeholder="min." >
+                      </div>
+                      <div class="double">
+                                  <input type="text" placeholder="max.">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="line">
+                  <div class="caption_box">
+                    <h4 class="twolines">Special equipment</h4>
+                  </div>
+                  <div class="content_box">
+                    <div class="double longchoice">
+                        <input type="checkbox" value="garden" id="garden"><label for="garden">Garden</label>
+                        <br>
+                        <input type="checkbox" value="pool" id="pool"><label for="pool">Pool</label>
+                        <br>
+                        <input type="checkbox" value="sauna" id="sauna"><label for="sauna">Sauna</label>
+                        <br>
+                        <input type="checkbox" value="tennis_court" id="tennis_court"><label for="tennis_court">Tennis Court</label>
+                        <br>
+                      </div>
+                      <div class="double longchoice">
+                        <input type="checkbox" value="garage" id="garage"><label for="garage">Garage</label>
+                        <br>
+                        <input type="checkbox" value="whirlpool" id="whirlpool"><label for="whirlpool">Whirlpool</label>
+                        <br>
+                        <input type="checkbox" value="gym" id="gym"><label for="gym">Gym</label>
+                        <br>
+                        <input type="checkbox" value="cinema" id="cinema"><label for="cinema">Cinema</label>
+                        <br>
+                      </div>
+                            </div>
+                        </div>
+
+                        <div class="line">
+                          <div class="caption_box"></div>
+                          <div class="content_box">
+                            <button>Submit</button>
+                          </div>
+                        </div>
+
+                </div>
+              </div>
+           </div>
+        
+           <div class="split">
+              <div class="box split_left noprint">
+                <div class="title bg3">
+                  <h2>Join our newsletter</h2>
+                </div>
+                <p class="text">
+                      <input type="text" placeholder="Enter your email">
+                      <button>Subscribe</button>
+                  </p>
+              </div>
+              
+              <div class="box split_right noprint">
+                <div class="title bg4">
+                  <h2>Follow us</h2>
+                </div>
+                <div class="iconbox">
+                <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com"><i class="fab   fa-twitter-square"></i></a>
+                    <a href="https://plus.google.com"><i class="fab fa-google-plus-square"></i></a>
+                    <a href="https://pinterest.com"><i class="fab fa-pinterest-square"></i></a>
+                    </div>
+              </div>
+           </div>
+
+        </div>
+
+        <!-- END OF PART TO EDIT ON DIFFERENT LINKS -->
+
+        <footer id="footer">
+          <div class="main_foot">
+              <div class="container">
+                <div class="footer_left">
+                  <h3>BuyDream</h3>
+                  <ul>
+                      <li><i class="fas fa-user"></i>Martin Chládek</li>
+                        <li><i class="fas fa-envelope"></i><a id="test" href="mailto:BuyDream@mailto.com">BuyDream@mailto.com</a></li>
+                        <li><i class="fas fa-phone"></i><a href="tel:+420123456789">+420 123 456 789</a></li>
+                    </ul>
+                        <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com"><i class="fab   fa-twitter-square"></i></a>
+                        <a href="https://plus.google.com"><i class="fab fa-google-plus-square"></i></a>
+                        <a href="https://pinterest.com"><i class="fab fa-pinterest-square"></i></a>
+                </div>
+                <div class="footer_right">
+                  <h3>Menu</h3>
+                  <ul>
+                      <li><a id="home" href="index.html">Home</a></li>
+                        <li><a id="sale" href="sale.html">Sale</a></li>
+                        <li><a id="sublet" href="sublet.html">Sublet</a></li>
+                        <li><a id="history" href="about.html">About us</a></li>
+                        <li><a id="contacts" href="contacts.html">Contacts</a></li>
+                        <li><a id="about" href="#" onclick="searchfooter()" >Search</a></li>
+                    </ul>
+                </div>
+              </div>
+          </div>
+
+          <div id="copyright">
+                <p>&copy; Copyright 2018. Martin Chládek</p>
+          </div>
+        </footer>
+    </body>
+</html>

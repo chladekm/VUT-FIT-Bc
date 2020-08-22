@@ -1,0 +1,289 @@
+/*** OBECNÉ DEKLARACE ***/
+
+body{background-image: url(img/pattern.png); margin: 0;}
+
+h1, h2, h3
+{
+	font-family: Lobster;
+	color: #5D4037;
+}
+
+p, td, a, button, input, textarea
+{
+	font-family: Crimson Text;
+	font-size: 12pt;
+}
+
+input{padding: 6px 5px;}
+input, textarea
+{
+	border: 1px solid #EEEEEE;
+	background-color: #FCFCFC;}
+
+/*** NAVIGATION BAR ***/
+
+.menu a:link{color: white; text-decoration: none;}
+.menu a:visited{color: white; text-decoration: none;}
+.menu a:hover{text-decoration: underline;}
+
+#navbar a:link{font-size: 14pt}
+
+#navbar
+{
+background: linear-gradient(to right, #FF6F00, #FFA000);
+border-top: 4px solid #3E2723;
+overflow: hidden;
+}
+
+#navbar .menu-left li
+{
+	list-style: none;
+	padding: 0px 30px 10px 30px;
+	position: relative;
+	margin-left: -20px;
+}
+
+#navbar .menu-left li:first-child{padding-left: 0;}
+
+#navbar .menu-right li
+{
+	list-style: none;
+	padding: 0px 20px 10px 20px;
+	position: relative;
+	right: 0;
+}
+
+#navbar .menu-right li:first-child{padding-right: 0;}
+#navbar .menu-right li:first-child{margin-right: 0; padding-right: 20px;}
+
+.menu
+{
+	width: 960px;
+	margin: auto;
+}
+
+
+.logo
+{
+	background: url(img/logo.png) no-repeat;
+    height: 122px;
+    width: 198px;
+    position: absolute;
+    margin-left: 385px;
+    background-position: center;
+    top: -15px;
+}
+
+
+.logo span
+{
+display: none;
+}
+
+.menu-left li{float: left;} 
+.menu-right li{float: right;}
+
+#page-title
+{
+	background-image: url("img/bg.png");
+	height: 400px;
+	background-size: cover;
+	overflow: hidden;
+  	text-align: center;
+  	background-repeat:no-repeat;
+  	margin: 0 auto;
+}
+
+#page-title h1{font-size: 35pt; margin-top: 3em;}
+
+.main-text{text-align: center;}
+#main h1
+{
+	font-size: 35pt;
+	margin-top: 70px;
+}
+
+/*** MAIN CONTENT ***/
+
+#main
+{
+	overflow: hidden;
+	width: 960px;
+	margin: auto
+}
+
+.form
+{
+	float: left;
+	width: 50%;
+	overflow: hidden;
+}
+
+.box
+{
+	border: 3px solid #EEEEEE;
+	overflow: hidden;
+	background-color: white;
+	padding: 0 15px 15px 15px;
+	margin-top: 20px;
+}
+
+.contacts
+{
+	float: left;
+	margin-bottom: 20px;
+}
+
+
+.left
+{
+	float: left;
+	width: 200px;
+	margin-top: 15px;
+}
+
+.right
+{
+	
+	float: left;
+	width: 200px;
+	margin-left: 30px;
+	margin-top: 15px;
+}
+
+.textarea
+{
+	margin-top: 20px;
+	width: 420px;
+	height: 180px;
+	padding: 10px 10px;
+}
+
+.submit
+{
+	background-color: #FF8F00;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+}
+
+.submit:hover
+{
+	background-color: #5D4037;
+}
+
+.bottom-row button
+{
+	margin-top: 10px;
+	display: block;
+	padding: 10px 20px;
+	margin-left: -1px;
+}
+
+.info
+{
+	float: right;
+	width: 40%;
+}
+
+.info .box:first-child{padding-bottom: 0 !important;}
+
+.box a{color: #FF8F00; text-decoration: none;}
+.box a:hover{color: #5D4037; text-decoration: underline;}
+
+.newsletter{margin-bottom: 20px; padding-bottom: 0px !important;}
+.newsletter p:nth-child(2){margin-bottom: -15px;}
+
+.newsletter input
+{
+	width: 720px;
+	height: 30px;
+}
+
+.newsletter button
+{
+	padding: 11px 65px;
+	display: inline-block;
+	margin-top: -3px;
+	margin-left: -4px;
+}
+
+/*** FOOTER ***/
+
+#footer
+{
+	color: white;
+	background-color: #252525;
+	clear: both;
+}
+
+.main
+{
+	overflow: hidden;
+	width: 960px;
+	margin: auto;
+	text-align: center;
+}
+
+.footer-title
+{
+	font-weight: 500;
+	padding: 15px 0;
+}
+
+.footer-content
+{
+	border-top: 1px solid white;	
+}
+
+.footer-content ul, li
+{
+	padding-left: 10px;
+	margin-left: 5px;
+}
+
+.inner
+{
+	text-align: left !important;
+	color: #BFBFBF;
+	padding: 10px 0;
+}
+
+.hours, .about, #footer .menu{width: 23%;}
+
+.hours{float:left;}
+.hours td{line-height: 1.8;}
+.hours td:nth-child(even)
+{
+	padding-left: 15px;
+	float: right !important;
+}
+.hours table{margin-top: 15px;}
+
+.about
+{
+	display: inline-block;
+    margin: 0 auto;
+}
+
+#footer .menu{float:right;}
+#footer .menu li{line-height: 1.8;}
+#footer .menu ul{margin-top: 15px;}
+#footer .menu a
+{
+	line-height: 1.8;
+	color: #BFBFBF;
+}
+
+.social i{font-size: 40px;}
+.about .social i:hover{color: white;}
+.social .fab{padding-right: 10px;}
+
+#copyright
+{
+	overflow: hidden;
+	text-align: center;
+	background-color: #333333;
+	color: #BFBFBF;
+}

@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>BuyDream</title>
+        
+        <link rel=stylesheet href="print_version.css" media="print">
+
+        <link rel="stylesheet" href="style_template.css">
+        <link rel="stylesheet" href="style_sublet.css">
+        
+         <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+    
+        <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css?family=Philosopher:400,700" rel="stylesheet">
+
+        <script type="application/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+
+        <script type="text/javascript" src="script.js"></script>
+
+    </head>
+    <body>
+        <header>
+            <nav id="navbar">
+              <div class="logobox">
+                <a href="http://chladasm.tode.cz/BuyDream/index.html"><h1>BuyDream</h1><img class="logo" src="images/logo.png" alt="Logo"></a>
+               </div>
+                <div class="menu">
+                  <div class="menu-left links">
+                    <ul> 
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="sale.html">Sale</a></li>
+                        <li><a href="sublet.html">Sublet</a></li>
+                    </ul>
+                    </div>
+                    <div class="menu-right links">
+                      <ul> 
+                        <li><a href="#"><span class="search_click">Search</span></a></li>
+                        <li><a href="contacts.html">Contacts</a></li>
+                        <li><a href="about.html">About us</a></li>
+                    </ul>
+                    </div> 
+                </div>
+            </nav>
+            <div class="searchbar">
+              <div id="search">
+                 <input type="text" placeholder="Write down what you want to search..." name="search" autofocus>
+                 <button onclick="RealButton()"><i class="fas fa-search"></i></button>
+              </div>
+            </div>
+            
+            <div class="exhibit">
+            </div>
+
+      <!-- PART TO EDIT ON DIFFERENT LINKS -->
+        </header>
+        
+        <div id="main">
+        	
+          <div class="box noprint">
+              <div class="title bg1">
+                <h2>Specify</h2>
+              </div>
+              <div class="container">
+                <div class="double">
+                  <div class="line">
+                    <div class="caption_box">
+                      <h4>Country</h4>
+                    </div>
+                    <div class="content_box">
+                      <select name="country">
+                    <option value="australia">Australia</option>
+                    <option value="croatia">Croatia</option>
+                    <option value="frace">France</option>
+                    <option value="gb">Great Britain</option>
+                    <option value="greece">Greece</option>
+                    <option value="italy">Italy</option>
+                    <option value="maldives">Maldives</option>
+                    <option value="norway">Norway</option>
+                    <option value="spain">Spain</option>
+                    <option value="turkey">Turkey</option>
+                    <option value="usa">USA</option>
+                  </select>
+                    </div>
+                  </div>
+
+                <div class="line">
+                  <div class="caption_box">
+                    <h4>Type</h4>
+                  </div>
+                  <div class="content_box choice">
+                    <div class="double">
+                        <input type="radio" value="house" id="house"><label for="house">House</label>
+                      </div>
+                      <div class="double">
+                                  <input type="radio" value="flat" id="flat"><label for="flat">Flat</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="line">
+                  <div class="caption_box">
+                    <h4>Area</h4>
+                  </div>
+                  <div class="content_box">
+                    <div class="double">
+                        <input type="text" placeholder="min.">
+                      </div>
+                      <div class="double">
+                                  <input type="text" placeholder="max.">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="line">
+                  <div class="caption_box">
+                    <h4>Floors</h4>
+                  </div>
+                  <div class="content_box">
+                    <div class="double">
+                        <input type="text" placeholder="min.">
+                      </div>
+                      <div class="double">
+                                  <input type="text" placeholder="max.">
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+                <div class="double gap">
+                  
+                  <div class="line">
+                  <div class="caption_box">
+                    <h4>Floors</h4>
+                  </div>
+                  <div class="content_box">
+                    <div class="double">
+                        <input type="text" placeholder="min.">
+                      </div>
+                      <div class="double">
+                                  <input type="text" placeholder="max.">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="line">
+                  <div class="caption_box">
+                    <h4 class="twolines">Special equipment</h4>
+                  </div>
+                  <div class="content_box">
+                    <div class="double longchoice">
+                        <input type="checkbox" value="garden" id="garden"><label for="garden">Garden</label>
+                        <br>
+                        <input type="checkbox" value="pool" id="pool"><label for="pool">Pool</label>
+                        <br>
+                        <input type="checkbox" value="sauna" id="sauna"><label for="sauna">Sauna</label>
+                        <br>
+                        <input type="checkbox" value="tennis_court" id="tennis_court"><label for="tennis_court">Tennis Court</label>
+                        <br>
+                      </div>
+                      <div class="double longchoice">
+                        <input type="checkbox" value="garage" id="garage"><label for="garage">Garage</label>
+                        <br>
+                        <input type="checkbox" value="whirlpool" id="whirlpool"><label for="whirlpool">Whirlpool</label>
+                        <br>
+                        <input type="checkbox" value="gym" id="gym"><label for="gym">Gym</label>
+                        <br>
+                        <input type="checkbox" value="cinema" id="cinema"><label for="cinema">Cinema</label>
+                        <br>
+                      </div>
+                            </div>
+                        </div>
+
+                        <div class="line">
+                          <div class="caption_box"></div>
+                          <div class="content_box">
+                            <button>Submit</button>
+                          </div>
+                        </div>
+
+                </div>
+              </div>
+           </div>
+            
+            <div class="box">
+              <div class="minicontainer">
+                <div class="left">
+                  <img src="images/sublet/h1_0.png" alt="Result n.1" class="photo">
+                </div>
+                <div class="right">
+                  <h3>Luxury Villa for rent in Marbella, Andalusia</h3><h3>8 900$<span> /Month</span></h3>
+                  <table class="description">
+                  <tbody>
+                <tr>
+                  <th>Country</th>
+                  <td>Andalusia/Spain</td>
+                </tr>
+                <tr>
+                  <th>Place</th>
+                  <td>Marbellla</td>
+                </tr>
+                <tr>
+                  <th>Area</th>
+                  <td>940 m<sup>2</sup></td>
+                </tr>
+                <tr>
+                  <th>Rooms</th>
+                  <td>6 bedrooms, 4 bathrooms, 2 living rooms, kitchen, dining room</td>
+                </tr>
+                <tr>
+                  <th>Special equipment</th>
+                  <td>Garage, Pool, Tennis court</td>
+                </tr>
+              </tbody>
+              </table>
+              <h3>About</h3>
+              <p>
+                Lorem ipsum dolor sit amet, qui eu suas simul democritum, ea iriure fierent ius. Et nobis explicari nec, ut reque concludaturque eam. Vix atqui docendi accusata ex, et viderer alienum concludaturque mel. 
+              </p>
+                
+                <a href="javascript:void(0)" onclick="toggleme(0)">Show more</a>
+
+              </div>
+              </div> 
+
+              <div class="photocontainer">
+                <div class="tripple_left">
+                  <img src="images/sublet/h1_1.png" alt="Result n.1 photo1" class="photo">
+                </div>
+                <div class="tripple_middle">
+                  <img src="images/sublet/h1_2.png" alt="Result n.1 photo2" class="photo">
+                </div>
+                <div class="tripple_right">
+                <img src="images/sublet/h1_3.png" alt="Result n.1 photo3" class="photo">
+                </div>
+
+
+                <p>Mazim graece eam ut, cu cum magna soleat. Habeo facilisi philosophia nam ut. Te nemore detraxit cum, sit ad novum ponderum pertinacia. Vis tota vituperata ut. Ea eum primis civibus, numquam gloriatur adolescens ex nam.
+
+                Agam vocibus ut nec. Ea cum vide scripta. Te pri amet veri pertinacia, minim impetus petentium eos no. Eam an sumo labitur intellegebat, causae contentiones cum at. In sit doming virtute disputationi, ius perpetua adolescens ei. Ea cum odio quodsi oportere.
+
+                At nec nibh eripuit delectus, no has deserunt atomorum. Ex eam tation fuisset. Sed ne quando invenire consequuntur. At minim tation mei. Ne vix unum eleifend.</p>
+              </div>
+
+              <div class="minicontainer">
+                <div class="left">
+                  <img src="images/sublet/h2_0.png" alt="Result n.2" class="photo">
+                </div>
+                <div class="right">
+                  <h3>5 bedroom luxury Villa in Vista Alegre</h3><h3>7 230$<span> /Month</span></h3>
+                  <table class="description">
+                  <tbody>
+                <tr>
+                  <th>Country</th>
+                  <td>Ibiza/Spain</td>
+                </tr>
+                <tr>
+                  <th>Place</th>
+                  <td>San José</td>
+                </tr>
+                <tr>
+                  <th>Area</th>
+                  <td>638 m<sup>2</sup></td>
+                </tr>
+                <tr>
+                  <th>Rooms</th>
+                  <td>5 bedrooms, 2 bathrooms, 2 living rooms, kitchen, dining room</td>
+                </tr>
+                <tr>
+                  <th>Special equipment</th>
+                  <td>Garage, Pool, Fireplace, Whirlpool, Spa</td>
+                </tr>
+              </tbody>
+              </table>
+              <h3>About</h3>
+              <p>
+                Lorem ipsum dolor sit amet, qui eu suas simul democritum, ea iriure fierent ius. Et nobis explicari nec, ut reque concludaturque eam. Vix atqui docendi accusata ex, et viderer alienum concludaturque mel. 
+              </p>
+                
+                <a href="javascript:void(0)" onclick="toggleme(1)">Show more</a>
+
+              </div>
+              </div> 
+
+              <div class="photocontainer">
+                <div class="tripple_left">
+                  <img src="images/sublet/h2_1.png" alt="Result n.2 photo1" class="photo">
+                </div>
+                <div class="tripple_middle">
+                  <img src="images/sublet/h2_2.png" alt="Result n.2 photo2" class="photo">
+                </div>
+                <div class="tripple_right">
+                <img src="images/sublet/h2_3.png" alt="Result n.2 photo3" class="photo">
+                </div>
+
+
+                <p>Mazim graece eam ut, cu cum magna soleat. Habeo facilisi philosophia nam ut. Te nemore detraxit cum, sit ad novum ponderum pertinacia. Vis tota vituperata ut. Ea eum primis civibus, numquam gloriatur adolescens ex nam.
+
+                Agam vocibus ut nec. Ea cum vide scripta. Te pri amet veri pertinacia, minim impetus petentium eos no. Eam an sumo labitur intellegebat, causae contentiones cum at. In sit doming virtute disputationi, ius perpetua adolescens ei. Ea cum odio quodsi oportere.
+
+                At nec nibh eripuit delectus, no has deserunt atomorum. Ex eam tation fuisset. Sed ne quando invenire consequuntur. At minim tation mei. Ne vix unum eleifend.</p>
+              </div>
+
+              <div class="minicontainer">
+                <div class="left">
+                  <img src="images/sublet/h3_0.png" alt="Result n.3" class="photo">
+                </div>
+                <div class="right">
+                  <h3>Luxury Villa in Cala Millor, Mallorca</h3><h3>5 500$<span> /Month</span></h3>
+                  <table class="description">
+                  <tbody>
+                <tr>
+                  <th>Country</th>
+                  <td>Mallorca/Spain</td>
+                </tr>
+                <tr>
+                  <th>Place</th>
+                  <td>Cala Millor</td>
+                </tr>
+                <tr>
+                  <th>Area</th>
+                  <td>572 m<sup>2</sup></td>
+                </tr>
+                <tr>
+                  <th>Rooms</th>
+                  <td>2 bedrooms, 4 bathrooms, 2 living rooms, kitchen, dining room</td>
+                </tr>
+                <tr>
+                  <th>Special equipment</th>
+                  <td>Pool, Hottub/Spa, Barbeque area</td>
+                </tr>
+              </tbody>
+              </table>
+              <h3>About</h3>
+              <p>
+                Lorem ipsum dolor sit amet, qui eu suas simul democritum, ea iriure fierent ius. Et nobis explicari nec, ut reque concludaturque eam. Vix atqui docendi accusata ex, et viderer alienum concludaturque mel. 
+              </p>
+
+                <a href="javascript:void(0)" onclick="toggleme(2)">Show more</a>
+
+              </div>
+              </div> 
+
+              <div class="photocontainer">
+                <div class="tripple_left">
+                  <img src="images/sublet/h3_1.png" alt="Result n.3 photo1" class="photo">
+                </div>
+                <div class="tripple_middle">
+                  <img src="images/sublet/h3_2.png" alt="Result n.3 photo2" class="photo">
+                </div>
+                <div class="tripple_right">
+                <img src="images/sublet/h3_3.png" alt="Result n.3 photo3" class="photo">
+                </div>
+
+
+                <p>Mazim graece eam ut, cu cum magna soleat. Habeo facilisi philosophia nam ut. Te nemore detraxit cum, sit ad novum ponderum pertinacia. Vis tota vituperata ut. Ea eum primis civibus, numquam gloriatur adolescens ex nam.
+
+                Agam vocibus ut nec. Ea cum vide scripta. Te pri amet veri pertinacia, minim impetus petentium eos no. Eam an sumo labitur intellegebat, causae contentiones cum at. In sit doming virtute disputationi, ius perpetua adolescens ei. Ea cum odio quodsi oportere.
+
+                At nec nibh eripuit delectus, no has deserunt atomorum. Ex eam tation fuisset. Sed ne quando invenire consequuntur. At minim tation mei. Ne vix unum eleifend.</p>
+              </div>
+
+             <div class="minicontainer">
+                  <div class="left">
+                    <img src="images/sublet/a1_0.png" alt="Result n.4" class="photo">
+                  </div>
+                  <div class="right">
+                    <h3>Luxury Apartment Cabo de Palos, Murcia</h3><h3>2300$<span> /Month</span></h3>
+                    <table class="description">
+                    <tbody>
+                  <tr>
+                    <th>Country</th>
+                    <td>Murcia/Spain</td>
+                  </tr>
+                  <tr>
+                    <th>Place</th>
+                    <td>Cabo de Palos</td>
+                  </tr>
+                  <tr>
+                    <th>Area</th>
+                    <td>164 m<sup>2</sup></td>
+                  </tr>
+                  <tr>
+                    <th>Rooms</th>
+                    <td>2 bedrooms, 2 bathrooms, living room, kitchen, dining room</td>
+                  </tr>
+                  <tr>
+                    <th>Special equipment</th>
+                    <td>Shared pool, Barbeque area, Elevator</td>
+                  </tr>
+                </tbody>
+                </table>
+                <h3>About</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, qui eu suas simul democritum, ea iriure fierent ius. Et nobis explicari nec, ut reque concludaturque eam. Vix atqui docendi accusata ex, et viderer alienum concludaturque mel. 
+                </p>
+                  <a href="javascript:void(0)" onclick="toggleme(3)">Show more</a>
+
+                </div>
+              </div> 
+
+              <div class="photocontainer">
+                <div class="tripple_left">
+                  <img src="images/sublet/a1_1.png" alt="Result n.4 photo1" class="photo">
+                </div>
+                <div class="tripple_middle">
+                  <img src="images/sublet/a1_2.png" alt="Result n.4 photo2" class="photo">
+                </div>
+                <div class="tripple_right">
+                <img src="images/sublet/a1_3.png" alt="Result n.4 photo3" class="photo">
+                </div>
+
+
+                <p>Mazim graece eam ut, cu cum magna soleat. Habeo facilisi philosophia nam ut. Te nemore detraxit cum, sit ad novum ponderum pertinacia. Vis tota vituperata ut. Ea eum primis civibus, numquam gloriatur adolescens ex nam.
+
+                Agam vocibus ut nec. Ea cum vide scripta. Te pri amet veri pertinacia, minim impetus petentium eos no. Eam an sumo labitur intellegebat, causae contentiones cum at. In sit doming virtute disputationi, ius perpetua adolescens ei. Ea cum odio quodsi oportere.
+
+                At nec nibh eripuit delectus, no has deserunt atomorum. Ex eam tation fuisset. Sed ne quando invenire consequuntur. At minim tation mei. Ne vix unum eleifend.</p>
+
+             </div>
+
+           </div>
+        </div>
+
+        <!-- END OF PART TO EDIT ON DIFFERENT LINKS -->
+
+        <footer id="footer">
+	        <div class="main_foot">
+	            <div class="container">
+	            	<div class="footer_left">
+	            		<h3>BuyDream</h3>
+	            		<ul>
+		                	<li><i class="fas fa-user"></i>Martin Chládek</li>
+		                    <li><i class="fas fa-envelope"></i><a id="test" href="mailto:BuyDream@mailto.com">BuyDream@mailto.com</a></li>
+		                    <li><i class="fas fa-phone"></i><a href="tel:+420123456789">+420 123 456 789</a></li>
+		                </ul>
+		                    <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+                    		<a href="https://twitter.com"><i class="fab 	fa-twitter-square"></i></a>
+                    		<a href="https://plus.google.com"><i class="fab fa-google-plus-square"></i></a>
+                    		<a href="https://pinterest.com"><i class="fab fa-pinterest-square"></i></a>
+	            	</div>
+	            	<div class="footer_right">
+	            		<h3>Menu</h3>
+                  <ul>
+                      <li><a id="home" href="index.html">Home</a></li>
+                        <li><a id="sale" href="sale.html">Sale</a></li>
+                        <li><a id="sublet" href="sublet.html">Sublet</a></li>
+                        <li><a id="history" href="about.html">About us</a></li>
+                        <li><a id="contacts" href="contacts.html">Contacts</a></li>
+                        <li><a id="about" href="#" onclick="searchfooter()" >Search</a></li>
+                    </ul>
+	            	</div>
+	           	</div>
+	        </div>
+
+	        <div id="copyright">
+                <p>&copy; Copyright 2018. Martin Chládek</p>
+	        </div>
+        </footer>
+    </body>
+</html>
