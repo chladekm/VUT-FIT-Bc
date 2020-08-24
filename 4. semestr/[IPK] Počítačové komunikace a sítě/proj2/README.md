@@ -5,11 +5,9 @@
 1. Vytvořte jednoduchý síťový TCP, UDP skener v C/C++. Program oskenuje zadanou IP adresu a porty. Na standardní výstup vypíše, v jakém stavu se porty nacházejí (otevřený, filtrovaný, uzavřený) (13 b)  
 2. Vytvořte relevantní manuál/dokumentaci k projektu (7b)
 
-#### Upřesnění zadání:
+### Upřesnění zadání:
 
-##### ad 1)
-
----
+#### ad 1)
 
 Aplikace oskenuje zvolené porty na daném síťovém zařízení. Pakety musí být odeslané pomocí BSD sockets. Odchytávat odpovědi můžete např. pomocí knihovny libpcap.
 
@@ -42,9 +40,7 @@ PORT     STATE
 67/udp	 open
 ```
 
-##### ad 2)
-
----
+#### ad 2)
 
 V dobré dokumentaci se OČEKÁVÁ následující: titulní strana, obsah, logické strukturování textu, výcuc relevantních informací z nastudované literatury, popis zajímavějších pasáží implementace, sekce o testování ( ve které kromě vlastního programu otestujete nějaký obecně známý open-source nástroj), bibliografie, popisy k řešení bonusových zadání.
 
@@ -58,4 +54,4 @@ V dobré dokumentaci se OČEKÁVÁ následující: titulní strana, obsah, logic
 
 ### Hodnocení 
 
-Získáno bodů: 10 / 10
+Získáno bodů: 15.25 / 20
