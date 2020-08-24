@@ -1,0 +1,4 @@
+OMEZENÍ:
+Jsem si vědom částečné nefunkčnosti aplikace pro IPv6. V implementaci jsou ponechány struktury i funkce pro práci s IPv6. Plně funkční by mělo být načtení IPv6, konverze doménového jména na IPv6 adresu, najití IPv6 adresy na rozhraní počítače, otevření a nastavení socketu. Funkcionalita kolabuje až u samotného posílání packetů, kdy u TCP pro IPv6 je odeslán pravděpodobně chybný paket. Na implementaci UDP IPv6 se užnedostalo. 
+
+Pro IPv4 by měla být aplikace plně funkční.
