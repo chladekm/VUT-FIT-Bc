@@ -1,0 +1,21 @@
+.TH d6r 1
+.SH NAME
+init_args_struct \- inicializuje strukturu Arguments
+throw_error \- funkce pro vypis stringu na chybovy vystup a ukonceni procesu
+copy_relay_header_to_buffer \- pomocná funkce, která nakopíruje obsah struktury relay_header do bufferu
+copy_option_relay_msg_to_buffer \- pomocná funkce, která nakopíruje obsah struktury Relay_msg_opt do bufferu
+copy_option_client_link_address_to_buffer \- pomocká funkce, která nakopíruje obsah struktury Relay_client_addr_opt do bufferu
+copy_option_interface_id_to_buffer \- pomocká funkce, která nakopíruje obsah struktury Relay_interface_opt do bufferu
+set_and_compile_filter \- funkce, která sestaví, zkompiluje a nastaví filtr pro zachytávání síťových packetů
+get_IP_from_interface \- funkce na zaklade vstupu ulozi do sktruktury Addresses lokalni nebo globalni adresu daneho rozhrani
+Relay_to_Client \- úprava packetu a odeslání klientovi
+Relay_to_Server \- naplnění bufferu, jeho odeslání a přijetí odpovědi od serveru
+prepare_packet \- funkce pro analýzu packetu, naplnění všech options 
+capture_packet \- funkce pro zachycování packetů na daném rozhraní
+fork_to_listen_everywhere \- v přpadě, že je odposloucháváno na více rozhraních, funkce vytvoří nový proces pro každé rozhraní
+find_interface \- funkce ověří existenci zadaného rozhraní, pokud nebylo zadáno, najde všechna validní rozhraní pro odposlouchávání
+.SH DESCRIPTION
+.B Omezení
+Implementace nepodporuje přidělování prefixů, (poskytnutý server nepodporoval IA_PD nepodporoval a mně se nepodařilo zprovoznit vlastní server/poté už nezbyl čas)
+Implementace nepodporuje příjmání zpráv od jiných relay, uvažuje pouze komunikaci mezi klientem a serverem
+Implementace předpokládá, že odpověd od serveru přijde ze stejné IP adresy, na kterou byl požadavek zaslán
