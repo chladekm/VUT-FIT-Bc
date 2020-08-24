@@ -10,19 +10,20 @@ Podrobnosti viz. zadani.pdf
 
 Ověření činnosti kódu CPU:
 
-  #   testovaný program (kód)       výsledek
-  1.  ++++++++++                     **ok**
-  2.  ----------                     **ok**
-  3.  +>++>+++                       **ok**
-  4.  <+<++<+++                      **ok**
-  5.  .+.+.+.                        **ok**
-  6.  ,+,+,+,                        **ok**
-  7.  [........]noLCD[.........]     **ok**
-  8.  +++[.-]                        **ok**
-  9.  +++++[>++[>+.<-]<-]            **ok**
-  10.  0123456789ABCDEF              **ok**
-  11.  /0123456789:;@ABCDEFGHIJKLMN  **ok**
-  12.  .#++++........#+.#[.........]#**ok**
+ |     | **testovaný program (kód)**     |**výsledek**|
+ |:---:|:-------------------------------:|:--------:|
+ | 1.  | ++++++++++                      |  **ok**  |
+ | 2.  | ----------                      |  **ok**  |
+ | 3.  | +>++>+++                        |  **ok**  |
+ | 4.  | <+<++<+++                       |  **ok**  |
+ | 5.  | .+.+.+.                         |  **ok**  |
+ | 6.  | ,+,+,+,                         |  **ok**  |
+ | 7.  | [........]noLCD[.........]      |  **ok**  |
+ | 8.  | +++[.-]                         |  **ok**  |
+ | 9.  | +++++[>++[>+.<-]<-]             |  **ok**  |
+ | 10. | 0123456789ABCDEF                |  **ok**  |
+ | 11. | /0123456789:;@ABCDEFGHIJKLMN    |  **ok**  |
+ | 12. | .#++++........#+.#[.........]#  |  **ok**  |
 
   Podpora jednoduchých cyklů: ano\
   Podpora vnořených cyklů: ano
@@ -32,5 +33,8 @@ Poznámky k implementaci:
   - Možné problematické řízení následujících signálů: OUT_DATA, write_number_letter
 
 Celkem bodů za CPU implementaci: **17** (z 17)
+
+&nbsp;
+&nbsp;
 
 Získáno bodů: 22 / 23
