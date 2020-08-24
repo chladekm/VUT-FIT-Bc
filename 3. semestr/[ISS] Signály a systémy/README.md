@@ -16,12 +16,13 @@ viz. zadani.pdf
 | 6|1|1| |
 | 7|1|1| |
 | 8|1|1| |
-| 9|1|1|"Super| správná normalizace" |
+| 9|1|1|Super, správná normalizace |
 | 10|0.5|0.5| |
 | 11|0.5|0.5| |
 | 12|1.5|1.5| |
 | 13|1|1| |
 | 14|1|1| |
-| total||12|"Skvělé řešení, dobrá dokumentace, oceňuji vektorové obrázky!" |
+| total||12|Skvělé řešení, dobrá dokumentace, oceňuji vektorové obrázky! |
 
+&nbsp;\
 Získáno bodů: 12 / 12
