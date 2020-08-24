@@ -7,7 +7,7 @@
 
 #### Upřesnění zadání:
 
-#####ad 1)
+##### ad 1)
 
 ---
 
@@ -28,7 +28,8 @@ kde:
 - `domain-name | ip address` - doménové jméno, nebo IP adresa skenovaného stroje
 - `i eth0`, kde argument představuje identifikátor rozhraní. Tento parametr je volitelný, v případě jeho nepřítomnosti se zvolí první IEEE 802 interface, který má přidělenou neloopbackovou IP adresu.
 
-Příklad chování:
+**Příklad chování:**
+
 ```./ipk-scan -pt 21,22,143 -pu 53,67 localhost```
 
 ```
@@ -41,7 +42,7 @@ PORT     STATE
 67/udp	 open
 ```
 
-#####ad 2)
+##### ad 2)
 
 ---
 
