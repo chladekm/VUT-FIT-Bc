@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project outputprefix="el_klavir">
+
+    <!--  Project description -->
+    <name>Elektronicky klavir</name>
+    <author>Martin Chladek</author>
+    <authoremail>xchlad16@stud.fit.vutbr.cz</authoremail>
+    <revision>20191212</revision>
+    <description>Jednoduchy elektronicky klavir</description>
+
+    <!--  MCU part -->
+    <mcu>
+        <include>mcu/libs/keyboard/package.xml</include>
+        <include>mcu/libs/lcd/package.xml</include>
+        <file>main.c</file>
+    </mcu>
+
+    <!-- FPGA part -->
+    <fpga>
+        <include>fpga/ctrls/keyboard/package.xml</include>
+        <include>fpga/ctrls/lcd/package.xml</include>
+        <file>top_level.vhd</file>
+    </fpga>
+
+</project>

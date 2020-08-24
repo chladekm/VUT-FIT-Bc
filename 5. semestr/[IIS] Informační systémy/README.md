@@ -52,6 +52,6 @@ Součástí projektu je stručná dokumentace k implementaci, která popisuje, k
 
 ### Hodnocení 
 
-Přehledný interface. Jen lepší by bylo objednávku přiřadit k emailu. Po registarci zakaznik nemá svou osobní inf. Přidání nové položky jídla ukazuje chybu. Jako zaregistrovaný zakaznik po odhlášení se nemůžu zase přihlásit. Vzhledem k tomu, co jste implementovali a udělali velký kus práce, máte více bodů.
+Přehledný interface. Jen lepší by bylo objednávku přiřadit k emailu. Po registraci zákazník nemá svou osobní inf. Přidání nové položky jídla ukazuje chybu. Jako zaregistrovaný zakaznik po odhlášení se nemůžu zase přihlásit. Vzhledem k tomu, co jste implementovali a udělali velký kus práce, máte více bodů.
 
 Získáno bodů: 27 / 30
