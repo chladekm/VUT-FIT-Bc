@@ -25,16 +25,15 @@ Ověření činnosti kódu CPU:
  | 11. | /0123456789:;@ABCDEFGHIJKLMN    |  **ok**  |
  | 12. | .#++++........#+.#[.........]#  |  **ok**  |
 
-  Podpora jednoduchých cyklů: ano\
-  Podpora vnořených cyklů: ano
+  - Podpora jednoduchých cyklů: ano
+  - Podpora vnořených cyklů: ano
 
-Poznámky k implementaci:
+**Poznámky k implementaci:**
   - Nekompletní sensitivity list; chybějící signály: write_number_letter
   - Možné problematické řízení následujících signálů: OUT_DATA, write_number_letter
 
 Celkem bodů za CPU implementaci: **17** (z 17)
 
-&nbsp;
 &nbsp;
 
 Získáno bodů: 22 / 23
