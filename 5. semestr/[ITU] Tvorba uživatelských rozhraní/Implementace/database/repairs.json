@@ -1,0 +1,141 @@
+{
+    "row_count": 15,
+    "column_count": 7,
+    "repairs": [
+        {
+            "id": "rep001",
+            "device": "Xiaomi Mi 9",
+            "type": "Telefon",
+            "reason": "Vypálený OLED display",
+            "status": "Opraveno",
+            "startdate": "2019-01-02",
+            "enddate": "2019-01-28"
+        },
+        {
+            "id": "rep002",
+            "device": "Samsung C27F390F",
+            "type": "Monitor",
+            "reason": "Vadné pixely",
+            "status": "Opraveno",
+            "startdate": "2019-02-07",
+            "enddate": "2019-03-10"
+        },
+        {
+            "id": "rep003",
+            "device": "AOC I2481FXH",
+            "type": "Monitor",
+            "reason": "Nefunguje",
+            "status": "V opravě",
+            "startdate": "2019-12-03",
+            "enddate": null
+        },
+        {
+            "id": "rep004",
+            "device": "iPhone 6s",
+            "type": "Telefon",
+            "reason": "Nefungující tlačítko",
+            "status": "Opraveno",
+            "startdate": "2019-04-24",
+            "enddate": "2019-05-16"
+        },
+        {
+            "id": "rep005",
+            "device": "Logitech Craft, US",
+            "type": "Klávesnice",
+            "reason": "Vadné klávesy",
+            "status": "Opraveno",
+            "startdate": "2019-04-01",
+            "enddate": "2019-04-23"
+        },
+        {
+            "id": "rep006",
+            "device": "Toshiba Q3",
+            "type": "Notebook",
+            "reason": "Vadný touchpad",
+            "status": "V opravě",
+            "startdate": "2019-11-30",
+            "enddate": null
+        },
+        {
+            "id": "rep007",
+            "device": "Dell XPS 13",
+            "type": "Notebook",
+            "reason": "Špatná baterie",
+            "status": "Opraveno",
+            "startdate": "2019-06-07",
+            "enddate": "2019-07-02"
+        },
+        {
+            "id": "rep008",
+            "device": "Apple Magic Keyboard",
+            "type": "Klávesnice",
+            "reason": "Vadný mezerník",
+            "status": "Opraveno",
+            "startdate": "2019-05-10",
+            "enddate": "2019-05-28"
+        },
+        {
+            "id": "rep009",
+            "device": "HP LaserJet Pro M15a",
+            "type": "Tiskárna",
+            "reason": "Vadná kazeta",
+            "status": "Opraveno",
+            "startdate": "2019-07-11",
+            "enddate": "2019-08-03"
+        },
+        {
+            "id": "rep010",
+            "device": "Epson EH-TW650",
+            "type": "Projektor",
+            "reason": "Přehřívání",
+            "status": "Zamítnuto",
+            "startdate": "2019-07-22",
+            "enddate": "2019-08-31"
+        },
+        {
+            "id": "rep011",
+            "device": "BenQ MS535",
+            "type": "Projektor",
+            "reason": "Problikává",
+            "status": "Opraveno",
+            "startdate": "2019-07-01",
+            "enddate": "2019-07-31"
+        },
+        {
+            "id": "rep012",
+            "device": "Samsung Galaxy S9",
+            "type": "Telefon",
+            "reason": "Vypálený OLED display",
+            "status": "Opraveno",
+            "startdate": "2019-11-02",
+            "enddate": "2019-11-17"
+        },
+        {
+            "id": "rep013",
+            "device": "Acer Aspire 5",
+            "type": "Notebook",
+            "reason": "Chybný pant",
+            "status": "Zamítnuto",
+            "startdate": "2019-01-02",
+            "enddate": "2019-01-28"
+        },
+        {
+            "id": "rep014",
+            "device": "HP Color LaserJet Pro MFP M281fdw",
+            "type": "Tiskárna",
+            "reason": "Nekomunikuje po síti",
+            "status": "Opraveno",
+            "startdate": "2019-09-12",
+            "enddate": "2019-10-08"
+        },
+        {
+            "id": "rep015",
+            "device": "Xiaomi Mi 9",
+            "type": "Telefon",
+            "reason": "Nefungující konektor",
+            "status": "V opravě",
+            "startdate": "2019-12-14",
+            "enddate": null
+        }
+    ]
+}

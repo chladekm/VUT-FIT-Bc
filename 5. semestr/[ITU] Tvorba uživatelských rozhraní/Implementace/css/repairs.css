@@ -1,0 +1,178 @@
+/*********************************************************************************
+ * Project:   3BIT ITU, Project - Evidence system                                *
+ *            Faculty of Information Technology                                  *
+ *            Brno University of Technology                                      *
+ * File:      repairs.css                                                        *
+ * Date:      08.12.2019                                                         *
+ * Authors:   Peter Kruty, <xkruty00@stud.fit.vutbr.cz>                          *
+ *            Martin Chladek <xchlad16@stud.fit.vutbr.cz>                      	 *
+ *********************************************************************************/
+.my-card {
+	background-color: rgb(242,242,242) !important;
+}
+
+.my-modal {
+	background-color: rgb(240,240,240);
+}
+.text-center {
+	text-align: center !important;
+}
+
+#repairs_table_body tr:hover {
+	cursor: pointer;
+	background-color: lightgray;
+}
+
+.my-tablecheck
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  padding: 10px;
+}
+
+/* --------------- Devices  ----------------- */
+h2#main_title {
+	text-align: center;
+}
+
+#main_title_hr {
+	width: 50%;
+	height: 1px;
+	background-color: #222;
+}
+
+/* --- Device Stats --- */
+.devices_stats {
+	margin-top: 2%;
+	margin-bottom: 2%;
+	margin-left: 3%;	
+	margin-right: 3%;
+	height: 140px;
+}
+ 
+.stats_box {
+	background-color: #ff6666;
+	margin-left: 3%;
+	margin-right: 3%;
+	border-radius: 4%;
+	text-align: right;
+	height: 140px;	
+}
+
+.stats_box:hover {
+	box-shadow: 1px 1px 20px 1px #888888;
+	background-color: #ff4d4d;
+}
+
+.stats_box_content {
+	height: 140px;
+	width: 100%;
+	opacity: 0.8;
+}
+
+
+.stats_box_content:hover {
+	opacity: 1;
+}
+
+.stats_picture {
+	height: inherit;	
+	width: inherit;
+	padding-right: 60%;
+	padding-top: 7%;
+	padding-bottom: 7%;
+	opacity: 0.8;
+}
+
+#free_device {
+	opacity: 0.7;
+	padding-top: 7%;
+	padding-bottom: 7%;
+	padding-right: 57%;
+}
+
+#old_device {
+	opacity: 0.7;
+	padding-top: 4%;
+	padding-bottom: 4%;
+	padding-right: 57%;
+}
+
+#rep_device {
+	opacity: 0.7;
+	padding-top: 3%;
+	padding-bottom: 3%;
+	padding-right: 57%;
+}
+
+.stats_number {
+	position: absolute;
+	width: 46%;
+	left: 50%;
+	font-size: 40pt;
+	text-align: right;
+}
+
+.stats_descr {
+	position: absolute;
+	width: 46%;
+	height: 50%;
+	left: 50%;
+	top: 50%;
+	font-size: 16pt;
+	text-align: right;
+	line-height: 90%;
+}
+
+/* --- Devices control panel --- */
+.control_panel {
+	margin: auto;
+	margin-bottom: 2px;
+}
+
+#search_form {
+	height: inherit;
+	width: 100%;
+	font-size: 14pt;
+}
+
+/* --- Devices table --- */
+.table {
+	width: 89%;
+	margin: auto;
+}
+
+
+/** ------------ By Martin ------------ **/
+.widget_0{background: rgb(0,40,50); background: linear-gradient(74deg, rgba(0,40,50,1) 0%, rgba(0,40,70,1) 100%);}
+.widget_1{background: rgb(0,40,70); background: linear-gradient(74deg, rgba(0,40,70,1) 0%, rgba(0,70,100,1) 100%);}
+.widget_2{background: rgb(0,124,100); background: linear-gradient(74deg, rgba(0,70,100,1) 0%, rgba(0,100,120,1) 100%);}
+.widget_3{background: rgb(0,124,130); background: linear-gradient(74deg, rgba(0,100,120,1) 0%, rgba(0,120,150,1) 100%);}
+
+#search_input
+{
+	background-color: rgba(255,255,255,0.4);
+	color: white;
+	border: none;
+	line-height: 30px;
+	border-radius: 5px;
+}
+
+#search_input::placeholder{color:white;}
+
+.search_box{width: 60%;}
+
+#search_button{width: 50px;}
+
+
+/** ------------ Definitions for different sizes of window ------------ **/
+@media (max-width: 992px)
+{
+  .search_box{width: 75%;}
+  #search_button {width: 10%;}
+  .control_buttons{width: 30%;}
+  .control_panel div{text-align: left !important; margin: 2px 0;}
+}

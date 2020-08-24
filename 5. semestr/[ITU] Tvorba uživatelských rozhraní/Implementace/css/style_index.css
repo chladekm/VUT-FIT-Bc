@@ -1,0 +1,225 @@
+/*********************************************************************************
+ * Project:   3BIT ITU, Project - Evidence system                                *
+ *            Faculty of Information Technology                                  *
+ *            Brno University of Technology                                      *
+ * File:      style_index.css                                                    *
+ * Date:      08.12.2019                                                         *
+ * Authors:   Peter Kruty, <xkruty00@stud.fit.vutbr.cz>                          *
+ *            Martin Chladek <xchlad16@stud.fit.vutbr.cz>                        *
+ *********************************************************************************/
+
+/********************************* index.html ************************************/
+
+
+/** -------------------- General definitions -------------------- **/
+
+* {font-family: 'Raleway', sans-serif;}
+
+a:link {color: black; text-decoration: none;}
+
+a:visited {color: black; text-decoration: none;}
+
+a:active {font-weight: bold;}
+
+.nav_buttons {
+	visibility: hidden;
+}
+
+body
+{
+	background-color: rgb(35,35,35);
+	background: linear-gradient(227deg, rgba(57,56,56,1) 0%, rgba(20,18,18,1) 100%);
+	background: url("../img/bg_blurred_darker2.png") no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+#display_clock, .home_username_dropdown a {
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+.pink{background-color: pink;}
+
+/** -------------------- Styles -------------------- **/
+
+
+/** ------------ Top navbar (username & clock) ------------ **/
+
+#display_clock
+{
+	height: 100%;
+	padding: 10px 20px;
+	margin-right: 0;
+	margin-left: auto;
+	float: right;
+	color: #939294;
+}
+
+.home_username_block{float: right;}
+
+.home_username
+{
+	background: none;
+	border: none;
+	height: 100%;
+	padding: 10px 20px;
+	color: #B3B2B4;
+}
+
+.home_username:hover{color: #f2f2f2}
+
+.home_username_dropdown
+{
+	background-color: rgba(255,255,255,0.2);
+}
+
+.home_username_dropdown a
+{
+	color: #B3B2B4;
+	padding: 10px;
+}
+.home_username_dropdown a:hover
+{
+	background: rgba(0,0,0,0.3);
+	color: #f2f2f2;
+}
+.home_username_block div:hover>.dropdown-menu {display: block;}
+
+.dropdown:hover .home_username{color: #f2f2f2}
+
+
+/** ------------ Main block ------------ **/
+
+.home_logo
+{
+	margin-top: 5em;
+	width: 20%;
+	display: block;
+	margin-left: auto;
+  	margin-right: auto;
+	-webkit-box-shadow: 0px 0px 143px 170px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 0px 143px 170px rgba(0,0,0,0.5);
+	box-shadow: 0px 0px 143px 170px rgba(0,0,0,0.5);
+	background-color: rgba(0,0,0,0.5);
+
+}
+
+.homo_logo_text
+{
+	text-align: center;
+	color: #B3B2B4;
+	color: white;
+	font-size: 1.5em;
+	margin-top: 0.5em;
+}
+
+.home_top_panel
+{
+	background: none;
+	height: 3em;
+	color: #f2f2f2;
+	padding-right: 10px;
+}
+
+.loader_background {
+	visibility: hidden;
+	position: fixed;
+	left: 0;
+	top: 0;
+	background-color: rgba(255, 255, 255, 0.2);
+	width: 100vw;
+	height: 100vh;
+}
+
+.loader {
+	/* bring your own prefixes */
+	visibility: hidden;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -60px;
+	margin-left: -60px;
+
+	border: 16px solid #f3f3f3; /* Light grey */	
+	border-top: 16px solid #3498db; /* Blue */
+	border-right: 16px solid lightgray;
+	border-bottom: 16px solid lightgray;
+	border-left: 16px solid lightgray;
+	border-radius: 50%;
+	width: 120px;
+	height: 120px;
+	animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+.icon_div
+{
+	/*border: 2px solid rgba(255,255,255,0.2);
+	color: rgba(255,255,255,0.4);*/
+	background-color: rgba(255,255,255,0.2);
+	color: rgba(255,255,255,0.8);
+	box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+	/*-webkit-box-shadow: 0px 0px 153px 15px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 0px 153px 15px rgba(0,0,0,0.5);
+	box-shadow: 0px 0px 153px 15px rgba(0,0,0,0.5);*/
+	border-radius: 1.2vw;
+	padding: 1vw;
+}
+
+.icon_div i
+{
+	font-size: 3vw;
+}
+
+.icon_div_block:hover>.icon_div
+{
+	color: white;
+	/*border: 2px solid rgba(255,255,255,0.6);*/
+	background-color: rgba(255,255,255,0.4);
+}
+
+.icon_div h2
+{
+	font-size: 1.5vw;
+	margin-top: 0.4vw;
+	font-family: 'Raleway', sans-serif;
+	font-weight: lighter;
+	padding: 0;
+}
+
+
+/** ------------ Definitions for different sizes of window ------------ **/
+
+
+/** ------ Bigger screens ------ **/
+
+@media (min-width: 768px)
+{
+	.icon_div{margin-top: 1vw;}
+}
+
+/** ------ Phone screens ------ **/
+
+@media (max-width: 768px)
+{
+    .home_top_panel{display: none !important;}
+    .home_logo{width: 65%;}
+	.icon_div
+	{
+		margin-top: 2vw;
+		padding: 4vw 2vw;
+		background-color: rgba(255,255,255,0.2);
+		color: rgba(255,255,255,0.6);
+
+	}
+	.icon_div h2
+	{font-size: 6vw; text-align: left; }
+	.icon_div i
+	{font-size: 10vw; float: left; padding: 0 7vw;}
+
+
+}

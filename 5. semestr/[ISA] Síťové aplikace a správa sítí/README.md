@@ -6,8 +6,7 @@ Napište program d6r, který bude umět vložit do DHCPv6 zpráv MAC adresu klie
 
 #### Spuštění aplikace
 
-**Použití**: 
-```d6r -s server [-l] [-d] [-i interface]```
+- Použití: `d6r -s server [-l] [-d] [-i interface]`
 
 **Popis parametrů** (pořadí parametrů je libovolné):
 - `-s`: DHCPv6 server, na který je zaslán upravený DHCPv6 paket.

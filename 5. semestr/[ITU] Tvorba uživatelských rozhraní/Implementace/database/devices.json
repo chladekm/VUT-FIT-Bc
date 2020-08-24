@@ -1,0 +1,162 @@
+{
+    "row_count": 13,
+    "column_count": 10,
+    "devices": [
+        {
+            "id": "dev001",
+            "name": "Cherry MX-BOARD 3.1",
+            "type": "Klávesnice",
+            "status": "Přidělený",
+            "implemdate": "2016-12-02",
+            "assigndate": "2016-02-02",
+            "discarddate": "2019-11-13",
+            "disponent": "Gustav Tuba",
+            "room": "3A",
+            "image": null
+        },
+        {
+            "id": "dev002",
+            "name": "Lenovo IdeaPad 330",
+            "type": "Notebook",
+            "status": "Přidelený",
+            "implemdate": "2016-01-02",
+            "assigndate": "2016-01-02",
+            "discarddate": null,
+            "disponent": "Petra Lichá",
+            "room": "",
+            "image": null
+        },
+        {
+            "id": "dev003",
+            "name": "HP Deskjet 3545",
+            "type": "Tiskárna",
+            "status": "Přidelený",
+            "implemdate": "2017-05-02",
+            "assigndate": "2018-08-02",
+            "discarddate": "null",
+            "disponent": "Gustav Tuba",
+            "room": "kab3",
+            "image": null
+        },
+        {
+            "id": "dev004",
+            "name": "HP E273q",
+            "type": "Monitor",
+            "status": "Přidelený",
+            "implemdate": "2016-01-02",
+            "assigndate": "2016-01-02",
+            "discarddate": null,
+            "disponent": "Martina Krčmová",
+            "room": "4B",
+            "image": null
+        },
+        {
+            "id": "dev005",
+            "name": "Epson EH-TW650",
+            "type": "Projektor",
+            "status": "Vyřazený",
+            "implemdate": "2016-01-02",
+            "assigndate": null,
+            "discarddate": "2018-05-03",
+            "disponent": "",
+            "room": "2B",
+            "image": null
+        },
+        {
+            "id": "dev006",
+            "name": "Huawei P8",
+            "type": "Telefon",
+            "status": "Přirazený",
+            "implemdate": "2016-01-02",
+            "assigndate": "2016-01-02",
+            "discarddate": "2016-01-02",
+            "disponent": "Martin Pokorný",
+            "room": "kab3",
+            "image": "../files/Screenshot from 2019-11-25 22-20-20.png"
+        },
+        {
+            "id": "dev007",
+            "name": "Lenovo",
+            "type": "Notebook",
+            "status": "Volný",
+            "implemdate": "2016-01-02",
+            "assigndate": "2016-01-02",
+            "discarddate": "2016-01-02",
+            "disponent": "",
+            "room": "sklad1",
+            "image": "../files/"
+        },
+        {
+            "id": "dev008",
+            "name": "Apple Macbook Pro 13",
+            "type": "Notebook",
+            "status": "Volný",
+            "implemdate": "2017-01-02",
+            "assigndate": "2018-05-30",
+            "discarddate": null,
+            "disponent": "",
+            "room": "sklad2",
+            "image": "../files/"
+        },
+        {
+            "id": "dev009",
+            "name": "Xiaomi Mi 9",
+            "type": "Telefon",
+            "status": "V opravě",
+            "implemdate": "2016-01-02",
+            "assigndate": "2016-01-02",
+            "discarddate": "2016-01-02",
+            "disponent": "",
+            "room": "",
+            "image": "../files/"
+        },
+        {
+            "id": "dev010",
+            "name": "Logitech MX Master 2s",
+            "type": "Myš",
+            "status": "Volný",
+            "implemdate": "2016-01-02",
+            "assigndate": "2016-01-02",
+            "discarddate": "2016-01-02",
+            "disponent": "",
+            "room": "sklad1",
+            "image": "../files/"
+        },
+        {
+            "id": "dev011",
+            "name": "Samsung C27F390F",
+            "type": "Monitor",
+            "status": "Přidělený",
+            "implemdate": "2016-01-02",
+            "assigndate": "2017-04-22",
+            "discarddate": null,
+            "disponent": "Martin Pokorný",
+            "room": "2A",
+            "image": null
+        },
+        {
+            "id": "dev012",
+            "name": "iPhone X",
+            "type": "Telefon",
+            "status": "Volný",
+            "implemdate": "2016-01-02",
+            "assigndate": null,
+            "discarddate": null,
+            "disponent": "",
+            "room": "sklad2",
+            "image": "../files/"
+        },
+        {
+            "id": "dev013",
+            "name": "MacBook Pro 15",
+            "type": "Notebook",
+            "status": "Přidelený",
+            "implemdate": "2018-04-02",
+            "assigndate": "2019-09-11",
+            "discarddate": null,
+            "disponent": "Petra Lichá",
+            "room": "kab3",
+            "image": null
+        }
+    ]
+}

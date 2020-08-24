@@ -1,0 +1,166 @@
+{
+	"row_count":16,
+	"column_count":7,
+	"workers": [
+		{
+			"id":692084576,
+			"name":"Gustav Tuba",
+			"typ":"ucitel",
+			"specialization":"zem\u011bpis",
+			"tel":"620345910",
+			"address":"Drobn\u00e9ho 18",
+			"psc":"60200",
+            "room":"kab1"
+		},
+		{
+			"id":2116901525,
+			"name":"Adam Rous\u00edk",
+			"typ":"ucitel",
+			"specialization":"Angli\u010dtina",
+			"tel":"576230222",
+			"address":"K\u0159enov\u00e1 12",
+			"psc":"60200",
+            "room":"kab2"
+		},
+		{
+			"id":1110690176,
+			"name":"Adam Z\u00e1ruba",
+			"typ":"ucitel",
+			"specialization":"d\u011bjepis",
+			"tel":"731400556",
+			"address":"K\u0159enov\u00e1 12",
+			"psc":"60201",
+            "room":"3A"
+		},
+		{
+            "id": "emp001",
+            "name": "Martin Pokorný",
+            "typ": "ucitel",
+            "specialization": "Český jazyk",
+            "tel": "604672839",
+            "address": "Brněnská 420",
+            "psc":"60204",
+            "room":"kab3"
+        },
+        {
+            "id": "emp002",
+            "name": "Petra Lichá",
+            "typ": "ucitel",
+            "specialization": "Matematika",
+            "tel": "604672839",
+            "address": "Brněnská 420",
+            "psc":"60204",
+            "room":"kab2"
+        },
+        {
+            "id": "emp003",
+            "name": "Martina Krčmová",
+            "typ": "poradce",
+            "specialization": "Tělesná výchova",
+            "tel": "604672839",
+            "address": "Brněnská 420",
+            "psc":"60204",
+            "room":"4A"
+        },
+        {
+            "id": "emp004",
+            "name": "Bořek Kačírek",
+            "typ": "ostatni",
+            "specialization": "školník",
+            "tel": "604672839",
+            "address": "Brněnská 420",
+            "psc":"60204",
+            "room":"sklad1"
+        },
+        {
+            "id": "emp005",
+            "name": "Vladislav Kosa",
+            "typ": "ucitel",
+            "specialization": "Chemie",
+            "tel": "604672839",
+            "address": "Brněnská 420",
+            "psc":"60204",
+            "room":"4B"
+        },
+        {
+            "id": "emp006",
+            "name": "Matěj Tomáš",
+            "typ": "zastupce",
+            "specialization": "Český jazyk",
+            "tel": "604672839",
+            "address": "Brněnská 420",
+            "psc":"60204",
+            "room":"kab1"
+        },
+        {
+            "id": "emp007",
+            "name": "Boleslav Kalvoda",
+            "typ": "reditel",
+            "specialization": "Český jazyk",
+            "tel": "678920132",
+            "address": "Brněnská 420",
+            "psc":"60204",
+            "room":"reditelna"
+        },
+        {
+            "id": "emp008",
+            "name": "Věroslav Müller",
+            "typ": "ostatni",
+            "specialization": "školník",
+            "tel": "991032928",
+            "address": "Brněnská 420",
+            "psc":"60204",
+            "room":"sklad"
+        },
+        {
+            "id": "emp009",
+            "name": "Oto Šebela",
+            "typ": "ucitel",
+            "specialization": "Angličtina",
+            "tel": "604672839",
+            "address": "Brněnská 420",
+            "psc":"60204",
+            "room":"2B"
+        },
+        {
+            "id": "emp010",
+            "name": "Bořivoj Kohut",
+            "typ": "ucitel",
+            "specialization": "Tělesná výchova",
+            "tel": "828399121",
+            "address": "Brněnská 420",
+            "psc":"60204",
+            "room":"1B"
+        },
+        {
+            "id": "emp011",
+            "name": "Servác Lekeš",
+            "typ": "ucitel",
+            "specialization": "Přírodopis",
+            "tel": "604672839",
+            "address": "Brněnská 420",
+            "psc":"61004",
+            "room":"kab1"
+        },
+        {
+            "id": "emp012",
+            "name": "Lubomír Šnajdr",
+            "typ": "poradce",
+            "specialization": "Matematika",
+            "tel": "604672839",
+            "address": "Brněnská 420",
+            "psc":"60404",
+            "room":"kab3"
+        },
+        {
+            "id": "emp013",
+            "name": "Josef Hanák",
+            "typ": "ostatni",
+            "specialization": "ekonom",
+            "tel": "749399209",
+            "address": "Stolni 129",
+            "psc":"60234",
+            "room":"archiv"
+        }
+	]
+}

@@ -1,0 +1,29 @@
+/*********************************************************************************
+ * Project:   3BIT ITU, Project - Evidence system                                *
+ *            Faculty of Information Technology                                  *
+ *            Brno University of Technology                                      *
+ * File:      stats.css                                                          *
+ * Date:      08.12.2019                                                         *
+ * Authors:   Peter Kruty, <xkruty00@stud.fit.vutbr.cz>                          *
+ *            Martin Chladek <xchlad16@stud.fit.vutbr.cz>                        *
+ *********************************************************************************/
+
+h2#main_title {
+	text-align: center;
+}
+
+#main_title_hr {
+	width: 50%;
+	height: 1px;
+	background-color: #222;
+}
+
+/** ------------ Definitions for different sizes of window ------------ **/
+@media (max-width: 992px)
+{
+	.graph_tree{padding: 0px !important;}
+}
+
+
+
+/*******************************************************************************************************************************/

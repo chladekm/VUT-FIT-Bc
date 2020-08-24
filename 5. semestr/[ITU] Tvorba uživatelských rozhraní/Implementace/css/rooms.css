@@ -1,0 +1,198 @@
+/*********************************************************************************
+ * Project:   3BIT ITU, Project - Evidence system                                *
+ *            Faculty of Information Technology                                  *
+ *            Brno University of Technology                                      *
+ * File:      rooms.css                                                          *
+ * Date:      08.12.2019                                                         *
+ * Authors:   Borek Reich, <xreich06@stud.fit.vutbr.cz>                          *
+ *            Martin Chladek <xchlad16@stud.fit.vutbr.cz>                        *
+ *********************************************************************************/
+
+h2#main_title {
+
+	text-align: center;
+}
+
+#main_title_hr {
+	width: 50%;
+	height: 1px;
+	background-color: #222;
+}
+
+/* --- Device Stats --- */
+.devices_stats {
+	margin-top: 2%;
+	margin-bottom: 2%;
+	margin-left: 3%;	
+	margin-right: 3%;
+	height: 140px;
+}
+ 
+.stats_box {
+	background-color: #fdfd96;
+	margin-left: 3%;
+	margin-right: 3%;
+	border-radius: 4%;
+	text-align: right;
+	height: 140px;	
+}
+
+.stats_box:hover {
+	box-shadow: 1px 1px 20px 1px #888888;
+	background-color: #fcfc4b;
+}
+
+.stats_box_content {
+	height: 140px;
+	width: 100%;
+	opacity: 0.8;
+}
+
+
+.stats_box_content:hover {
+	opacity: 1;
+}
+
+.stats_picture {
+	height: inherit;	
+	width: inherit;
+	padding-right: 60%;
+	padding-top: 7%;
+	padding-bottom: 7%;
+	opacity: 0.8;
+}
+
+#free_device {
+	opacity: 0.7;
+	padding-top: 7%;
+	padding-bottom: 7%;
+	padding-right: 57%;
+}
+
+#old_device {
+	opacity: 0.7;
+	padding-top: 4%;
+	padding-bottom: 4%;
+	padding-right: 57%;
+}
+
+#rep_device {
+	opacity: 0.7;
+	padding-top: 3%;
+	padding-bottom: 3%;
+	padding-right: 57%;
+}
+
+.stats_number {
+	position: absolute;
+	width: 46%;
+	left: 50%;
+	font-size: 40pt;
+	text-align: right;
+}
+
+.stats_descr {
+	position: absolute;
+	width: 46%;
+	height: 50%;
+	left: 50%;
+	top: 50%;
+	font-size: 16pt;
+	text-align: right;
+	line-height: 90%;
+}
+
+/* --- Devices control panel --- */
+
+#search_form {
+	height: inherit;
+	width: 100%;
+	font-size: 14pt;
+}
+
+/* --- Devices table --- */
+.rooms_map {
+	width: 89%;
+	height: 200px;
+	margin: auto;
+	background-color: white;
+}
+
+.table {
+	width: 89%;
+	margin: auto;
+}
+
+
+
+/* --------------- Devices  ----------------- */
+
+
+.link_button:link {
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 45%;
+}
+
+.link_button:visited {
+	color: white;
+	padding: 14px 25px;
+	text-align: center;
+	text-decoration: none;
+}
+
+/* --- Devices table --- */
+.table {
+	width: 89%;
+	margin: auto;
+}
+
+.device_table_body tr:hover {
+	cursor: pointer;
+	background-color: lightgray;
+}
+
+/** ------------ By Martin ------------ **/
+
+.widget_0{background: rgba(20,40,0,1); background: linear-gradient(74deg, rgba(100,65,9,1) 0%, rgba(130,105,0,1) 100%);}
+.widget_1{background: rgba(40,70,0,1); background: linear-gradient(74deg, rgba(130,105,0,1) 0%, rgba(165,140,0,1) 100%);}
+.widget_2{background: rgba(60,100,0,1); background: linear-gradient(74deg, rgba(165,140,0,1) 0%, rgba(200,170,9,1) 100%);}
+
+.control_panel {margin: auto; margin-bottom: 2px;}
+
+#search_input
+{
+	background-color: rgba(255,255,255,0.4);
+	color: white;
+	border: none;
+	line-height: 30px;
+	border-radius: 5px;
+}
+
+#search_input::placeholder{color:white;}
+
+.search_box{width: 80%;}
+
+#search_button{width: 50px;}
+
+
+.img_map{border: 10px solid rgba(0,0,0,0.8);}
+.img_map{border: 0px;}
+  .map_div{width: 75%;}
+
+
+/** ------------ Definitions for different sizes of window ------------ **/
+@media (max-width: 992px)
+{
+  .search_box{width: 85%;}
+  #search_button {width: 10%;}
+  .control_buttons{width: 24%;}
+  .control_panel div{text-align: left !important; margin: 2px 0;}
+  .control_panel{margin-bottom: 3vh;}
+  .map_div{width: 100% !important;}
+}
+
+/*******************************************************************************************************************************/

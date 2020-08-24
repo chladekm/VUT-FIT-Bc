@@ -1,0 +1,25 @@
+{
+	"row_count":19,
+	"column_count":1,
+	"rooms": [
+		{"name":"1A", "ucebna":"true"},
+		{"name":"1B", "ucebna":"true"},
+		{"name":"2A", "ucebna":"true"},
+		{"name":"2B", "ucebna":"true"},
+		{"name":"3A", "ucebna":"true"},
+		{"name":"3B", "ucebna":"true"},
+		{"name":"4A", "ucebna":"true"},
+		{"name":"4B", "ucebna":"true"},
+		{"name":"zas_mist1", "ucebna":"false"},
+		{"name":"kab1", "ucebna":"false"},
+		{"name":"knihovna", "ucebna":"false"},
+		{"name":"reditelna", "ucebna":"false"},
+		{"name":"sklad1", "ucebna":"false"},
+		{"name":"archiv", "ucebna":"false"},
+		{"name":"jidelna", "ucebna":"false"},
+		{"name":"kuchyn", "ucebna":"false"},
+		{"name":"kab2", "ucebna":"false"},
+		{"name":"kab3", "ucebna":"false"},
+		{"name":"sklad", "ucebna":"false"}
+	]
+}

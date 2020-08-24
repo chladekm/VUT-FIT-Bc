@@ -1,0 +1,242 @@
+/*********************************************************************************
+ * Project:   3BIT ITU, Project - Evidence system                                *
+ *            Faculty of Information Technology                                  *
+ *            Brno University of Technology                                      *
+ * File:      navbar.css                                                         *
+ * Date:      08.12.2019                                                         *
+ * Authors:   Martin Chladek <xchlad16@stud.fit.vutbr.cz>                        *
+ *********************************************************************************/
+
+/** -------------------- General definitions -------------------- **/
+
+* {font-family: 'Raleway', sans-serif;}
+
+body{padding-top: 3em;}
+
+body, main
+{
+	background-color: #f2f2f2;
+}
+
+a:link {color: black; text-decoration: none;}
+a:visited {color: black; text-decoration: none;}
+a:active {font-weight: bold;}
+a:hover {}
+
+#display_clock, .username_dropdown a{font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;}
+
+
+/** ------------ Main block definitions ------------ **/
+
+
+main{height:100vh;}
+
+
+/** ------------ Sidebar (navigation menu) ------------ **/
+
+
+.navbar-nav{text-align: left;}
+.navbar-nav li{padding: 0.8em;}
+.navbar-nav li i{font-size: 130%; padding-right: 20px; color: #393939 !important;}
+.navbar-nav li span{color: #393939 !important;}
+
+.navbar-nav li:nth-child(-n+6):hover
+{
+	background: rgba(0,0,0,0.1);
+	font-weight: bold;
+	color: #f2f2f2;
+}
+
+.menu_panel
+{
+	background: rgb(198,198,198);
+	background: linear-gradient(160deg, rgba(205,205,205,1) 0%, rgba(244,242,242,1) 100%);
+	background-position: left top;
+	-webkit-box-shadow: -23px 7px 34px 18px rgba(0,0,0,0.75);
+	-moz-box-shadow: -23px 7px 34px 18px rgba(0,0,0,0.75);
+	box-shadow: -23px 7px 34px 18px rgba(0,0,0,0.75);
+	background-attachment: fixed;
+	background-size: auto 100%;
+}
+
+
+
+.logo{height: 2em;}
+
+/** ------------ Top navbar (username & clock) ------------ **/
+
+.top_panel
+{
+	background: rgb(18,18,18); /* in case gradient is not supported */
+	background: linear-gradient(133deg, rgba(35,35,35,1) 12%, rgba(57,57,57,1) 100%);
+	height: 3em;
+	color: #f2f2f2;
+	display: flex;
+}
+
+#display_clock
+{
+	height: 100%;
+	padding: 10px 20px;
+	margin-right: 0;
+	margin-left: auto;
+	float: right;
+	color: #939294;
+	font-weight: 300;
+
+}
+
+.username_block{float: right;}
+
+.username
+{
+	background: none;
+	border: none;
+	height: 100%;
+	padding: 11px 20px;
+	color: #B3B2B4;
+}
+
+.username_dropdown
+{
+	background-color: #444;
+}
+
+.username_dropdown a
+{
+	padding: 10px;
+	color: #B3B2B4;
+}
+
+.username_dropdown a:hover
+{
+	background: rgba(0,0,0,0.3);
+	color: #f2f2f2;
+}
+
+.username_block div:hover>.dropdown-menu
+{
+  display: block;
+  margin-top: 0px;
+}
+
+.dropdown:hover .username{color: #f2f2f2}
+
+
+.footer
+{
+	background-color: #779200;
+	font-size: 2vw;
+	color: #222;
+	text-align: center;
+
+	bottom:0;
+	width:100%;
+}
+
+a:hover .footer{background-color: #5b7600;}
+
+.up_button
+{
+	background-color: rgba(0,0,0,0.3);
+	font-size: 2vw;
+	color: #222;
+	position: fixed;
+	text-align: center;
+	left: 43%;
+	bottom:10px;
+	width: 14%;
+	border-radius: 25px;
+	visibility: hidden;
+}
+
+a:hover .up_button{
+	background-color: rgba(0,0,0,0.5);
+	opacity: 0.9;
+	box-shadow: 1px 1px 20px 1px #888888;
+}
+
+/** ------------ Definitions for different sizes of window ------------ **/
+
+
+/** ------ Bigger screens ------ **/
+
+@media (min-width: 768px)
+{
+    aside{height: 100%;}
+    .sidebar
+    {
+    	padding-top: 2em;
+    	width: 100%; 
+    	margin: auto;
+    	display: inline-block;
+    }
+    .username_mobile_menu_link{display: none;}
+
+    .container_logo
+	{
+		height: 3em;
+		width: 100%;
+		background-color: rgb(35,35,35); 
+		display: block;
+	}
+}
+
+/** ------ Phone screens ------ **/
+
+@media (max-width: 768px)
+{
+    .top_panel{display: none !important;}
+	.footer{display: none !important;}
+    
+    .navbar-nav li
+    {
+    	padding: 1em 0 0.5em 30% !important; 
+    	font-size: 5vw;
+    }
+    
+    .navbar-nav li:last-child{padding: 1em 0 0.5em 0% !important;}
+    
+    .navbar-nav li button
+    {
+    	padding: 1em 0 0.5em 0% !important;
+     	color: #939294;
+     }
+    
+    .logo{height: 3em; }
+    .navbar{box-shadow: 0px -8px 27px 21px rgba(0,0,0,0.34);}
+	.navbar-toggler-icon{height: 2.5em;}
+
+	#username_collapse div{margin-left: 0;margin-right: 0;}
+
+	.username_mobile_menu_link
+	{
+		border-top: 1px solid rgba(255,255,255, 0.3);
+		margin-top: 1em;
+	}
+	
+	.username_mobile_menu_link  button
+	{
+		background-color: transparent;
+		border: none;
+		width: 100%;
+	}
+
+	.menu_panel
+	{
+		background: rgb(57,56,56); 
+		background: linear-gradient(227deg, rgba(57,56,56,1) 0%, rgba(20,18,18,1) 100%);
+	}
+
+	/* Max height of dropdown menu -> enabled scrolling */
+	.navbar-collapse 
+	{
+		  max-height: 80vh;
+		  overflow-y: auto;
+	}
+
+	.navbar-nav li{padding: 0.3em;}
+	.navbar-nav li i{font-size: 130%; padding-right: 20px; color: #f2f2f2 !important;}
+	.navbar-nav li span{color: #f2f2f2 !important;}
+
+}

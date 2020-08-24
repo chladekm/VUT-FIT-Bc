@@ -1,0 +1,218 @@
+/*********************************************************************************
+ * Project:   3BIT ITU, Project - Evidence system                                *
+ *            Faculty of Information Technology                                  *
+ *            Brno University of Technology                                      *
+ * File:      empployees.css                                                     *
+ * Date:      08.12.2019                                                         *
+ * Authors:   Borek Reich, <xreich06@stud.fit.vutbr.cz>                          *
+ *            Martin Chladek <xchlad16@stud.fit.vutbr.cz>                        *
+ *********************************************************************************/
+
+/* --------------- Devices  ----------------- */
+h2#main_title {
+	text-align: center;
+}
+
+#main_title_hr {
+	width: 50%;
+	height: 1px;
+	background-color: #222;
+}
+
+/* --- Device Stats --- */
+.devices_stats {
+	margin-top: 2%;
+	margin-bottom: 2%;
+	margin-left: 3%;	
+	margin-right: 3%;
+	height: 140px;
+}
+ 
+.stats_box {
+	background-color: #77dd77;
+	margin-left: 3%;
+	margin-right: 3%;
+	border-radius: 4%;
+	text-align: right;
+	height: 140px;	
+}
+
+.stats_box:hover {
+	box-shadow: 1px 1px 20px 1px #888888;
+	background-color: #03c03c;
+}
+
+.stats_box_content {
+	height: 140px;
+	width: 100%;
+	opacity: 0.8;
+}
+
+
+.stats_box_content:hover {
+	opacity: 1;
+}
+
+.stats_picture {
+	height: inherit;	
+	width: inherit;
+	padding-right: 60%;
+	padding-top: 7%;
+	padding-bottom: 7%;
+	opacity: 0.8;
+}
+
+#free_device {
+	opacity: 0.7;
+	padding-top: 7%;
+	padding-bottom: 7%;
+	padding-right: 57%;
+}
+
+#old_device {
+	opacity: 0.7;
+	padding-top: 4%;
+	padding-bottom: 4%;
+	padding-right: 57%;
+}
+
+#rep_device {
+	opacity: 0.7;
+	padding-top: 3%;
+	padding-bottom: 3%;
+	padding-right: 57%;
+}
+
+.stats_number {
+	position: absolute;
+	width: 46%;
+	left: 50%;
+	font-size: 40pt;
+	text-align: right;
+}
+
+.stats_descr {
+	position: absolute;
+	width: 46%;
+	height: 50%;
+	left: 50%;
+	top: 50%;
+	font-size: 16pt;
+	text-align: right;
+	line-height: 90%;
+}
+
+/* --- Devices control panel --- */
+
+#search_form {
+	height: inherit;
+	width: 100%;
+	font-size: 14pt;
+}
+
+/*#filter_button {
+	width: 52px;
+	float:left;
+}*/ 
+
+#filter_button:hover {
+	color: black;
+	background-color: transparent;
+}
+
+.employees_hr {
+	background-color: black;
+	height: 1px;
+}
+
+.employee_box {
+	background-color: white;
+	border-radius: 10%;
+	cursor: pointer;	
+	padding: 0.5vw;
+}
+
+.employee_box:hover {
+	box-shadow: 1px 1px 20px 1px #888888;
+}
+
+.employee_photo {
+	width: 60%;
+	padding: 1vw;
+	height: 60%;
+	margin: auto;
+	margin-top: 10%;
+	background-color: whitesmoke;
+	border-radius: 20%;
+	text-align: center;
+}
+
+.employee_photo i
+{
+	position: relative;
+	opacity: 0.7;
+	font-size: 5vw;
+	top: 10%;
+}
+
+
+.employee_desc {
+	width: 80%;
+	height: 25%;
+	margin: auto;
+	margin-top: 10%;
+	margin-bottom: 5%;
+	text-align: center;
+}
+
+.employee_name {
+	color: black;
+	margin: 0;
+}
+
+.employee_type {
+	color: gray;
+	margin: 0;
+}
+
+.employee_room {
+	color: gray;
+	margin: 0;
+}
+
+/** ------------ By Martin ------------ **/
+
+.widget_0{background: rgba(20,40,0,1); background: linear-gradient(74deg, rgba(20,40,0,1) 0%, rgba(40,70,0,1) 100%);}
+.widget_1{background: rgba(40,70,0,1); background: linear-gradient(74deg, rgba(40,70,0,1) 0%, rgba(60,100,0,1) 100%);}
+.widget_2{background: rgba(60,100,0,1); background: linear-gradient(74deg, rgba(60,100,0,1) 0%, rgba(80,130,0,1) 100%);}
+.widget_3{background: rgba(80,130,0,1); background: linear-gradient(74deg, rgba(80,130,0,1) 0%, rgba(100,160,0,1) 100%);}
+
+.control_panel {margin: auto; margin-bottom: 2px; min-width: 650px;}
+
+#search_input
+{
+	background-color: rgba(255,255,255,0.4);
+	color: white;
+	border: none;
+	line-height: 30px;
+	border-radius: 5px;
+}
+
+#search_input::placeholder{color:white;}
+
+.search_box{width: 50%;}
+
+#search_button{width: 50px;}
+
+
+/** ------------ Definitions for different sizes of window ------------ **/
+@media (max-width: 992px)
+{
+  .search_box{width: 50%;}
+  #search_button {width: 10%;}
+  .control_buttons{width: 24%;}
+  .control_panel div{text-align: left !important; margin: 2px 0;}
+  .control_panel{margin-bottom: 3vh;}
+}
+
+/*******************************************************************************************************************************/
