@@ -1,9 +1,5 @@
 ## [ISS] Projekt
 
-### Zadání
-
-viz. zadani.pdf
-
 ### Hodnocení 
 
 | **příklad** | **max body** | **Vaše body** | **poznámka** |
