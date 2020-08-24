@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.329
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeamChat.DAL", "TeamChat.DAL\TeamChat.DAL.csproj", "{649594A5-FEBF-49A1-BA29-D9F950036A02}"
+	ProjectSection(ProjectDependencies) = postProject
+		{48E09C68-7A32-4CB1-9922-73BA88C16413} = {48E09C68-7A32-4CB1-9922-73BA88C16413}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeamChat.BL", "TeamChat.BL\TeamChat.BL.csproj", "{8CBEE144-7AE4-436E-BBAE-6728CCAE424C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{48E09C68-7A32-4CB1-9922-73BA88C16413} = {48E09C68-7A32-4CB1-9922-73BA88C16413}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeamChat.BL.Tests", "TeamChat.BL.Tests\TeamChat.BL.Tests.csproj", "{360B72F6-7AC9-4133-9C9B-CCA542D0B9DD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{48E09C68-7A32-4CB1-9922-73BA88C16413} = {48E09C68-7A32-4CB1-9922-73BA88C16413}
+		{649594A5-FEBF-49A1-BA29-D9F950036A02} = {649594A5-FEBF-49A1-BA29-D9F950036A02}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeamChat.DAL.Tests", "TeamChat.DAL.Tests\TeamChat.DAL.Tests.csproj", "{1BEE190E-40E8-45C0-BC59-B7E9EA0EBD0D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{48E09C68-7A32-4CB1-9922-73BA88C16413} = {48E09C68-7A32-4CB1-9922-73BA88C16413}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeamChat.Utilities", "TeamChat.Utilities\TeamChat.Utilities.csproj", "{48E09C68-7A32-4CB1-9922-73BA88C16413}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeamChat.API", "TeamChat.API\TeamChat.API.csproj", "{C53B8FB1-5AF6-4364-B786-1B6712CBBBF2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8CBEE144-7AE4-436E-BBAE-6728CCAE424C} = {8CBEE144-7AE4-436E-BBAE-6728CCAE424C}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamChat.APP", "TeamChat.APP\TeamChat.APP.csproj", "{6E610D13-7F3A-4C36-9D37-CAC78F5C31BD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8CBEE144-7AE4-436E-BBAE-6728CCAE424C} = {8CBEE144-7AE4-436E-BBAE-6728CCAE424C}
+		{48E09C68-7A32-4CB1-9922-73BA88C16413} = {48E09C68-7A32-4CB1-9922-73BA88C16413}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{649594A5-FEBF-49A1-BA29-D9F950036A02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{649594A5-FEBF-49A1-BA29-D9F950036A02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{649594A5-FEBF-49A1-BA29-D9F950036A02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{649594A5-FEBF-49A1-BA29-D9F950036A02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CBEE144-7AE4-436E-BBAE-6728CCAE424C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CBEE144-7AE4-436E-BBAE-6728CCAE424C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CBEE144-7AE4-436E-BBAE-6728CCAE424C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CBEE144-7AE4-436E-BBAE-6728CCAE424C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{360B72F6-7AC9-4133-9C9B-CCA542D0B9DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{360B72F6-7AC9-4133-9C9B-CCA542D0B9DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{360B72F6-7AC9-4133-9C9B-CCA542D0B9DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{360B72F6-7AC9-4133-9C9B-CCA542D0B9DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BEE190E-40E8-45C0-BC59-B7E9EA0EBD0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BEE190E-40E8-45C0-BC59-B7E9EA0EBD0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BEE190E-40E8-45C0-BC59-B7E9EA0EBD0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BEE190E-40E8-45C0-BC59-B7E9EA0EBD0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48E09C68-7A32-4CB1-9922-73BA88C16413}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48E09C68-7A32-4CB1-9922-73BA88C16413}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48E09C68-7A32-4CB1-9922-73BA88C16413}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48E09C68-7A32-4CB1-9922-73BA88C16413}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C53B8FB1-5AF6-4364-B786-1B6712CBBBF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C53B8FB1-5AF6-4364-B786-1B6712CBBBF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C53B8FB1-5AF6-4364-B786-1B6712CBBBF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C53B8FB1-5AF6-4364-B786-1B6712CBBBF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E610D13-7F3A-4C36-9D37-CAC78F5C31BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E610D13-7F3A-4C36-9D37-CAC78F5C31BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E610D13-7F3A-4C36-9D37-CAC78F5C31BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E610D13-7F3A-4C36-9D37-CAC78F5C31BD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5B13F8C7-6AE4-40F3-A7CD-EEED0C20D588}
+	EndGlobalSection
+EndGlobal

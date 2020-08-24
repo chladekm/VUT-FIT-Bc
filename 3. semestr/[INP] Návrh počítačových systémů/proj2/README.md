@@ -4,7 +4,7 @@
 
 Cílem tohoto projektu je implementovat pomocí VHDL procesor, který bude schopen vykonávat program napsaný v rozšířené verzi jazyka BrainF\*ck. Ačkoliv jazyk BrainF\*ck používá pouze osm jednoduchých příkazů (instrukcí), jedná se o výpočetně úplnou sadu, pomocí které je možné popsat libovolný algoritmus. Na ověření korektní funkce poslouží několik testovacích programů (výpis textu, výpis prvočísel, rozklad čísla na prvočísla, apod.).
 
-Podrobnosti viz. zadani.pdf
+Podrobnosti viz zadani.pdf
 
 ### Hodnocení 
 

@@ -1,0 +1,754 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "TeamChatAPI"
+  },
+  "paths": {
+    "/api/Comment": {
+      "get": {
+        "tags": [ "Comment" ],
+        "operationId": "GetAllComments",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": { "$ref": "#/definitions/CommentModel" }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [ "Comment" ],
+        "operationId": "UpdateComment",
+        "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "body",
+            "required": false,
+            "schema": { "$ref": "#/definitions/CommentModel" }
+          }
+        ],
+        "responses": { "200": { "description": "Success" } }
+      },
+      "post": {
+        "tags": [ "Comment" ],
+        "operationId": "CreateComment",
+        "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "body",
+            "required": false,
+            "schema": { "$ref": "#/definitions/CommentModel" }
+          }
+        ],
+        "responses": { "200": { "description": "Success" } }
+      }
+    },
+    "/api/Comment/{id}": {
+      "get": {
+        "tags": [ "Comment" ],
+        "operationId": "GetCommentById",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": { "$ref": "#/definitions/CommentModel" }
+          }
+        }
+      },
+      "delete": {
+        "tags": [ "Comment" ],
+        "operationId": "DeleteComment",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": { "200": { "description": "Success" } }
+      }
+    },
+    "/api/Comment/user/{id}": {
+      "get": {
+        "tags": [ "Comment" ],
+        "operationId": "GetLastCommentByUserId",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": { "$ref": "#/definitions/CommentModel" }
+          }
+        }
+      }
+    },
+    "/api/Comment/post/{id}": {
+      "get": {
+        "tags": [ "Comment" ],
+        "operationId": "GetCommentsByPostId",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": { "$ref": "#/definitions/CommentModel" }
+            }
+          }
+        }
+      }
+    },
+    "/api/Post": {
+      "get": {
+        "tags": [ "Post" ],
+        "operationId": "GetAllPosts",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": { "$ref": "#/definitions/PostModel" }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [ "Post" ],
+        "operationId": "UpdatePost",
+        "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "body",
+            "required": false,
+            "schema": { "$ref": "#/definitions/PostModel" }
+          }
+        ],
+        "responses": { "200": { "description": "Success" } }
+      },
+      "post": {
+        "tags": [ "Post" ],
+        "operationId": "CreatePost",
+        "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "body",
+            "required": false,
+            "schema": { "$ref": "#/definitions/PostModel" }
+          }
+        ],
+        "responses": { "200": { "description": "Success" } }
+      }
+    },
+    "/api/Post/{id}": {
+      "get": {
+        "tags": [ "Post" ],
+        "operationId": "GetPostById",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": { "$ref": "#/definitions/PostModel" }
+          }
+        }
+      },
+      "delete": {
+        "tags": [ "Post" ],
+        "operationId": "DeletePost",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": { "200": { "description": "Success" } }
+      }
+    },
+    "/api/Post/team/{id}": {
+      "get": {
+        "tags": [ "Post" ],
+        "operationId": "GetAllPostsByTeamId",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": { "$ref": "#/definitions/PostModel" }
+            }
+          }
+        }
+      }
+    },
+    "/api/Post/user/{id}": {
+      "get": {
+        "tags": [ "Post" ],
+        "operationId": "GetLastPostByUserId",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": { "$ref": "#/definitions/PostModel" }
+          }
+        }
+      }
+    },
+    "/api/Team": {
+      "get": {
+        "tags": [ "Team" ],
+        "operationId": "GetAllTeams",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": { "$ref": "#/definitions/TeamListModel" }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [ "Team" ],
+        "operationId": "UpdateTeam",
+        "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "body",
+            "required": false,
+            "schema": { "$ref": "#/definitions/TeamDetailModel" }
+          }
+        ],
+        "responses": { "200": { "description": "Success" } }
+      },
+      "post": {
+        "tags": [ "Team" ],
+        "operationId": "CreateTeam",
+        "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "body",
+            "required": false,
+            "schema": { "$ref": "#/definitions/TeamDetailModel" }
+          }
+        ],
+        "responses": { "200": { "description": "Success" } }
+      }
+    },
+    "/api/Team/{id}": {
+      "get": {
+        "tags": [ "Team" ],
+        "operationId": "GetTeamById",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": { "$ref": "#/definitions/TeamDetailModel" }
+          }
+        }
+      },
+      "delete": {
+        "tags": [ "Team" ],
+        "operationId": "DeleteTeam",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": { "200": { "description": "Success" } }
+      }
+    },
+    "/api/Team/lessdetails/{id}": {
+      "get": {
+        "tags": [ "Team" ],
+        "operationId": "GetLessDetailTeamById",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": { "$ref": "#/definitions/TeamListModel" }
+          }
+        }
+      }
+    },
+    "/api/Team/user/{id}": {
+      "get": {
+        "tags": [ "Team" ],
+        "operationId": "GetTeamsForUserId",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": { "$ref": "#/definitions/TeamListModel" }
+            }
+          }
+        }
+      }
+    },
+    "/api/User": {
+      "get": {
+        "tags": [ "User" ],
+        "operationId": "GetAllUsers",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": { "$ref": "#/definitions/UserListModel" }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [ "User" ],
+        "operationId": "UpdateUser",
+        "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "body",
+            "required": false,
+            "schema": { "$ref": "#/definitions/UserDetailModel" }
+          }
+        ],
+        "responses": { "200": { "description": "Success" } }
+      },
+      "post": {
+        "tags": [ "User" ],
+        "operationId": "CreateUser",
+        "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json" ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "body",
+            "required": false,
+            "schema": { "$ref": "#/definitions/UserRegistrationModel" }
+          }
+        ],
+        "responses": { "200": { "description": "Success" } }
+      }
+    },
+    "/api/User/{id}": {
+      "get": {
+        "tags": [ "User" ],
+        "operationId": "GetUserById",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": { "$ref": "#/definitions/UserDetailModel" }
+          }
+        }
+      },
+      "delete": {
+        "tags": [ "User" ],
+        "operationId": "DeleteUser",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": { "200": { "description": "Success" } }
+      }
+    },
+    "/api/User/lessdetails/{id}": {
+      "get": {
+        "tags": [ "User" ],
+        "operationId": "GetLessDetailUserById",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": { "$ref": "#/definitions/UserListModel" }
+          }
+        }
+      }
+    },
+    "/api/User/loginmodel/{id}": {
+      "get": {
+        "tags": [ "User" ],
+        "operationId": "GetUserLoginModelById",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": { "$ref": "#/definitions/UserLoginModel" }
+          }
+        }
+      }
+    },
+    "/api/User/loginmodel/email/{email}": {
+      "get": {
+        "tags": [ "User" ],
+        "operationId": "GetUserLoginModelByEmail",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": { "$ref": "#/definitions/UserLoginModel" }
+          }
+        }
+      }
+    },
+    "/api/User/profilemodel/{id}": {
+      "get": {
+        "tags": [ "User" ],
+        "operationId": "GetUserProfileModelById",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": { "$ref": "#/definitions/UserProfileModel" }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "CommentModel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "author": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "authorName": { "type": "string" },
+        "text": { "type": "string" },
+        "date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "post": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "PostModel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "author": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "authorName": { "type": "string" },
+        "text": { "type": "string" },
+        "date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "title": { "type": "string" },
+        "comments": {
+          "uniqueItems": false,
+          "type": "array",
+          "items": { "$ref": "#/definitions/CommentModel" }
+        },
+        "team": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "TeamListModel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": { "type": "string" }
+      }
+    },
+    "TeamDetailModel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": { "type": "string" },
+        "members": {
+          "uniqueItems": false,
+          "type": "array",
+          "items": { "$ref": "#/definitions/UserListModel" }
+        },
+        "leader": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "UserListModel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": { "type": "string" }
+      }
+    },
+    "UserRegistrationModel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": { "type": "string" },
+        "password": { "type": "string" },
+        "repeatedPassword": { "type": "string" },
+        "email": { "type": "string" }
+      }
+    },
+    "UserDetailModel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": { "type": "string" },
+        "password": { "type": "string" },
+        "email": { "type": "string" },
+        "posts": {
+          "uniqueItems": false,
+          "type": "array",
+          "items": { "$ref": "#/definitions/PostModel" }
+        },
+        "comments": {
+          "uniqueItems": false,
+          "type": "array",
+          "items": { "$ref": "#/definitions/CommentModel" }
+        }
+      }
+    },
+    "UserLoginModel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "email": { "type": "string" },
+        "password": { "type": "string" }
+      }
+    },
+    "UserProfileModel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "lastPost": { "$ref": "#/definitions/PostModel" },
+        "lastComment": { "$ref": "#/definitions/CommentModel" }
+      }
+    }
+  }
+}

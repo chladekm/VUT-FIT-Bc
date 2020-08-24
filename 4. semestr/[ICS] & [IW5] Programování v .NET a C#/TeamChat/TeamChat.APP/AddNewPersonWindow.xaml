@@ -1,0 +1,43 @@
+﻿<Window x:Class="TeamChat.APP.AddNewPersonWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TeamChat.APP"
+        xmlns:viewModels="clr-namespace:TeamChat.APP.ViewModels"
+        d:DataContext="{d:DesignInstance viewModels:UserDetailViewModel}"
+        DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=UserDetailViewModel}"
+        mc:Ignorable="d"
+        Title="Add New Person" Height="300" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row ="0" Grid.Column="0" x:Name="NewPersonNameBox" VerticalAlignment="Center" HorizontalAlignment="Right">
+            Name:
+        </Label>
+        <Label Grid.Row ="1" Grid.Column="0" x:Name="NewPersonEmailBox" VerticalAlignment="Center" HorizontalAlignment="Right">
+            E-mail:
+        </Label>
+        <Label Grid.Row ="2" Grid.Column="0" x:Name="NewPersonPasswordBox" VerticalAlignment="Center" HorizontalAlignment="Right">
+            Password:
+        </Label>
+        <Button Grid.Row="3" Grid.Column ="0" Grid.ColumnSpan="2" Content="Add New Person"  Command="{Binding UserNewCommand}"/>
+        <TextBox x:Name="NewPersonName" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center">
+           Here belongs name of the new person.
+        </TextBox>
+        <TextBox x:Name="NewPersonEmail" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
+            Here belongs e-mail of the new person.
+        </TextBox>
+        <TextBox x:Name="NewPersonPassword" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">
+            Here belongs password of the new person.
+        </TextBox>
+    </Grid>
+</Window>

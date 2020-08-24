@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="TeamChat.APP.Views.PostListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TeamChat.APP.Views"
+             xmlns:viewModels="clr-namespace:TeamChat.APP.ViewModels"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance viewModels:PostListViewModel}"
+             DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=PostListViewModel}"
+             d:DesignHeight="450" d:DesignWidth="600">
+    <Grid Background="#181818">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <ListBox  Grid.Column ="0"  HorizontalContentAlignment="Center" BorderThickness="0" 
+                  Background="#181818" FontSize="14"  x:Name="PostsListBox" 
+                  ItemsSource="{Binding Posts}" Grid.Row="0" Grid.ColumnSpan="4" Margin="0,0,0,4">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="500"></ColumnDefinition>
+                            <ColumnDefinition Width="0"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                            <Label BorderThickness="0,0,0,0.5" Padding="20,8" BorderBrush="#404040" 
+                               HorizontalContentAlignment="Center" Content="{Binding Title}" />
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Path=Text}" />
+                            <TextBlock TextWrapping="Wrap" Foreground="#5B5B5B" Text="{Binding Path=AuthorName}" />
+                            <TextBlock TextWrapping="Wrap" Foreground="#5B5B5B" Text="{Binding Path=Date}" />
+                            <ListBox HorizontalContentAlignment="Left" BorderThickness="0" 
+                                       Background="#181818" FontSize="12"  x:Name="CommentsListBox" 
+                                       ItemsSource="{Binding Comments}" Margin="0,0,0,4">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Grid.Column="0">
+                                            <Label BorderThickness="0,0,0,0.5" Padding="20,8" BorderBrush="#404040" 
+                                                   HorizontalContentAlignment="Center" Content="{Binding Text}" />
+                                            <TextBlock TextWrapping="Wrap" Foreground="#5B5B5B" Text="{Binding Path=AuthorName}"></TextBlock>
+                                            <TextBlock TextWrapping="Wrap" Foreground="#5B5B5B" Text="{Binding Path=Date}"></TextBlock>
+                                        </StackPanel>
+                                   </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding CommentNewCommand}"
+                                           CommandParameter="{Binding ElementName=PostsListBox, Path=SelectedItem}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
+        </ListBox>
+
+        <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Content="Edit team" Background="#457900" Command="{Binding PostEditTeamCommand}" Margin="0,1,0,0" />
+        <Button Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Content="Create post" Background="#002B48" Command="{Binding PostNewCommand}" Margin="0,1,0,0" />
+    </Grid>
+</UserControl>

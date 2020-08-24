@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="TeamChat.APP.Views.PostView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TeamChat.APP.Views"
+        xmlns:viewModels="clr-namespace:TeamChat.APP.ViewModels"
+        d:DataContext="{d:DesignInstance viewModels:PostViewModel}"
+        DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=PostViewModel}"
+        mc:Ignorable="d"
+        Height="auto" Width="auto">
+    <Grid Background="#242424" Visibility="{Binding Model, Converter={StaticResource NulltoVisibilityConverter}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="10" Content="New Post:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"/>
+        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="10" Content="Title:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15"/>
+
+        <TextBox Background="#303030" x:Name="PostHeaderText" Grid.Row="2" Margin="10" Grid.Column="0" Grid.ColumnSpan="2" BorderThickness="0"
+                 Text="{Binding Model.Title, UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True" Foreground="WhiteSmoke" TextWrapping="Wrap"/>
+
+        <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="10" Content="Content:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15"/>
+        <TextBox Background="#303030" x:Name="PostText" Grid.Row="4" Margin="10" Grid.Column="0" Grid.ColumnSpan="2" BorderThickness="0"
+                 Text="{Binding Model.Text, UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True"  Foreground="WhiteSmoke" TextWrapping="Wrap"/>
+        <Button Height="60" Grid.Column="0" Grid.Row="5" Content="Discard" Command="{Binding DeleteCommand}"/>
+        <Button Height="60" Grid.Column="1" Grid.Row="5" Background="#457900" Content="Add Post" Command="{Binding SaveCommand}"/>
+    </Grid>
+</UserControl>

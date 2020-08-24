@@ -1,10 +1,10 @@
-## [INI] Semestrální projekt - Systém pro zubní ordinace
+## [INI] Semestrální projekt – Systém pro zubní ordinace
 
 ### Zadání
 
 - **1. část** 
 	- Portfolio služeb (Service Portfolio).
-- **3. část** 
+- **2. část** 
 	- Finanční analýza (Financial Analysis).
 - **3. část** 
 	- Dohoda o úrovni provozních služeb/Podpůrná smlouva + Dohoda o úrovních služeb (Operational Level Agreement/Underpinning Contract + Service Level Agreement).
@@ -12,7 +12,6 @@
 	- Balíček návrhu služby (Service Design Package).
 - **5. část** 
 	- Hodnotící zpráva o službě + Plán na zlepšení služby + Požadavek na změnu (Service Evaluation Report + Service Improvement Plan + Request for Change).
-
 
 ### Hodnocení 
 

@@ -1,0 +1,1 @@
+autorest --csharp --fluent --namespace="TeamChat.APP.API" --override-client-name="APIClient" --sync-methods="all" --client-side-validation="true" --input-file="./API/Swagger.json" --output-folder="./API"
