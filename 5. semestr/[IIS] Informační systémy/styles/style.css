@@ -1,0 +1,493 @@
+* {font-family: 'Open Sans', sans-serif;}
+
+a:link {color: black; text-decoration: none;}
+a:visited {color: black; text-decoration: none;}
+a:active {font-weight: bold;}
+a:hover {}
+
+.info-danger{background-color: rgba(99,0,0,0.9); padding: 1vh; color: white; text-align: center;}
+.info-success{background-color: rgba(33,99,0,0.9); padding: 1vh; color: white; text-align: center;}
+.info-warning{background-color: rgba(255,213,0,0.9); padding: 1vh; color: black !important; text-align: center;}
+
+.btn-success{background-color: #339900;}
+.btn-success:hover{background-color: #006600;}
+.btn-danger{background-color: #990000;}
+.btn-danger:hover{background-color: #750000;}
+
+/***************** navbar.php *****************/
+
+nav{background-color: #202020}
+
+#username_dropdownmenu
+{
+	right: 0 !important;
+	left: auto !important;
+	margin-top: -1px !important;
+	background-color: #555 !important;
+	border-radius: 0px;
+}
+
+#username_dropdownmenu a:hover
+{
+	background-color: rgba(0,0,0,0.2) !important;
+}
+
+
+#username_block:hover #username_dropdownmenu
+{
+	display: block;
+}
+
+.vertical_separator
+{
+	margin-top: 0.7vw;
+	margin-bottom: 0.7vw;
+	border-right: 1px solid rgba(255,255,255,0.5);
+	color: #202020;
+}
+
+.horizontal_divider
+{
+	border-top: 1px solid rgba(255,255,255,0.5);
+	margin-top: 0.7vw;
+	padding-bottom: 0.7vw;
+}
+
+/*Phone Screens*/
+@media (max-width: 768px)
+{
+    #logo{margin: 1.5vw !important;}
+    #username_dropdownmenu {background-color: #202020 !important;}
+    .nav-link{text-align: center!important; margin: auto;}
+}
+
+/***************** index.php *****************/
+.index_body
+{
+	background: url("login_bg_darker.png") no-repeat;
+	background-size: cover;
+}
+
+.index_container_user
+{
+	padding-top: 25vh;
+}
+.index_container_employee
+{
+	padding-top: 14vh;
+}
+
+.index_item
+{
+	background-color: rgba(255,255,255,0.2);
+	text-align: center;
+	border-radius: 10px;
+	font-size: 140%;
+}
+
+.index_item a{color: rgba(255,255,255,0.8);}
+
+.index_item a span
+{
+	padding: 2vw;
+	display: block;
+	width: 100%;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.index_item a span i
+{
+	font-size: 200%;
+	margin-bottom: 8px;
+}
+
+.index_item a span:hover{background-color: rgba(0,0,0,0.3);}
+.index_item a:hover{text-decoration: none; color: white;}
+
+.index_header{color: rgba(255,255,255,0.8); text-transform: uppercase;}
+
+/*Small Phone Screens*/
+@media (max-width: 576px){.index_container{width: 100%;}}
+
+
+/***************** login.php *****************/
+/* 		-- even used in register.php --      */
+
+.login_body
+{
+	background: url("login_bg.png") no-repeat;
+	background-size: cover;
+}
+
+.login_div
+{
+    width: 100%;
+    padding: 2vw 0;
+    -webkit-box-shadow: 0px 0px 139px 77px rgba(0,0,0,0.6);
+	-moz-box-shadow: 0px 0px 139px 77px rgba(0,0,0,0.6);
+	box-shadow: 0px 0px 139px 77px rgba(0,0,0,0.6);
+	background-color: rgba(0,0,0,0.6);
+}
+
+.login_logo
+{
+	width: 26vw;
+	height: auto;
+	display: block;
+	margin: auto;
+}
+
+.login_form_block
+{
+	padding-top: 2vw;
+}
+
+.login_form_block form div div
+{
+	vertical-align: center;
+}
+
+.login_row input
+{
+	background-color: rgba(255,255,255,0.3);
+	border: none;
+	height: 40px;
+	border-radius: 5px;
+	width: 80%;
+	padding: 1vw;
+	color: white;
+}
+
+.login_row label
+{
+	color: white;
+	font-size: 120%;
+}
+
+.login_submits
+{
+	margin-top: 2vw;
+}
+
+
+.login_back_btn
+{
+	-webkit-box-shadow: 0px 0px 73px 74px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 0px 73px 74px rgba(0,0,0,0.5);
+	box-shadow: 0px 0px 73px 74px rgba(0,0,0,0.5);
+	background-color: rgba(0,0,0,0.5);
+	margin-top: 1.5vw;
+}
+
+.login_back_btn a i
+{
+	font-size: 5vw; 
+	padding: 1vw;
+	color: rgba(255,255,255,0.5);
+}
+
+.login_back_btn a i:hover
+{
+	color: rgba(255,255,255,0.65);
+}
+
+.login_submits div a span{color: rgba(255,255,255,0.5);}
+
+.login_submits input, .login_submits div
+{
+	width: 85%;
+	color: white !important
+}
+
+.login_submits div a{color: white !important;}
+.login_submits div a:hover{text-decoration: underline;}
+
+/* Phone Screens*/
+@media (max-width: 768px)
+{
+    .login_div{left:20% !important; top:25% !important;}
+    .login_back_btn a i{font-size: 10vw;}
+    .login_logo{width: 60vw;}
+    .register_help{display: none;}
+}
+
+/*Small Phone Screens*/
+@media (max-width: 576px)
+{
+    .login_div{left:0% !important; top:25% !important;}
+}
+
+/***************** register.php *****************/
+
+.register_div_position{margin-top: -100px;}
+
+.register_div_position h3{margin-bottom: -10px; margin-top: 1.5vw;}
+
+.register_help{color: rgba(255,255,255,0.5); font-size: 70%;}
+
+/* Phone Screens*/
+@media (max-width: 768px){.register_div_position{left:20% !important; top:10% !important;}}
+/*Small Phone Screens*/
+@media (max-width: 576px){.register_div_position{left:0% !important; top:15% !important;}}
+
+/***************** restaurants.php *****************/
+/* 			-- even used in foods.php --    	   */
+
+
+
+.gray_body
+{
+	height: 100%;
+	background: rgb(209,209,209);
+	background: linear-gradient(270deg, rgba(255,255,255,1) 0%, rgba(215,215,215,1) 100%);
+}
+
+.rest_block{padding: 2vw;}
+
+.rest_block_inside
+{
+	background-color: #fafafa;
+	border-radius: 5px;
+	padding: 1vw 0;
+	-webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.5);
+	box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.5); 
+	color: #999;
+}
+
+.rest_block_inside:hover
+{
+	-webkit-box-shadow: 0px 0px 17px 3px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 17px 3px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 17px 3px rgba(0,0,0,0.75);
+	border-radius: 10px;
+	font-weight: bold;
+}
+
+.rest_block_inside:hover .rest_name{font-weight: bold;}
+
+.rest_icon
+{
+	font-size: 300%;
+	color: #333;
+}
+
+.rest_header
+{
+	display: block;
+	font-size: 250%;
+	padding-top: 6vh;
+	padding-bottom: 2vh;
+	margin-bottom: 20vh;
+	width: 95%;
+	border-bottom: 5px solid maroon;
+}
+
+.item
+{
+	display: flex !important;
+	flex-direction: column !important;
+	/*padding: 1vw;*/
+	width: 100%;
+	background-color: #fafafa;
+	-webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.5);
+	box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.5);
+}
+
+.item_content
+{
+	padding: 10px;
+	flex-grow: 1;
+}
+
+.item_content span
+{
+	font-weight: bold;
+	font-family: 'Raleway', sans-serif;
+	display: block;
+	margin-bottom: -5px;
+}
+
+.item_image
+{
+	height: 200px;
+}
+
+.item_image img
+{
+	object-fit: cover;
+	width: 100%;
+	/*width: auto;*/
+}
+
+.item_to_cart
+{
+	margin-bottom: 10px !important;
+	margin: auto;
+}
+
+.rest_name
+{
+	font-size: 150%;
+	color: #202020;
+	display: block;
+	margin-bottom: -20px;
+	width: 100%;
+	border-bottom: 1px solid #202020;
+}
+
+
+.rest_item_back
+{
+	font-size: 250%;
+	color: rgba(0,0,0,0.4);
+	margin-top: 1.5vh;
+}
+
+/* Phone Screens*/
+@media (max-width: 768px){.rest_item_back{display: none;}}
+
+/***************** foods.php *****************/
+
+
+.food_header
+{
+	border-bottom: 5px solid #339900;
+	width: 50%;
+}
+
+.food_select_div
+{
+	padding-top: 3vh
+}
+
+.food_select_div form select
+{
+	width: 30%;
+	height: 40px;
+	line-height: 40px;
+}
+
+/* Phone Screens*/
+@media (max-width: 768px){.food_select_div form select{width: 60%;}}
+
+
+/***************** Editace *****************/
+
+.edit_separator
+{
+	border-top: 1px solid #202020;
+	width: 80%;
+	display: block;
+	margin: 2vw auto;
+}
+
+.edit_submit_btn
+{
+	margin: 1vw auto;
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+
+
+.edit_table {
+  padding-bottom: 100px;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.edit_table td, .edit_table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.edit_table tr:nth-child(even){background-color: #f2f2f2;}
+.edit_table tr:nth-child(odd){background-color: #ddd;}
+
+
+.edit_table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #333;
+  color: white;
+}
+
+/***************** list_orders.php *****************/
+/* (functions.php) */
+
+.order_link:link{color: white;}
+.order_link:visited{color: white;}
+.order_link:hover{color: white}
+
+.order_select
+{
+	width: 30%;
+	height: 40px;
+	line-height: 40px;
+}
+
+.order_button{width: 15%;}
+@media (max-width: 768px){.order_button{width: 50%;}}
+
+/***************** cart.php *****************/
+
+.cart_box
+{
+	display: block;
+	background-color: #fafafa;
+	padding: 2vw 3vw; 
+	border-radius: 10px;
+	-webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.5);
+	box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.5);
+}
+
+.cart_item div 
+{
+	border-bottom: 1px dotted black;
+}
+
+.cart_item
+{
+	vertical-align: text-bottom;
+}
+
+.cart_item_name
+{
+	font-size: 110%;
+}
+
+.cart_price
+{
+	font-size: 140%;
+}
+
+/***************** upload.php *****************/
+
+.upload_go_back:hover i, .upload_go_back:hover span{color: rgba(0,0,0,0.7);}
+/*.upload_go_back:hover span{color: rgba(0,0,0,0.3);}*/
+
+.upload_go_back{margin-top: 20vw;}
+
+.upload_go_back i
+{
+	font-size: 300%;
+	color: rgba(0,0,0,0.5);
+}
+
+.upload_go_back span
+{
+	font-size: 140%;
+	color: rgba(0,0,0,0.5);
+}
+
+/***************** edit_profile.php *****************/
+
+.edit_profile_div form input
+{
+	width: 60%;
+}

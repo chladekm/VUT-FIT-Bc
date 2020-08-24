@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0067)https://www.fit.vutbr.cz/study/courses/IIS/private/projekt/doc.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Projekt IIS</title>
+    <style type="text/css">
+    	table { border-collapse: collapse; }
+    	td, th { border: 1px solid black; padding: 0.3em 0.5em; text-align: left; }
+    	dt { font-weight: bold; margin-top: 0.5em; }
+    </style>
+    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+    	table, td, th {  
+ 		 border: 1px solid #ddd;
+ 		 text-align: left;
+		}
+
+		table {
+ 	 	border-collapse: collapse;
+ 	 	table-layout: auto;
+		}
+
+		th, td {
+ 	 	padding: 15px;
+		}
+		h2,a {
+			color: blue;
+		}
+		h3, dt {
+			color: dodgerblue;
+		}
+		img {
+  			border-radius: 8px;
+			margin-left: 25%;
+		}
+    </style>
+</head>
+<body>
+<div class="w3-container w3-teal w3-dark-grey">
+<h1>Jídelna: objednávka a rozvoz jídel</h1> <!-- Nahradte názvem svého zadání -->
+</div>
+<div class="w3-container w3-light-grey">
+<dl>
+	<dt>Autoři</dt>
+	<dd>Bořek Reich <!-- Nahraïte skuteèným jménem a e-mailem autora a popisem èinnosti -->
+	    <a href="mailto:xreich06@stud.fit.vutbr.cz">xreich06@stud.fit.vutbr.cz</a> -
+		Zobrazení: jídel, provozoven, objednávek; práce s objednávkou; přihlášení a šifrování hesel; integritní omezení
+	</dd>
+	<dd>Martin Chládek <!-- Nahraïte skuteèným jménem a e-mailem autora a popisem èinnosti -->
+	    <a href="mailto:xchlad16@stud.fit.vutbr.cz">xchlad16@stud.fit.vutbr.cz</a> - 
+		Vytvoření databáze a tabulek; správa: profilů, provozoven, uživatelů; registrace; grafické rozhraní a kaskádové styly
+	</dd>
+  <dd>František Mrázek <!-- Nahraïte skuteèným jménem a e-mailem autora a popisem èinnosti -->
+	    <a href="mailto:xmraze14@stud.fit.vutbr.cz">xmraze14@stud.fit.vutbr.cz</a> - 
+		Integritní omezení; úprava databáze; vyhledání náhledů; technická zpráva; dokumentace
+	</dd>
+	<dt>URL aplikace</dt>
+	<dd><a href="http://www.stud.fit.vutbr.cz/~xreich06/">http://www.stud.fit.vutbr.cz/~xreich06/</a></dd>
+	<dd><a href="http://www.stud.fit.vutbr.cz/~xreich06/create_tables.php">http://www.stud.fit.vutbr.cz/~xreich06/create_tables.php</a> - Vytvoření tabulek a naplnění daty</dd>
+	
+	
+</dl>
+
+<h2 class="w3-blue">Uživatelé systému pro testování</h2>
+<table class="w3-table w3-striped">
+<tr class="w3-dark-grey" size="300"><th>Login</th><th>Heslo</th><th>Role</th></tr>
+<tr class="w3-light-grey"><td>xmrazek</td><td>heslo</td><td>Administrátor / Operátor</td></tr>
+<tr class="w3-grey"><td>xnamraza</td><td>heslo</td><td>Operátor</td></tr>
+<tr class="w3-light-grey"><td>xchlup</td><td>heslo</td><td>Řidič</td></tr>
+<tr class="w3-grey"><td>zigi</td><td>heslo</td><td>Strávník</td></tr>
+</table>
+
+<h2>Implementace</h2>
+<p>Celý projekt je rozdělen do několika souborů.  Každý soubor obsahuje část logického celku. Základem je soubor index.php. Ten se spouští jako první a skrz něj se poté odkazuje na další stránky/ soubory.  Tímto způsobem je zajištěno oddělení logických celků stránky jak po uživatelské, tak po programátorské stránce. Například:</p>
+<ul>
+	<li>restaurants.php 	=	script zobrazující seznam provozoven</li>
+	<li>foods.php 		= 	script zobrazující nabídku jídel</li>
+	<li>login.php 		= 	script zobrazující přihlašování</li>
+	<li>register.php 	= 	script zobrazující registrace</li>
+	<li>cart.php 		= 	script zobrazující košík</li>
+	<li>create_tables.php 		= 	script pro vytvoření tabulke databáze</li>
+	<li>insert_all.php 		= 	script pro vložení dat do tabulek</li>
+	<p>další soubory obsahují pomocné funkce např. function.php a další</p>
+
+</ul>
+
+<h3>Databáze</h3>
+<img src="ERD.png" alt="ERD">
+
+<h2>Instalace</h2>
+<h3>Požadavky</h3>
+<ul>
+	<li>php verze 7.2</li>
+	<li>MySQL v5.5 server</li>
+	<li>Vyplnění/změna identifikačních údajů v "connection_credentials.php"</li>
+	<li>Bežný prohlížeč, např. Google Chrome</li>
+</ul>
+
+<h3>Postup instalace na server</h3>
+<ul>
+	<li>Nahrát všechny soubory na databázový server např. Eva</li>
+	<li>Pozměnit údaje v connection_credentials.php</li>
+</ul>
+
+<h3> Inicializace databáze</h3>
+Před prvním spuštěním je potřeba nejdříve:
+<ul>
+	<li>Vytvořit tabulky a vložit do databáze záznamy spuštěním create_tables.php</li>
+</ul>
+<h3>Spuštění</h3>
+<ul>
+	<li>http://www.stud.fit.vutbr.cz/~login/index.php</li>
+</ul>
+
+<div>
+</body></html>
