@@ -1,0 +1,58 @@
+/*******************************************************************/
+/*  Project: Bachelor's thesis – Genealogy Database System         */
+/*           Faculty of Information Technology                     */
+/*           Brno University of Technology                         */
+/*                                                                 */
+/*  File:    user-familytrees.component.scss                       */
+/*  Date:    2019 – 2020                                           */
+/*  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>           */
+/*******************************************************************/
+
+.add-new-familytree {
+    height: 100%;
+    width: 100%;
+    background-color: darken(whitesmoke, 10%);
+    border-radius: 5px;
+
+    span {
+        font-size: 400%;
+        color: darken(whitesmoke, 25%);
+    }
+
+    &:hover {
+        cursor: pointer;
+        filter: brightness(90%);
+    }
+}
+
+.item {
+    padding: 10px;
+}
+
+mat-card-header {
+    padding-bottom: 10px;
+}
+
+mat-card-content {
+    th {
+        font-weight: normal;
+        font-size: 110%;
+        text-align: right;
+        color: grey;
+        padding: 5px 10px;
+    }
+
+    td{
+        font-size: 120%;
+        margin: auto 0;
+    }
+}
+
+
+.edit-btn{
+    color: rgb(0, 57, 131);
+}
+
+.delete-btn{
+    color: rgb(206, 0, 0);
+}

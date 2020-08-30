@@ -1,0 +1,127 @@
+<!------------------------------------------------------------------>
+<!--  Project: Bachelor's thesis – Genealogy Database System      -->
+<!--           Faculty of Information Technology                  -->
+<!--           Brno University of Technology                      -->
+<!--                                                              -->
+<!--  File:    person-edit.component.html                         -->
+<!--  Date:    2019 – 2020                                        -->
+<!--  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>        -->
+<!------------------------------------------------------------------>
+
+<mat-dialog-content fxLayout="column" ngStyle.gt-sm="min-width:500px" *ngIf="person">
+
+    <!-- First Name -->
+    <div fxLayout="row" fxFlex="100%" fxLayoutAlign="space-between start">
+        <h3 mat-dialog-title>Křestní jména</h3>
+        <span>
+            <button mat-stroked-button color="primary"
+                *ngIf="!editMode && (filterNamesOfType(true).length > 1 || filterNamesOfType(false).length > 1)"
+                style="margin-right : 10px" (click)="editMode = true; personName = null">Upravit</button>
+            <button mat-stroked-button color="primary" *ngIf="editMode" style="margin-right : 10px"
+                (click)="editMode = false; personName = null">Zrušit</button>
+            <button mat-stroked-button color="accent" (click)="initPersonName(true)" [disabled]="editMode"><span
+                    class="material-icons">add</span></button>
+
+        </span>
+    </div>
+    <div fxLayout="row" *ngFor="let name of filterNamesOfType(true)" fxFlex="100%">
+        <mat-form-field appearance="fill"
+            [ngStyle]="{'width':(editMode && filterNamesOfType(true).length > 1) ? '90%' : '100%' }">
+            <mat-label>Jméno</mat-label>
+            <input required matInput pattern="[A-Za-zá-žÁ-Ž- ]+" [(ngModel)]="name.name" placeholder="Křestní jméno" />
+        </mat-form-field>
+        <button mat-stroked-button *ngIf="editMode && filterNamesOfType(true).length > 1" color="warn"
+            class="delete-edit-btn" (click)="deleteName(name)"><span class="material-icons">delete</span></button>
+    </div>
+
+    <!-- New First Name -->
+    <div *ngIf="personName && personName.isFirstName == true" fxLayout="row">
+        <mat-form-field appearance="fill" fxFlex="80%">
+            <mat-label>Jméno</mat-label>
+            <input required matInput pattern="[A-Za-zá-žÁ-Ž- ]+" [(ngModel)]="personName.name"
+                placeholder="Křestní jméno" />
+        </mat-form-field>
+        <button mat-stroked-button fxFlex="10%" class="cancel-edit-btn" matTooltip="Zrušit přidávání" position="above"
+            color="warn" (click)="personName=null">
+            <span class="material-icons">not_interested</span>
+        </button>
+        <button mat-stroked-button fxFlex="10%" class="submit-edit-btn" matTooltip="Přidat" position="above"
+            color="primary" (click)="pushNewName()" [disabled]="personName.name == ''">
+            <span class="material-icons">playlist_add_check</span>
+        </button>
+    </div>
+
+    <!-- Last Name -->
+    <div fxLayout="row" fxFlex="100%" fxLayoutAlign="space-between start">
+        <h3 mat-dialog-title>Příjmení</h3>
+        <button mat-stroked-button color="accent" (click)="initPersonName(false)" [disabled]="editMode"><span
+                class="material-icons">add</span></button>
+    </div>
+    <div fxLayout="row" *ngFor="let name of filterNamesOfType(false)" fxFlex="100%">
+        <mat-form-field appearance="fill"
+            [ngStyle]="{'width':(editMode && filterNamesOfType(false).length > 1) ? '90%' : '100%' }">
+            <mat-label>Příjmení</mat-label>
+            <input required matInput name="lastName" pattern="[A-Za-zá-žÁ-Ž- ]+" #lastName="ngModel"
+                [(ngModel)]="name.name" placeholder="Příjmení" />
+        </mat-form-field>
+        <button mat-stroked-button *ngIf="editMode && filterNamesOfType(false).length > 1" color="warn"
+            class="delete-edit-btn" (click)="deleteName(name)"><span class="material-icons">delete</span></button>
+    </div>
+
+    <!-- New Last Name -->
+    <div *ngIf="personName && personName.isFirstName == false" fxLayout="row">
+        <mat-form-field appearance="fill" fxFlex="80%">
+            <mat-label>Příjmení</mat-label>
+            <input required matInput pattern="[A-Za-zá-žÁ-Ž- ]+" [(ngModel)]="personName.name" placeholder="Příjmení" />
+        </mat-form-field>
+        <button mat-stroked-button fxFlex="10%" class="cancel-edit-btn" matTooltip="Zrušit přidávání" position="above"
+            color="warn" (click)="personName=null">
+            <span class="material-icons">not_interested</span>
+        </button>
+        <button mat-stroked-button fxFlex="10%" class="submit-edit-btn" matTooltip="Přidat" position="above"
+            color="primary" (click)="pushNewName()" [disabled]="personName.name == ''">
+            <span class="material-icons">playlist_add_check</span>
+        </button>
+    </div>
+
+    <!-- Birth Place -->
+    <h3 mat-dialog-title>Obec</h3>
+    <mat-form-field appearance="fill">
+        <mat-label>Místo narození (obec)</mat-label>
+        <input matInput [(ngModel)]="person.birthPlace" (change)="transformDate(birthDate.value, 0)" #birthPlace>
+    </mat-form-field>
+
+    <!-- Dates -->
+    <h3 mat-dialog-title>Data</h3>
+    <div *ngIf="!areDatesValid" class="popup-bar-warning info-control-block"><span>Zadaná data nejsou
+            chronologicky</span></div>
+    <mat-form-field appearance="fill">
+        <mat-label>Datum narození</mat-label>
+        <input matInput [(ngModel)]="person.birthDate" (change)="transformDate(birthDate.value, 0)"
+            (ngModelChange)="checkDatesChronology()" [matDatepicker]="birth" #birthDate>
+        <mat-datepicker-toggle matSuffix [for]="birth"></mat-datepicker-toggle>
+        <mat-datepicker #birth startView="year" [startAt]="startDate"></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Datum křtu</mat-label>
+        <input matInput [(ngModel)]="person.baptismDate" (change)="transformDate(baptismDate.value, 1)"
+            (ngModelChange)="checkDatesChronology()" [matDatepicker]="baptism" #baptismDate>
+        <mat-datepicker-toggle matSuffix [for]="baptism"></mat-datepicker-toggle>
+        <mat-datepicker #baptism startView="year" [startAt]="startDate"></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Datum úmrtí</mat-label>
+        <input matInput [(ngModel)]="person.deathDate" (change)="transformDate(deathDate.value, 2)"
+            (ngModelChange)="checkDatesChronology()" [matDatepicker]="death" #deathDate>
+        <mat-datepicker-toggle matSuffix [for]="death"></mat-datepicker-toggle>
+        <mat-datepicker #death startView="year" [startAt]="startDate"></mat-datepicker>
+    </mat-form-field>
+</mat-dialog-content>
+
+<!-- Buttons -->
+<mat-dialog-actions fxLayout="row wrap" fxLayoutAlign="space-between start" *ngIf="person">
+
+    <button mat-stroked-button fxFlex="48%" matDialogClose>Zrušit</button>
+    <button mat-raised-button color="accent" fxFlex="48%" [disabled]="!(allNamesSet()) || !areDatesValid"
+        (click)="save()">Uložit</button>
+</mat-dialog-actions>

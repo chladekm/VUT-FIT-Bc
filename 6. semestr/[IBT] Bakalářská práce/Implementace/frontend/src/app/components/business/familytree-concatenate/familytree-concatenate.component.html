@@ -1,0 +1,46 @@
+<!------------------------------------------------------------------>
+<!--  Project: Bachelor's thesis – Genealogy Database System      -->
+<!--           Faculty of Information Technology                  -->
+<!--           Brno University of Technology                      -->
+<!--                                                              -->
+<!--  File:    familytree-concatenate.component.html              -->
+<!--  Date:    2019 – 2020                                        -->
+<!--  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>        -->
+<!------------------------------------------------------------------>
+
+<div fxLayout="column">
+    <h3 mat-dialog-title>Kopírování rodokmenu</h3>
+    <div *ngIf="validFamilyTrees && validFamilyTrees.length != 0" fxLayout="column">
+        <p class="choose-text">Vyberte prosím rodokmen:</p>
+        <mat-form-field>
+            <mat-label>Vybraný rodokmen</mat-label>
+            <mat-select [(ngModel)]="dstFamilyTreeId">
+                <mat-option *ngFor="let tree of validFamilyTrees" class="w-100" [value]="tree.id">
+                    {{tree.title}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div fxLayout="row wrap" fxFlex="100%" fxLayoutAlign="space-between start">
+            <button mat-stroked-button matDialogClose fxFlex="48%">Zrušit</button>
+            <button mat-raised-button *ngIf="!clicked" color="accent" fxFlex="48%" [disabled]="dstFamilyTreeId == 0"
+                (click)="concatenate(); clicked = true;">Kopírovat</button>
+            <button mat-raised-button *ngIf="clicked" color="accent" fxFlex="48%" disabled id="wait-btn">Čekejte
+                ...</button>
+        </div>
+    </div>
+    <div *ngIf="!(validFamilyTrees)" fxLayout="column" fxLayoutAlign="center center">
+        <mat-spinner [diameter]="40"></mat-spinner>
+    </div>
+    <div *ngIf="!(validFamilyTrees && validFamilyTrees.length != 0) && returned" fxLayout="column">
+        <p>Nelze zkopírovat do žádného z Vašich rodokmenů.</p><br>
+        <p>Důvody mohou být následující:</p>
+        <ul>
+            <li>Tento rodokmen nemá žádnou shodnou osobu s Vašimi rodokmeny</li>
+            <li>Vaše rodokmeny jsou v konfliktu</li>
+            <li>Rodokmeny sdílí více osob, které však nejsou shodně zadány v rodu</li>
+        </ul>
+        <div fxLayout="row wrap" fxFlex="100%" fxLayoutAlign="space-between start">
+            <button mat-stroked-button matDialogClose fxFlex="100%">Zavřít</button>
+        </div>
+    </div>
+</div>

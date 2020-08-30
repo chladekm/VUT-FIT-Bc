@@ -1,0 +1,60 @@
+<!------------------------------------------------------------------>
+<!--  Project: Bachelor's thesis – Genealogy Database System      -->
+<!--           Faculty of Information Technology                  -->
+<!--           Brno University of Technology                      -->
+<!--                                                              -->
+<!--  File:    user-dashboard.component.html                      -->
+<!--  Date:    2019 – 2020                                        -->
+<!--  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>        -->
+<!------------------------------------------------------------------>
+
+<div *ngIf="!user">
+    <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="user">
+    <div>
+        <mat-toolbar fxLayoutAlign="end end">
+            <span *ngIf="(user.name || user.surname); else nickname">{{user.name}} {{user.surname}}</span>
+            <ng-template #nickname>{{user.nickname}}</ng-template>
+        </mat-toolbar>
+        <mat-divider></mat-divider>
+        <div class="btn-row" fxLayout="row wrap" fxLayoutAlign="end end">
+            <button mat-button (click)="selectedComponent = 'user-familytrees'"
+                [ngClass]="(selectedComponent == 'user-familytrees') ? 'active-bar' : ''">
+                <span class="material-icons">timeline</span> Mé rodokmeny
+            </button>
+            <button mat-button (click)="selectedComponent = 'user-detail'"
+                [ngClass]="(selectedComponent == 'user-detail') ? 'active-bar' : ''">
+                <span class="material-icons">person</span> Osobní údaje
+            </button>
+            <button mat-button (click)="signOut()"><span class="material-icons">exit_to_app</span> Odhlásit</button>
+        </div>
+
+        <!-- User info -->
+        <div *ngIf="selectedComponent == 'user-detail'">
+            <mat-toolbar fxLayout="row wrap" fxLayoutAlign="space-between end">
+                <span>Osobní údaje</span>
+                <button mat-stroked-button style="margin-bottom: 2px;"
+                    (click)="selectedComponent='user-detail-edit'">Upravit</button>
+            </mat-toolbar>
+            <mat-divider style="padding-bottom: 20px;"></mat-divider>
+            <app-user-detail [user]="user"></app-user-detail>
+        </div>
+
+        <!-- Edit user -->
+        <div *ngIf="selectedComponent == 'user-detail-edit'">
+            <mat-toolbar fxLayout="row wrap" fxLayoutAlign="space-between end">
+                <span>Osobní údaje</span>
+            </mat-toolbar>
+            <mat-divider style="padding-bottom: 20px;"></mat-divider>
+            <app-user-detail-edit [user]="user" (returnNeeded)="returnFromEdit($event)"></app-user-detail-edit>
+        </div>
+
+        <!-- FamilyTrees -->
+        <div *ngIf="selectedComponent == 'user-familytrees'">
+            <app-user-familytrees [user]="user"></app-user-familytrees>
+        </div>
+
+
+    </div>
+</div>

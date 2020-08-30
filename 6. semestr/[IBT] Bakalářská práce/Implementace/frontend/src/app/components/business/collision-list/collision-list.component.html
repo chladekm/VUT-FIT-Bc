@@ -1,0 +1,74 @@
+<!------------------------------------------------------------------>
+<!--  Project: Bachelor's thesis – Genealogy Database System      -->
+<!--           Faculty of Information Technology                  -->
+<!--           Brno University of Technology                      -->
+<!--                                                              -->
+<!--  File:    collision-list.component.html                      -->
+<!--  Date:    2019 – 2020                                        -->
+<!--  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>        -->
+<!------------------------------------------------------------------>
+
+<div [hidden]="selectedCollision">
+
+  <div fxLayout="column">
+    <h3 mat-dialog-title>Seznam kolizí</h3>
+    <div mat-dialog-content>
+
+      <div [hidden]="!collisions || collisions.length == 0">
+        <table mat-table [dataSource]="dataSource" matSort class="w-100" matSortActive="solved" matSortDirection="asc">
+
+          <!-- ID Column -->
+          <ng-container matColumnDef="solved">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Stav </th>
+            <td mat-cell *matCellDef="let row">
+              <span *ngIf="row.solved" class="txt-green">Vyřešená</span>
+              <span *ngIf="!row.solved" class="txt-red">Nevyřešená</span>
+            </td>
+          </ng-container>
+
+          <!-- Progress Column -->
+          <ng-container matColumnDef="type">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Důvod </th>
+            <td mat-cell *matCellDef="let row">
+              <span *ngIf="row.type==0">Rozdílná matka</span>
+              <span *ngIf="row.type==1">Rozdílný otec</span>
+              <span *ngIf="row.type==2">Kolize generací</span>
+            </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="descendantName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Osoba </th>
+            <td mat-cell *matCellDef="let row">{{row.descendantName}}</td>
+          </ng-container>
+
+          <!-- Color Column -->
+          <ng-container matColumnDef="ancestorName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Osoba v kolizi </th>
+            <td mat-cell *matCellDef="let row">{{row.ancestorName}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef=" ">
+            <th mat-header-cell *matHeaderCellDef class="btn-column"></th>
+            <td mat-cell *matCellDef="let row" class="btn-column" style="padding: 0 !important;"><button
+                mat-stroked-button (click)="selectedCollision = row">Podrobnosti</button></td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+          </tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+      </div>
+    </div>
+    <p *ngIf="!collisionRows || collisionRows.length == 0">Pro tento rodokmen neexistují žádné kolize</p>
+    <div fxLayout="row" fxFlex="100%" mat-dialog-actions class="actions">
+      <button mat-stroked-button (click)="close()" fxFlex="100%">Zavřít</button>
+    </div>
+  </div>
+</div>
+<div *ngIf="selectedCollision">
+  <app-collision-detail (refresh)="closeDetail($event)" (personInFamilyTreeChanged)="refreshViewAfterClose($event)"
+    [selectedCollision]="selectedCollision" [collisions]="collisions" [familytree]="familytree"></app-collision-detail>
+</div>

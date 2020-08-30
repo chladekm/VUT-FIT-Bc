@@ -1,0 +1,46 @@
+<!------------------------------------------------------------------>
+<!--  Project: Bachelor's thesis – Genealogy Database System      -->
+<!--           Faculty of Information Technology                  -->
+<!--           Brno University of Technology                      -->
+<!--                                                              -->
+<!--  File:    main-nav.component.html                            -->
+<!--  Date:    2019 – 2020                                        -->
+<!--  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>        -->
+<!------------------------------------------------------------------>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav bg-grey-dark" fixedInViewport="false" [ngClass]="{hidden: !(isHandset$ | async)!}"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink=""><span class="material-icons">home</span>&nbsp;&nbsp;Domovská stránka</a>
+      <a mat-list-item *ngIf="loggedUser" routerLink="/dashboard">
+        <span class="material-icons">assignment</span>&nbsp;&nbsp;Profil
+      </a>
+      <a mat-list-item *ngIf="loggedUser" (click)="SignOut()">
+        <span class="material-icons">exit_to_app</span>&nbsp;&nbsp;Odhlásit se
+      </a>
+      <a mat-list-item *ngIf="!(router.url === '/login') && !loggedUser" routerLink="/login">
+        <span class="material-icons">person_pin</span>&nbsp;&nbsp;Přihlásit se
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="bg-grey-dark mat-elevation-z8 navbar-fixed">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async" class="clr-white">
+        <mat-icon class="txt-grey-superlight" aria-label="Menu ikona">menu</mat-icon>
+      </button>
+      <a routerLink=""><span class="logo txt-grey-superlight app-title"></span></a>
+      <span class="spacer"></span>
+      <a *ngIf="!(isHandset$ | async)! && !(router.url === '/login') && !loggedUser" mat-raised-button
+        class="btn-green sign-btn" routerLink="/login">Přihlásit se</a>
+      <a *ngIf="!(isHandset$ | async)! && loggedUser" mat-button routerLink="/dashboard">Profil</a>
+      <mat-divider [vertical]="true"></mat-divider>
+      <span *ngIf="!(isHandset$ | async)! && loggedUser" class="vertical-divider"></span>
+      <a *ngIf="!(isHandset$ | async)! && loggedUser" mat-button (click)="SignOut()">Odhlásit se</a>
+    </mat-toolbar>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

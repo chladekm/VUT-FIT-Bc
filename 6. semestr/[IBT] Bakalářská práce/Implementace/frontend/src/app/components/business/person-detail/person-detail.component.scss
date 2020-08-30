@@ -1,0 +1,85 @@
+/*******************************************************************/
+/*  Project: Bachelor's thesis – Genealogy Database System         */
+/*           Faculty of Information Technology                     */
+/*           Brno University of Technology                         */
+/*                                                                 */
+/*  File:    person-detail.component.scss                          */
+/*  Date:    2019 – 2020                                           */
+/*  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>           */
+/*******************************************************************/
+
+.gender-image {
+  width: 100%;
+  max-width: 70px;
+}
+
+.header-block {
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.header-container {
+  position: relative;
+}
+
+.edit-btn {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  padding: 0 !important;
+}
+
+.container {
+  overflow: auto;
+  height: auto;
+  max-height: calc(90vh - 60px);
+}
+
+section {
+  padding: 10px;
+}
+
+.layout-table {
+  width: 100%;
+  border-spacing: 0 15px;
+
+  th {
+    padding-right: 15px;
+    text-align: right;
+    vertical-align: top;
+  }
+
+  padding-bottom: 0 !important;
+}
+
+.marriage-text {
+  opacity: 0.5;
+  font-size: smaller;
+  font-weight: normal;
+}
+
+.marriages-spouses {
+  padding-top: 0px;
+  margin-top: 0px;
+  margin-left: -5px;
+
+  li {
+    padding-bottom: 10px;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
+
+.link {
+  &:visited {
+    color: black;
+  }
+  &:hover {
+    text-decoration: underline;
+  }
+  color: black;
+  text-decoration: none;
+}

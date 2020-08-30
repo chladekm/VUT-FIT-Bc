@@ -1,0 +1,38 @@
+<!------------------------------------------------------------------>
+<!--  Project: Bachelor's thesis – Genealogy Database System      -->
+<!--           Faculty of Information Technology                  -->
+<!--           Brno University of Technology                      -->
+<!--                                                              -->
+<!--  File:    familytree-removing-person-dialog.component.html   -->
+<!--  Date:    2019 – 2020                                        -->
+<!--  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>        -->
+<!------------------------------------------------------------------>
+
+<div fxLayout="column">
+    <div *ngIf="canDelete">
+        <h3 mat-dialog-config>Potvrzení odstranění</h3>
+        <p>Opravdu si přejete osobu odstranit?</p>
+        <p *ngIf="message">{{message}}</p>
+
+    </div>
+
+    <div *ngIf="!canDelete">
+        <h3 mat-dialog-config>Nelze odstranit</h3>
+        <p *ngIf="message" [innerHTML]="message"></p>
+        <div *ngIf="!message">
+
+            Důvody mohou být:
+            <ul>
+                <li>Osoba má potomky</li>
+                <li>Osoba je na vrcholu rodokmenu a není komu předat vlastnost zakladatele rodu</li>
+            </ul>
+        </div>
+    </div>
+
+    <div fxLayout="row wrap" fxLayoutAlign="space-between start" fxFlex="100%" style="padding-top: 20px;">
+        <button mat-stroked-button (click)="close(false)" *ngIf="!canDelete" fxFlex="100%">Zrušit</button>
+        <button mat-stroked-button (click)="close(false)" *ngIf="canDelete" fxFlex="48%">Zrušit</button>
+        <button mat-raised-button class="delete-btn" (click)="close(true)" *ngIf="canDelete"
+            fxFlex="48%">Smazat</button>
+    </div>
+</div>

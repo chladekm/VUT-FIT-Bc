@@ -1,0 +1,112 @@
+<!------------------------------------------------------------------>
+<!--  Project: Bachelor's thesis – Genealogy Database System      -->
+<!--           Faculty of Information Technology                  -->
+<!--           Brno University of Technology                      -->
+<!--                                                              -->
+<!--  File:    collision-detail-person.component.html             -->
+<!--  Date:    2019 – 2020                                        -->
+<!--  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>        -->
+<!------------------------------------------------------------------>
+
+<h3 mat-dialog-title>Podrobnosti o osobě</h3>
+<div *ngIf="person">
+    <div fxLayout="row" fxLayout.xs="column" ngClass.gt-xs="table-bigscreen">
+        <div fxFlex="50%" fxFlex.xs="100%">
+            <table>
+                <!-- Sex -->
+                <tr>
+                    <th>Pohlaví</th>
+                    <td>
+                        <ng-container *ngIf="person.isFemale; else notFemale">
+                            žena
+                        </ng-container>
+                        <ng-template #notFemale>
+                            muž
+                        </ng-template>
+                    </td>
+                </tr>
+                <!-- Firstname -->
+                <tr>
+                    <th>Jména</th>
+                    <td>
+                        <span *ngFor="let name of person.personNames">
+                            <span *ngIf='name.isFirstName'>{{name.name}} </span>
+                        </span>
+                    </td>
+                </tr>
+                <!-- Lastname -->
+                <tr>
+                    <th>Příjmení</th>
+                    <td>
+                        <span *ngFor="let name of person.personNames">
+                            <span *ngIf='name.isFirstName == false'>{{name.name}} </span>
+                        </span>
+                    </td>
+                </tr>
+                <!-- Birth Place -->
+                <tr>
+                    <th>Obec</th>
+                    <td>
+                        <span *ngIf='person.birthPlace; else none'>{{person.birthPlace}}</span>
+                        <ng-template #none><span class="missing-info">–</span></ng-template>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div fxFlex="50%" fxFlex.xs="100%">
+            <table>
+
+                <!-- Birth Date -->
+                <tr>
+                    <th>Datum narození</th>
+                    <td>
+                        <span *ngIf='person.birthDate; else none'>{{person.birthDate | date:'d. M. y'}}</span>
+                        <ng-template #none><span class="missing-info">–</span></ng-template>
+                    </td>
+                </tr>
+                <!-- Baptism Date -->
+                <tr>
+                    <th>Datum křtu</th>
+                    <td>
+                        <span *ngIf='person.baptismDate; else none'>{{person.baptismDate | date:'d. M. y'}}</span>
+                        <ng-template #none><span class="missing-info">–</span></ng-template>
+                    </td>
+                </tr>
+                <!-- Death Date -->
+                <tr>
+                    <th>Datum úmrtí</th>
+                    <td>
+                        <span *ngIf='person.deathDate; else none'>{{person.deathDate | date:'d. M. y'}}</span>
+                        <ng-template #none><span class="missing-info">–</span></ng-template>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!-- References on other familytrees -->
+    <div *ngIf="familytreeIds && familytreeIds.length != 0">
+        <mat-divider></mat-divider>
+        <span class="referenceTreesHeader">V rodokmenech:&nbsp;&nbsp;</span>
+        <span *ngFor="let id of familytreeIds">
+            <a matTooltip="Otevřít v novém okně" matTooltipPosition="above" target="_blank" class="link"
+                [routerLink]="['/familytree/', id]">{{id}},</a>&nbsp;
+        </span>
+    </div>
+    <!-- References on original Records -->
+    <div>
+        <mat-divider></mat-divider>
+        <span class="referenceTreesHeader">Matriční záznamy:&nbsp;&nbsp;</span>
+        <span *ngIf="person.originalRecords.length != 0">
+            <span *ngFor="let record of person.originalRecords">
+                <a matTooltip="Otevřít v novém okně" matTooltipPosition="above" target="_blank" class="link"
+                href="http://perun.fit.vutbr.cz/demos/api/birth-ids/?acode=d396173a554a4ab8a379cb988f3c5ce8&id1={{record.recordId}}">{{record.recordId}},</a>&nbsp;
+            </span>
+        </span>
+        <span *ngIf="person.originalRecords.length == 0">
+            <a matTooltip="Otevřít v novém okně" matTooltipPosition="above" target="_blank" class="link"
+            href="{{birthRecordDatabaseSearchUrl}}">vyhledat
+            </a>
+        </span>
+    </div>
+</div>
+<button mat-stroked-button matDialogClose class="w-100">Zavřít</button>

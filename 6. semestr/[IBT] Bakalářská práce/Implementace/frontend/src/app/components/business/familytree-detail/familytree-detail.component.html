@@ -1,0 +1,28 @@
+<!------------------------------------------------------------------>
+<!--  Project: Bachelor's thesis – Genealogy Database System      -->
+<!--           Faculty of Information Technology                  -->
+<!--           Brno University of Technology                      -->
+<!--                                                              -->
+<!--  File:    familytree-detail.component.html                   -->
+<!--  Date:    2019 – 2020                                        -->
+<!--  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>        -->
+<!------------------------------------------------------------------>
+
+<div *ngIf='familytree' class="controles-container">
+	<h3>Nastavení rodokmenu</h3>
+	<mat-form-field appearance="fill">
+		<mat-label>Název</mat-label>
+		<input matInput [(ngModel)]="familytree.title" placeholder="Jméno" />
+	</mat-form-field>
+	<p class="type">
+		<span class="type-title">Typ:</span>
+		<span *ngIf="familytree.type == 0">Privátní</span>
+		<span *ngIf="familytree.type == 1">Veřejný</span>
+		<span *ngIf="familytree.type == 2">Neveřejný</span>
+		rodokmen
+	</p>
+	<div fxLayout="row wrap" fxLayoutAlign="end end" mat-dialog-actions>
+		<button mat-stroked-button fxFlex.xs="48%" (click)="cancel()">Zrušit</button>
+		<button mat-raised-button fxFlex.xs="48%" color="accent" (click)="save()">Uložit</button>
+	</div>
+</div>

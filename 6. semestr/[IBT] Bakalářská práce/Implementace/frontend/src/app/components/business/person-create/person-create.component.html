@@ -1,0 +1,72 @@
+<!------------------------------------------------------------------>
+<!--  Project: Bachelor's thesis – Genealogy Database System      -->
+<!--           Faculty of Information Technology                  -->
+<!--           Brno University of Technology                      -->
+<!--                                                              -->
+<!--  File:    person-create.component.html                       -->
+<!--  Date:    2019 – 2020                                        -->
+<!--  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>        -->
+<!------------------------------------------------------------------>
+
+<div *ngIf="person">
+    <h3 mat-dialog-title>Zadejte údaje o nové osobě:</h3>
+    <mat-dialog-content>
+        <div id="person-definition" fxLayout="row" fxLayout.lt-sm="column">
+            <div fxFlex="50%" fxLayout="column" ngStyle.gt-xs="padding-right: 10px">
+                <span class="sex-selection">
+                    <label>Pohlaví:</label><br>
+                    <mat-radio-group aria-label="Výběr pohlaví osoby" [(ngModel)]="person.isFemale"
+                        [disabled]="(selectedRelationship == 0) || (selectedRelationship == 1) || (selectedRelationship == 4) || (selectedRelationship == 5)">
+                        <mat-radio-button [value]="false">Muž</mat-radio-button>
+                        <mat-radio-button [value]="true">Žena</mat-radio-button>
+                    </mat-radio-group>
+                </span>
+                <mat-form-field appearance="fill">
+                    <mat-label>Jméno</mat-label>
+                    <input required matInput name="firstName" pattern="[A-Za-zá-žÁ-Ž- ]+" #firstName="ngModel"
+                        [(ngModel)]="person.personNames[0].name" placeholder="Křestní jméno"
+                        (ngModelChange)="(lastName.valid && firstName.valid) ? checkForm(true) : checkForm(false)" />
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Příjmení</mat-label>
+                    <input required matInput name="lastName" pattern="[A-Za-zá-žÁ-Ž- ]+" #lastName="ngModel"
+                        [(ngModel)]="person.personNames[1].name" placeholder="Příjmení"
+                        (ngModelChange)="(lastName.valid && firstName.valid) ? checkForm(true) : checkForm(false)" />
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Místo narození (obec)</mat-label>
+                    <input matInput name="birthPlace" pattern="[A-Za-zá-žÁ-Ž- ]+" [(ngModel)]="person.birthPlace"
+                        placeholder="Místo narození (obec)" />
+                </mat-form-field>
+            </div>
+            <div fxFlex="50%" fxLayout="column"
+                [ngClass.gt-xs]="(!areDatesValid) ? 'big-screen-indent-popup':'big-screen-indent'">
+                <div *ngIf="!areDatesValid" class="popup-bar-warning info-control-block"><span>Zadaná data nejsou
+                        chronologicky</span></div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Datum narození</mat-label>
+                    <input matInput [(ngModel)]="person.birthDate" (change)="transformDate(birthDate.value, 0)"
+                        (ngModelChange)="areDatesValid = true; checkDatesChronology()" [matDatepicker]="birth" #birthDate>
+                    <mat-datepicker-toggle matSuffix [for]="birth"></mat-datepicker-toggle>
+                    <mat-datepicker #birth startView="year" [startAt]="startDate"></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Datum křtu</mat-label>
+                    <input matInput [(ngModel)]="person.baptismDate" (change)="transformDate(baptismDate.value, 1)"
+                        (ngModelChange)="areDatesValid = true; checkDatesChronology()" [matDatepicker]="baptism" #baptismDate>
+                    <mat-datepicker-toggle matSuffix [for]="baptism"></mat-datepicker-toggle>
+                    <mat-datepicker #baptism startView="year" [startAt]="startDate"></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Datum úmrtí</mat-label>
+                    <input matInput [(ngModel)]="person.deathDate" (change)="transformDate(deathDate.value, 2)"
+                        (ngModelChange)="areDatesValid = true; checkDatesChronology()" [matDatepicker]="death" #deathDate>
+                    <mat-datepicker-toggle matSuffix [for]="death"></mat-datepicker-toggle>
+                    <mat-datepicker #death startView="year" [startAt]="startDate"></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </div>
+        <span style="font-size: small;" class="txt-grey-light">Kolonky označené pomocí * jsou povinné. Na
+            vstupu jména a příjmení jsou očekávány pouze znaky české abecedy</span>
+    </mat-dialog-content>
+</div>

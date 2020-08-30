@@ -1,0 +1,176 @@
+<!------------------------------------------------------------------>
+<!--  Project: Bachelor's thesis – Genealogy Database System      -->
+<!--           Faculty of Information Technology                  -->
+<!--           Brno University of Technology                      -->
+<!--                                                              -->
+<!--  File:    person-detail.component.html                       -->
+<!--  Date:    2019 – 2020                                        -->
+<!--  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>        -->
+<!------------------------------------------------------------------>
+
+<div *ngIf="person && selectedPerson" class="container">
+    <div fxLayout="row" class="header-container">
+        <div fxFlex="25%" class="header-block" fxLayout="column" fxLayoutAlign="center center">
+            <!-- Avatar of man -->
+            <!-- Licence CC BY-NC 4.0  -->
+            <!-- Author: http://getdrawings.com/ -->
+            <!-- Downloaded from: http://getdrawings.com/get-icon#man-icon-png-67.png [EDITED] -->
+            <img *ngIf="!(person.isFemale)" class="gender-image" src="../../../../assets/img/man-icon-edited.png"
+                alt="Pohlaví - muž">
+            <!-- Avatar of woman -->
+            <!-- Licence CC BY-NC 4.0  -->
+            <!-- Author: http://getdrawings.com/ -->
+            <!-- Downloaded from: http://getdrawings.com/get-icon#man-woman-icon-52.png -->
+            <img *ngIf="person.isFemale" class="gender-image" src="../../../../assets/img/woman-icon.png"
+                alt="Pohlaví - žena">
+
+        </div>
+        <div fxFlex="50%" class="header-block" fxLayoutAlign="start center">
+            <h4>{{selectedPerson.name}}</h4>
+        </div>
+        <button fxFlex="25%" mat-stroked-button class="edit-btn" (click)="editPerson()"><span
+                class="material-icons">edit</span></button>
+    </div>
+    <mat-divider></mat-divider>
+    
+    <section ngStyle.lt-md="padding-bottom: 70px;">
+        <table class="layout-table">
+            
+            <!-- Firstname -->
+            <tr>
+                <th>Jména:</th>
+                <td>
+                    <span *ngFor="let name of person.personNames">
+                        <span *ngIf='name.isFirstName'>{{name.name}} </span>
+                    </span>
+                </td>
+            </tr>
+            <!-- Lastname -->
+            <tr>
+                <th>Příjmení:</th>
+                <td>
+                    <span *ngFor="let name of person.personNames">
+                        <span *ngIf='name.isFirstName == false'>{{name.name}} </span>
+                    </span>
+                </td>
+            </tr>
+            <!-- Birth Place -->
+            <tr *ngIf="person.birthPlace">
+                <th>Obec:</th>
+                <td>
+                    <span>{{person.birthPlace}}</span>
+                </td>
+            </tr>
+            <!-- Birth Date -->
+            <tr *ngIf='person.birthDate'>
+                <th>Datum narození:</th>
+                <td>
+                    <span>{{person.birthDate | date:'d. M. y'}}</span>
+                </td>
+            </tr>
+            <!-- Baptism Date -->
+            <tr *ngIf='person.baptismDate'>
+                <th>Datum křtu:</th>
+                <td>
+                    <span>{{person.baptismDate | date:'d. M. y'}}</span>
+                </td>
+            </tr>
+            <!-- Death Date -->
+            <tr *ngIf='person.deathDate'>
+                <th>Datum úmrtí:</th>
+                <td>
+                    <span>{{person.deathDate | date:'d. M. y'}}</span>
+                </td>
+            </tr>
+
+            <mat-divider *ngIf="(mothersNames && mothersNames.length != 0) || (fathersNames && fathersNames.length != 0)"></mat-divider>
+
+            <!-- Mother -->
+            <tr *ngIf="mothersNames && mothersNames.length != 0">
+                <th>Matka:</th>
+                <td>
+                    <span *ngFor="let name of mothersNames">
+                        <span *ngIf='name.isFirstName'>{{name.name}} </span>
+                    </span>
+                    <span *ngFor="let name of mothersNames">
+                        <span *ngIf='name.isFirstName == false'>{{name.name}} </span>
+                    </span>
+                </td>
+            </tr>
+            <!-- Father -->
+            <tr *ngIf="fathersNames && fathersNames.length != 0">
+                <th>Otec:</th>
+                <td>
+                    <span *ngFor="let name of fathersNames">
+                        <span *ngIf='name.isFirstName'>{{name.name}} </span>
+                    </span>
+                    <span *ngFor="let name of fathersNames">
+                        <span *ngIf='name.isFirstName == false'>{{name.name}} </span>
+                    </span>
+                </td>
+            </tr>
+
+            <mat-divider *ngIf="marriages && marriages.length != 0"></mat-divider>
+
+            <!-- Marriage -->
+            <tr *ngIf="marriages && marriages.length != 0">
+                <th>Manželství:<br><span class="marriage-text">Pro více informací<br>rozklikněte jméno</span></th>
+                <td>
+                    <ul class="marriages-spouses">
+                        <li *ngFor="let row of marriages">
+                            <a (click)="showMarriageDetail(row)" class="" matTooltip="Zobrazit podrobnosti"
+                                matTooltipPosition="above">
+                                {{row.name}}
+                            </a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+
+            <mat-divider></mat-divider>
+
+            <!-- Original record ids -->
+            <tr>
+                <th>Matriční záznamy:<br><span class="marriage-text">Pro více informací<br>rozklikněte</span></th>
+                <td *ngIf="person.originalRecords && person.originalRecords.length != 0">
+                    <ul class="marriages-spouses">
+                        <li *ngFor="let row of person.originalRecords">
+                            <a matTooltip="Otevřít v novém okně" matTooltipPosition="above" target="_blank" class="link"
+                            href="http://perun.fit.vutbr.cz/demos/api/birth-ids/?acode=d396173a554a4ab8a379cb988f3c5ce8&id1={{row.recordId}}">
+                                {{row.recordId}}
+                            </a>
+                        </li>
+                    </ul>
+                </td>
+                <td *ngIf="person.originalRecords && person.originalRecords.length == 0">
+                    <ul class="marriages-spouses">
+                        <li>
+                            <a matTooltip="Otevřít v novém okně" matTooltipPosition="above" target="_blank" class="link"
+                            href="{{birthRecordDatabaseSearchUrl}}">
+                                vyhledat
+                            </a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+
+            <mat-divider *ngIf="referenceTreeIds && referenceTreeIds.length != 0"></mat-divider>
+
+            <!-- References to other FamilyTrees -->
+            <tr *ngIf="referenceTreeIds && referenceTreeIds.length != 0">
+                <th>V rodokmenech:</th>
+                <td>
+                    <ul class="marriages-spouses">
+                        <li *ngFor="let id of referenceTreeIds">
+                            <a matTooltip="Otevřít v novém okně" matTooltipPosition="above" target="_blank"
+                                matTooltip="Kliknutím otevřete" class="link"
+                                [routerLink]="['/familytree/', id]">{{id}}</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+
+
+        </table>
+    </section>
+</div>

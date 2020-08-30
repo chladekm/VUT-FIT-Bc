@@ -1,0 +1,55 @@
+/*******************************************************************/
+/*  Project: Bachelor's thesis – Genealogy Database System         */
+/*           Faculty of Information Technology                     */
+/*           Brno University of Technology                         */
+/*                                                                 */
+/*  File:    collision-detail-person.component.scss                */
+/*  Date:    2019 – 2020                                           */
+/*  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>           */
+/*******************************************************************/
+
+table,
+.referenceTreesHeader {
+    font-size: 95%;
+}
+
+.table-bigscreen {
+    min-width: 480px;
+}
+
+tr {
+    padding: 5px;
+}
+
+th,
+.referenceTreesHeader {
+    font-weight: normal;
+    opacity: 0.7;
+    text-align: right;
+    padding: 5px;
+}
+
+.missing-info {
+    margin-left: 5px;
+}
+
+button {
+    margin-top: 20px;
+}
+
+mat-divider {
+    margin: 10px 0;
+}
+
+a {
+    font-size: 95%;
+    color: black;
+
+    &:hover {
+        font-weight: bold;
+    }
+
+    &:visited {
+        color: black;
+    }
+}

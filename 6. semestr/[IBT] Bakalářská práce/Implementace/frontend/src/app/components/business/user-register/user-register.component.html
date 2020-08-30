@@ -1,0 +1,59 @@
+<!------------------------------------------------------------------>
+<!--  Project: Bachelor's thesis – Genealogy Database System      -->
+<!--           Faculty of Information Technology                  -->
+<!--           Brno University of Technology                      -->
+<!--                                                              -->
+<!--  File:    user-register.component.html                       -->
+<!--  Date:    2019 – 2020                                        -->
+<!--  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>        -->
+<!------------------------------------------------------------------>
+
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Registrace</mat-card-title>
+        <mat-card-subtitle>pro registraci prosím vyplňte následující údaje. Pole označené * jsou povinné.</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <p class="txt-grey subtitle">Osobní údaje</p>
+                <mat-form-field appearance="fill" class="w-100">
+                    <mat-label>Jméno</mat-label>
+                    <input matInput type="text" formControlName="name" class="form-control" />
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="w-100">
+                    <mat-label>Příjmení</mat-label>
+                    <input matInput type="text" formControlName="surname" />
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="w-100">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="text" formControlName="email" />
+                </mat-form-field>
+                <p class="txt-grey subtitle">Příhlašovací údaje</p>
+                <mat-form-field appearance="fill" class="w-100">
+                    <mat-label>Uživatelské jméno</mat-label>
+                    <input required matInput type="text"  (ngModelChange)="checkUniqueUsername()" formControlName="nickname" />
+                </mat-form-field>
+                <div *ngIf="!usernameUnique && f.nickname.value" class="popup-bar-warning info-control-block"><span>Zadané uživatelské jméno je již obsazené</span></div>
+                <div *ngIf="usernameUnique && f.nickname.value" class="popup-bar-success info-control-block"><span>Zadané uživatelské jméno je volné</span></div>
+                <mat-form-field appearance="fill" class="w-100">
+                    <mat-label>Heslo</mat-label>
+                    <input required matInput type="password" (ngModelChange)="comparePasswords()" formControlName="password" />
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="w-100">
+                    <mat-label>Heslo znovu</mat-label>
+                    <input required matInput type="password" (ngModelChange)="comparePasswords()" formControlName="passwordAgain" />
+                </mat-form-field>
+                <div *ngIf="!passwordsIdentic && (f.password.value && f.passwordAgain.value)" class="popup-bar-warning info-control-block"><span>Hesla se neshodují</span></div>
+                <p class="info-text">Heslo musí mít délku minimálně 5 znaků, může obsahovat pouze malá a velká písmena, číslice a znaky
+                    '_' nebo '-'</p>
+            </div>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button [disabled]="!(registerForm.valid && registerForm.touched && passwordsIdentic)" color="accent"
+            ngClass.lt-md="w-100" class="login-btn w-100" (click)="onSubmit()">Registrovat</button>
+        <p class="register-text">Pokud již máte uživatelský účet, můžete se <a
+                routerLink="/login">přihlásit</a>.</p>
+    </mat-card-actions>
+</mat-card>

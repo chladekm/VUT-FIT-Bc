@@ -1,0 +1,96 @@
+<!------------------------------------------------------------------>
+<!--  Project: Bachelor's thesis – Genealogy Database System      -->
+<!--           Faculty of Information Technology                  -->
+<!--           Brno University of Technology                      -->
+<!--                                                              -->
+<!--  File:    person-replace-undefined.component.html            -->
+<!--  Date:    2019 – 2020                                        -->
+<!--  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>        -->
+<!------------------------------------------------------------------>
+
+<!---------------------- Buttons for mobile devices ---------------------->
+<div fxHide.gt-xs fxShow.xs [fxHide.xs]="smallDisplayContinue" fxLayout="column" class="small-display-btns">
+    <h3 mat-dialog-title>Zvolte akci</h3>
+    <button mat-stroked-button (click)="smallDisplayContinue = true">Nahradit osobu</button>
+    <button mat-stroked-button color="accent" (click)="close('add_relationship')">Přidat nový
+        vztah</button>
+    <button mat-stroked-button color="warn" (click)="close('delete_person')">Odstranit
+        osobu</button>
+</div>
+
+<!---------------------- Public & Non-public familytrees ---------------------->
+<mat-horizontal-stepper [fxHide.xs]="!smallDisplayContinue" #stepper [linear]="true"
+    *ngIf="undefinedPerson && person && familytree.type != 0" ngClass.xs="hide-stepper">
+
+    <!-- Filling personal informations -->
+    <mat-step [completed]="isFormValid">
+        <ng-template matStepLabel>Údaje o osobě</ng-template>
+        <app-person-create (formValid)="formValid($event)" [person]="person"
+            [selectedRelationship]="(person.isFemale) ? 5 : 4" (change)="callSimiliarPersonSearch()">
+        </app-person-create>
+        <mat-dialog-actions>
+            <div fxLayout="row" fxFlex="100%" fxLayoutAlign="end start">
+
+                <button mat-stroked-button (click)="close()" fxFlex.lt-sm="35%">Zavřít</button>
+                <button mat-button matStepperNext fxFlex="25%" fxFlex.lt-sm="60%" mat-raised-button color="accent"
+                    [disabled]="!isFormValid" (click)="callSimiliarPersonSearch()">Pokračovat</button>
+            </div>
+            <div fxFlex="100%" fxHide.xs>
+                <div fxLayout="column">
+                    <mat-divider></mat-divider>
+                    <h3 mat-dialog-title>Operace s neznámou osobou</h3>
+                    <div mat-dialog-content fxLayout="row wrap" fxLayout.xs="column" fxFlex="100%">
+                        <button mat-stroked-button color="accent" (click)="close('add_relationship')">Přidat nový
+                            vztah</button>
+                        <button mat-stroked-button color="warn" (click)="close('delete_person')">Odstranit
+                            osobu</button>
+                    </div>
+                </div>
+            </div>
+        </mat-dialog-actions>
+    </mat-step>
+
+    <!-- Person selection -->
+    <mat-step *ngIf="familytree.type != 0">
+        <ng-template matStepLabel>Vyberte z existujících osob</ng-template>
+
+        <app-person-select-similiar [person]="person" (existingPersonChange)="newSelectedExistingPerson($event)">
+        </app-person-select-similiar>
+        <mat-dialog-actions fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="end start" fxLayoutGap.xs="10px"
+            fxLayoutAlign.xs="space-around stretch">
+            <button mat-stroked-button matStepperPrevious fxFlex.xs="100%">Zpět</button>
+            <button matStepperNext mat-raised-button class="btn-blue" fxFlex.xs="100%" [disabled]="!person"
+                (click)="replacePerson(person)">Založit novou osobu a nahradit</button>
+            <button matStepperNext mat-raised-button color="accent" fxFlex.xs="100%"
+                (click)="replacePerson(personFromExistingRecords)" [disabled]="!personFromExistingRecords">Nahradit s
+                vybranou
+                osobou</button>
+        </mat-dialog-actions>
+    </mat-step>
+
+</mat-horizontal-stepper>
+
+<!---------------------- Private familytrees only ---------------------->
+<div [fxHide.xs]="!smallDisplayContinue" fxLayout="column"
+    *ngIf="undefinedPerson && person != null && person.personNames.length == 2 && familytree.type == 0">
+    <ng-template matStepLabel>Údaje o osobě</ng-template>
+    <app-person-create (formValid)="formValid($event)" [person]="person"
+        [selectedRelationship]="(person.isFemale) ? 5 : 4" (change)="callSimiliarPersonSearch()"></app-person-create>
+    <mat-dialog-actions fxLayout="row" fxLayoutAlign="end start">
+        <button mat-stroked-button (click)="close()" fxFlex.lt-sm="35%">Zavřít</button>
+        <button fxFlex="25%" fxFlex.lt-sm="60%" mat-raised-button color="accent" (click)="replacePerson(person)"
+            *ngIf="familytree.type == 0" [disabled]="!isFormValid">Vytvořit</button>
+    </mat-dialog-actions>
+    <div fxFlex="100%" fxHide.xs style="margin-top: 20px;">
+        <div fxLayout="column">
+            <mat-divider></mat-divider>
+            <h3 mat-dialog-title>Operace s neznámou osobou</h3>
+            <div mat-dialog-content fxLayout="row wrap" fxLayout.xs="column" fxFlex="100%" fxLayoutGap="10px">
+                <button mat-stroked-button color="accent" (click)="close('add_relationship')">Přidat nový
+                    vztah</button>
+                <button mat-stroked-button color="warn" (click)="close('delete_person')">Odstranit
+                    osobu</button>
+            </div>
+        </div>
+    </div>
+</div>

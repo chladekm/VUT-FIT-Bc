@@ -1,0 +1,65 @@
+<!------------------------------------------------------------------>
+<!--  Project: Bachelor's thesis – Genealogy Database System      -->
+<!--           Faculty of Information Technology                  -->
+<!--           Brno University of Technology                      -->
+<!--                                                              -->
+<!--  File:    user-familytrees.component.html                    -->
+<!--  Date:    2019 – 2020                                        -->
+<!--  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>        -->
+<!------------------------------------------------------------------>
+
+<mat-toolbar fxLayout="row wrap" fxLayoutAlign="space-between end">
+    <span>Vaše rodokmeny</span>
+    <button mat-stroked-button style="margin-bottom: 2px;" *ngIf="!showEditRow" (click)="showEditRow = true">Upravit</button>
+    <button mat-stroked-button style="margin-bottom: 2px;" *ngIf="showEditRow" (click)="showEditRow = false">Skrýt</button>
+</mat-toolbar>
+<mat-divider style="padding-bottom: 10px;"></mat-divider>
+<div *ngIf="user">
+    <div fxLayout="row wrap" fxLayoutAlign="start stretch">
+        <div fxFlex="33%" fxFlex.lt-md="100%" *ngFor="let tree of user.familyTrees" class="item">
+            <mat-card>
+                <p fxLayoutAlign="end start" *ngIf="showEditRow">
+                    <button mat-icon-button class="edit-btn" aria-label="Upravit rodokmen" matTooltip="Upravit rodokmen"
+                    matTooltipPosition="above" (click)="editFamilyTree(tree)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" class="delete-btn" aria-label="Odstranit rodokmen" matTooltip="Odstranit rodokmen"
+                    matTooltipPosition="above" (click)="deleteFamilyTree(tree)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </p>
+                <mat-card-header>
+                    <mat-card-title>{{tree.title}}</mat-card-title>
+                    <mat-card-subtitle>
+                        <span *ngIf="tree.type==0">privátní</span>
+                        <span *ngIf="tree.type==1">veřejný</span>
+                        <span *ngIf="tree.type==2">neveřejný</span>
+                    </mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <table>
+                        <tr>
+                            <th>Celkem osob</th>
+                            <td>{{tree.familyTreePerson.length}}</td>
+                        </tr>
+                        <tr>
+                            <th>Celkem vztahů</th>
+                            <td>{{(tree.familyTreeRelationship)?.length || '0'}}</td>
+                        </tr>
+                        <tr>
+                            <th>Nevyřešených kolizí</th>
+                            <td>{{getCountOfUnsolvedCollisions(tree.familyTreeCollisions)}}</td>
+                        </tr>
+                    </table>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button fxFlex="100%" mat-stroked-button class="show-btn" [routerLink]="['/familytree', tree.id]">Zobrazit</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+        <a (click)="addNewFamilyTree()" fxFlex="33%" fxFlex.lt-md="100%" class="item">
+            <div class="add-new-familytree" fxLayoutAlign="center center"><span class="material-icons">add</span></div>
+        </a>
+
+    </div>
+</div>

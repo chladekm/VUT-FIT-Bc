@@ -1,0 +1,40 @@
+<!------------------------------------------------------------------>
+<!--  Project: Bachelor's thesis – Genealogy Database System      -->
+<!--           Faculty of Information Technology                  -->
+<!--           Brno University of Technology                      -->
+<!--                                                              -->
+<!--  File:    user-login.component.html                          -->
+<!--  Date:    2019 – 2020                                        -->
+<!--  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>        -->
+<!------------------------------------------------------------------>
+
+<span fxHide.xs class="app-title logo"></span>
+<mat-card>
+		<mat-card-header>
+			<mat-card-title>Přihlášení</mat-card-title>
+			<mat-card-subtitle>pro přihlášení prosím vyplňte své přihlašovací údaje</mat-card-subtitle>
+		</mat-card-header>
+		<mat-card-content>			
+			<div *ngIf="loginFailed" class="popup-bar-warning" style="margin: 10px 0;"><span>Uživatelské jméno nebo heslo není správné</span></div>
+			<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+				<div class="form-group">
+					<mat-form-field appearance="fill" class="w-100">
+						<mat-label>Uživatelské jméno</mat-label>
+						<input matInput type="text" formControlName="username" class="form-control" (keyup.enter)="onSubmit()"/>
+					</mat-form-field>
+				</div>
+				<div class="form-group">
+					<mat-form-field appearance="fill" class="w-100">
+						<mat-label>Heslo</mat-label>
+						<input matInput type="password" formControlName="password" (keyup.enter)="onSubmit()"/>
+					</mat-form-field>
+				</div>
+			</form>
+		</mat-card-content>
+		<mat-card-actions>
+			<button mat-raised-button [disabled]="!(loginForm.valid && loginForm.touched)" color="accent"
+				ngClass.lt-md="w-100" class="login-btn w-100" (click)="onSubmit()">Přihlásit se</button>
+			<p class="register-text">Pokud již nemáte uživatelský účet, můžete se <a
+					routerLink="/register">zaregistrovat</a>.</p>
+		</mat-card-actions>
+</mat-card>

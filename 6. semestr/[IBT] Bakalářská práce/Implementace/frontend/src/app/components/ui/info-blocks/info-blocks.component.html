@@ -1,0 +1,54 @@
+<!------------------------------------------------------------------>
+<!--  Project: Bachelor's thesis – Genealogy Database System      -->
+<!--           Faculty of Information Technology                  -->
+<!--           Brno University of Technology                      -->
+<!--                                                              -->
+<!--  File:    info-blocks.component.html                         -->
+<!--  Date:    2019 – 2020                                        -->
+<!--  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>        -->
+<!------------------------------------------------------------------>
+
+
+<!-- 4 small info blocks on home page -->
+<div fxLayout="row" fxLayoutAlign="center" fxFlex class="flex-container bg-grey-superlight">
+    <div fxLayout="column" fxFlex="80%" fxLayoutAlign="center">
+
+        <div class="center" fxFlex>
+            <section class="mat-typography info-header">
+                <h1>Proč si vybrat <span class="app-title"></span>?</h1>
+            </section>
+        </div>
+
+        <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="center start" class="info-block"
+            fxLayoutGap="40px">
+
+            <div fxFlex="calc(50% - 40px)" fx.Flex.lt-sm="100%" fxFlex.gt-md="calc(25% - 40px)">
+                <mat-icon>account_tree</mat-icon>
+                <section class="mat-title">Vytváření rodokmenů</section>
+                <span><span class="app-title"></span> je nástroj, který umožňuje snadné a&nbsp;pohodlné vytváření
+                    rodokmenů. Vytvořte si
+                    i&nbsp;Vy vlastní strom života!</span>
+            </div>
+            <div fxFlex="calc(50% - 40px)" fx.Flex.lt-sm="100%" fxFlex.gt-md="calc(25% - 40px)">
+                <mat-icon>file_copy</mat-icon>
+                <section class="mat-title">Provázání s&nbsp;matrikami</section>
+                <span>Pro nové osoby přidané do rodokmenů jsou automaticky vyhledávány digitalizované matriční záznamy, které si můžete ihned zobrazit.</span>
+            </div>
+            <div fxFlex="calc(50% - 40px)" fx.Flex.lt-sm="100%" fxFlex.gt-md="calc(25% - 40px)">
+                <mat-icon>feedback</mat-icon>
+                <section class="mat-title">Porovnávání kolizí</section>
+                <span>Rodokmeny uživatelů mezi sebou mohou být porovnávány, v&nbsp;takovém případě můžete odhalit
+                    vám
+                    doposud
+                    neznámé větve rodokmenu, či chyby ve&nbsp;vašem vlastním.</span>
+            </div>
+            <div fxFlex="calc(50% - 40px)" fx.Flex.lt-sm="100%" fxFlex.gt-md="calc(25% - 40px)">
+                <mat-icon>supervised_user_circle</mat-icon>
+                <section class="mat-title">Duplikace rodokmenů</section>
+                <span>Rodokmeny ostatních uživatelů, které se&nbsp;shodují v&nbsp;určité osobě s&nbsp;tím Vaším máte
+                    možnost
+                    spojit s&nbsp;vlastním.</span>
+            </div>
+        </div>
+    </div>
+</div>

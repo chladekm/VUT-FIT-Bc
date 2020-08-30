@@ -1,0 +1,47 @@
+<!------------------------------------------------------------------>
+<!--  Project: Bachelor's thesis – Genealogy Database System      -->
+<!--           Faculty of Information Technology                  -->
+<!--           Brno University of Technology                      -->
+<!--                                                              -->
+<!--  File:    jumbotron.component.html                           -->
+<!--  Date:    2019 – 2020                                        -->
+<!--  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>        -->
+<!------------------------------------------------------------------>
+
+<!-- Jumbotron image and basic caption -->
+<div fxLayout="row">
+    <div class="jumbotron" dir="rtl">
+        <span ngClass.md="jumbotron_overlay_desktop" ngClass.gt-md="jumbotron_overlay_desktop"
+            ngClass.lt-md="jumbotron_overlay_mobile">
+
+            <!-- Intro box -->
+            <div fxFlex="35" fxFlex.lt-md="100" fxFlexOffset.gt-sm="10" class="jumbotron-intro">
+
+                <div fxLayout="column" fxFlex="100" dir="ltr">
+                    <div fxLayout="row">
+                        <div fxFlex="noshrink" fxHide.lt-md class="logo">
+                            <img src="assets/img/logo.png">
+                        </div>
+                        <div fxFlex="1 1 80" fxFlex.lt-md="100">
+                            <div class="intro-logo-box" dir="ltr">
+                                <span class="txt-grey-superlight"><span class="app-title logo"></span></span>
+                                <p class="txt-grey-superlight">
+                                    Jednoduchý nástroj k vytváření rodokmenů a&nbsp;propojení s&nbsp;digitalizovanými
+                                    matrikami.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p *ngIf="showRegister()" class="txt-grey-superlight register-caption">
+                        Připojte se ke stávajícím uživatelům a vytvořte si i vy vlastní rodokmen
+                    </p>
+
+                    <span *ngIf="showRegister()" fxFlex="100" fxLayoutAlign="center">
+                        <button mat-raised-button class="btn-blue" routerLink="register">Registrovat</button>
+                    </span>
+                </div>
+            </div>
+        </span>
+    </div>
+</div>

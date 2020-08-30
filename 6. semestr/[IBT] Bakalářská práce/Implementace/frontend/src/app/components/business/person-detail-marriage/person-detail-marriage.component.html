@@ -1,0 +1,62 @@
+<!------------------------------------------------------------------>
+<!--  Project: Bachelor's thesis – Genealogy Database System      -->
+<!--           Faculty of Information Technology                  -->
+<!--           Brno University of Technology                      -->
+<!--                                                              -->
+<!--  File:    person-detail-marriage.component.html              -->
+<!--  Date:    2019 – 2020                                        -->
+<!--  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>        -->
+<!------------------------------------------------------------------>
+
+<div style="min-width: 250px;" fxLayout="column">
+    <div fxLayout="row wrap" fxFlex="100%">
+        <div fxFlex="20%">
+            <span class="material-icons" style="font-size: 300%;">people_alt</span>
+        </div>
+        <p style="padding-left: 20px;">
+            <span style="opacity: 0.5;">Manželství s </span><br><span>{{spouseName}}</span>
+        </p>
+    </div>
+    <div *ngIf="marriages.length == 0">
+        <p style="opacity: 0.5;">Nejsou dostupné žádné informace o manželství</p>
+    </div>
+    <div *ngIf="marriages">
+        <div *ngFor="let row of marriages" style="padding: 10px 0">
+            <mat-divider></mat-divider>
+            <table>
+                <tr>
+                    <td style="opacity: 0.5;">Datum: </td>
+                    <td>{{row.marriageDate | date:'d. M. y'}}</td>
+                </tr>
+                <tr>
+                    <td style="opacity: 0.5;">Adresa: </td>
+                    <td>{{row.marriageAddress}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div *ngIf="newMarriage" fxLayout="column">
+        <mat-divider></mat-divider>
+        <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Datum svatby</mat-label>
+            <input matInput [(ngModel)]="newMarriage.marriageDate" [matDatepicker]="mDate"
+                (change)="transformDate(marriageDate.value)" #marriageDate>
+            <mat-datepicker-toggle matSuffix [for]="mDate"></mat-datepicker-toggle>
+            <mat-datepicker #mDate startView="year" [startAt]="marriageStartDate"></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Místo svatby</mat-label>
+            <input matInput name="address" pattern="[A-Za-zá-žÁ-Ž0-9-:/ ]+" #lastName="ngModel"
+                [(ngModel)]="newMarriage.marriageAddress" placeholder="Místo svatby" />
+        </mat-form-field>
+        <button fxFlex="100%" mat-stroked-button color="accent" (click)="createNewMarriage(newMarriage);"
+            [disabled]="newMarriage.marriageAddress == '' && newMarriage.marriageDate == null">Vytvořit</button>
+    </div>
+    <div fxLayout="row" fxFlex="100%" fxLayoutAlign="space-between start" style="margin-top: 15px;">
+        <button *ngIf="!newMarriage" fxFlex="48%" mat-stroked-button color="accent"
+            (click)="newMarriage = initMarriage();"><span class="material-icons">add</span></button>
+        <button *ngIf="newMarriage" fxFlex="48%" mat-stroked-button color="warn"
+            (click)="newMarriage = null">Zrušit</button>
+        <button fxFlex="48%" mat-stroked-button (click)="close()">Zavřít</button>
+    </div>
+</div>

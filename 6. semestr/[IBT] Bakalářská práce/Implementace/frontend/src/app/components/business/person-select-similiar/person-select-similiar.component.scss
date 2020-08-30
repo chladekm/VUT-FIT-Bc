@@ -1,0 +1,91 @@
+/*******************************************************************/
+/*  Project: Bachelor's thesis – Genealogy Database System         */
+/*           Faculty of Information Technology                     */
+/*           Brno University of Technology                         */
+/*                                                                 */
+/*  File:    person-select-similiar.component.scss                 */
+/*  Date:    2019 – 2020                                           */
+/*  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>           */
+/*******************************************************************/
+
+.subtitle {
+  opacity: 0.5;
+  margin-top: -20px;
+}
+
+.checked-icon {
+  font-size: 115%;
+  color: brown;
+
+  &:hover {
+    cursor: default;
+  }
+}
+
+// Table with similiar persons
+.table-container {
+  overflow: auto;
+  max-height: 50vh;
+  margin: 15px 0;
+
+  table {
+    width: 100%;
+  }
+
+  tr.detail-row {
+    height: 0;
+  }
+
+  tr.element-row:not(.expanded-row):hover {
+    background: whitesmoke;
+  }
+
+  tr.element-row:not(.expanded-row):active {
+    background: #efefef;
+  }
+
+  .element-row td {
+    border-bottom-width: 0;
+  }
+
+  .element-detail {
+    overflow: hidden;
+    display: flex;
+  }
+
+  .element-description {
+    padding: 10px;
+
+    div {
+      margin-left: 80px;
+    }
+
+    td {
+      padding: 5px;
+    }
+
+    p {
+      font-weight: normal;
+      color: black;
+      padding: 5px;
+    }
+
+    a,
+    a:visited,
+    a:hover,
+    a:active {
+      text-decoration: underline;
+      color: black;
+      opacity: 0.7;
+    }
+
+    a:hover {
+      opacity: 0.9 !important;
+      cursor: pointer;
+    }
+  }
+}
+
+.no-birthplace {
+  color: rgb(175, 175, 175) !important;
+}

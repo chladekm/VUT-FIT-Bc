@@ -1,0 +1,39 @@
+/*******************************************************************/
+/*  Project: Bachelor's thesis – Genealogy Database System         */
+/*           Faculty of Information Technology                     */
+/*           Brno University of Technology                         */
+/*                                                                 */
+/*  File:    user-login.component.scss                             */
+/*  Date:    2019 – 2020                                           */
+/*  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>           */
+/*******************************************************************/
+
+.register-text{
+    padding-top: 25px;
+    font-size: smaller;
+    color: grey;
+    text-align: center;
+
+    a{color: grey;}
+    a:hover{color: rgb(48, 48, 48);}
+}
+
+mat-card-actions
+{
+    margin-top: -15px;
+    padding: 0 10px;
+}
+
+.logo{
+    font-size: 450%;
+    text-align: center;
+    color: rgb(184, 184, 184);
+    padding-bottom: 20px;
+    display: block;
+    width: 100%;
+}
+
+logo-img{
+    max-width: 150px;
+    width: 100%;
+}

@@ -1,0 +1,107 @@
+<!------------------------------------------------------------------>
+<!--  Project: Bachelor's thesis – Genealogy Database System      -->
+<!--           Faculty of Information Technology                  -->
+<!--           Brno University of Technology                      -->
+<!--                                                              -->
+<!--  File:    familytree.component.html                          -->
+<!--  Date:    2019 – 2020                                        -->
+<!--  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>        -->
+<!------------------------------------------------------------------>
+
+<!-- Spinner while loading -->
+<div *ngIf="!familytree">
+    <mat-spinner></mat-spinner>
+</div>
+
+<!-- Content -->
+<div fxLayout="column" fxFlex *ngIf="familytree">
+    <div fxFlex="1 0 8">
+        <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutGap.lt-sm="0px" class="bg-grey title-bar">
+            <section class="menu-buttons" fxLayoutGap="15px" fxFlex.xs="100%" fxLayoutGap.xs="15px">
+                <a routerLink="/dashboard" matTooltip="Zpět na profil"><span
+                        class="material-icons txt-grey">home</span></a>
+                <span fxLayoutGap="15px">
+                    <a (click)="displayHelp();" matTooltip="Zobrazit nápovědu" [hidden]="!authorized()"><span
+                            class="material-icons txt-grey">help</span></a>
+                    <a (click)="editFamilyTree();" matTooltip="Upravit rodokmen" [hidden]="!authorized()"><span
+                            class="material-icons txt-grey">settings</span></a>
+                    <a *ngIf="familytree.userId && familytree.type != 0" disabled="!relationships"
+                        [hidden]="!authorized()" (click)="showCollisions();" matTooltip="Zobrazit kolize">
+                        <span class="material-icons txt-grey" [matBadge]="collisionsCount"
+                            matBadgeColor="accent">notification_important</span></a>
+                </span>
+            </section>
+            <span fxHide.xs *ngIf="!authorized() && realUserName" class="vertical-separator"></span>
+            <span *ngIf="!authorized() && realUserName" class="foreign-familytree mat-elevation-z4" fxHide.xs>Rodokmen
+                uživatele {{realUserName}}</span>
+            <span fxHide.xs class="vertical-separator"></span>
+            <section class="mat-title" fxFlex.xs="100%">{{familytree.title | uppercase }}</section>
+        </div>
+    </div>
+    <div fxFlex="1 90 92" (window:resize)="renderFamilyTree()" fxLayout="row" ngStyle.lt-md="position: relative;"
+        fxLayoutAlign.lt-md="space-between center">
+        <!-- Detail about person (side panel) -->
+        <div *ngIf="showPerson" fxFlexFill fxFlex.gt-sm="23%" style="z-index: 5;" class="bg-grey-superlight"
+            ngStyle.lt-md="position: absolute;">
+            <div fxLayout="column">
+                <app-person-detail [init]="showPerson" [treeId]="familytree.id" (refreshView)="getFamilyTree()">
+                </app-person-detail>
+                <mat-dialog-actions>
+                    <div fxHide fxShow.lt-md class="bg-grey-superlight detail-close-button">
+                        <button mat-raised-button
+                            (click)="this.showPerson = undefined; this.renderFamilyTree();">Zavřít</button>
+                    </div>
+                </mat-dialog-actions>
+            </div>
+        </div>
+        <!-- Side panel close arrow -->
+        <div *ngIf="showPerson" fxFlex="2%" fxHide fxShow.gt-sm style="z-index: 5;" fxFlexAlign="center"
+            (click)="this.showPerson = undefined; this.renderFamilyTree();"
+            class="hide-person-block bg-grey-superlight">
+            <span class="material-icons">keyboard_arrow_left</span>
+        </div>
+        <!-- Side panel show arrow -->
+        <p *ngIf="(!showPerson) && selectedPerson && authorized()" style="z-index: 5;" (click)="displayPersonDetail()"
+            class="show-person-block">
+            <span class="material-icons">keyboard_arrow_right</span>
+        </p>
+        <!-- FamilyTree render -->
+        <div fxFlex="showPerson ? 75% : 100%" class="familytree-container">
+            <div id="familytree"></div>
+        </div>
+        <!-- Bottom box with person controls -->
+        <div *ngIf="( selectedPerson && selectedPerson.data && authorized() ) && selectedPerson.data.isUndefined == false"
+            class="operations-block mat-elevation-z7">
+            <div class="operations-name">
+                <button (click)="displayPersonDetail()" matTooltip="Zobrazit více" matTooltipPosition="above">
+                    <span>{{selectedPerson.name}}</span>
+                </button>
+            </div>
+            <div class="operations-buttons">
+                <button (click)="displayPersonDetail()" matTooltip="Více informací o osobě"
+                    aria-label="Tlačítko, které zobrazí více informací o zvolené osobě" matTooltipPosition="above">
+                    <span class="material-icons txt-grey">info</span>
+                </button>
+                <button (click)="addPerson()" matTooltip="Přidat nový vztah"
+                    aria-label="Tlačítko, které zobrazí okno pro přidání voého vztahu a osoby do rodokmenu"
+                    matTooltipPosition="above">
+                    <span class="material-icons txt-grey">add_circle</span>
+                </button>
+                <button (click)="removePersonValidation(selectedPerson.id)" matTooltip="Odebrat tuto osobu z rodokmenu"
+                    aria-label="Tlačítko, které odstraní tuto osobu z rodokmenu" matTooltipPosition="above">
+                    <span class="material-icons txt-grey">remove_circle</span>
+                </button>
+                <button (click)="this.selectedPerson = undefined" matTooltip="Zavřít nabídku" class="close-button"
+                    aria-label="Tlačítko, které zavře nabídku operací" matTooltipPosition="above">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+        </div>
+        <div *ngIf="!authorized()" class="operations-block mat-elevation-z7 copy-familytree">
+            <a (click)="copyFamilyTree()">Zkopírovat do mého rodokmenu</a>
+        </div>
+        <button (click)="renderFamilyTree()" class="center-button">
+            <span class="material-icons txt-grey-dark">center_focus_weak</span>
+        </button>
+    </div>
+</div>

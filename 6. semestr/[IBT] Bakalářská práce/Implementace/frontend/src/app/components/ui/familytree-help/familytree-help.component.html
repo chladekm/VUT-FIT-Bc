@@ -1,0 +1,60 @@
+<!------------------------------------------------------------------>
+<!--  Project: Bachelor's thesis – Genealogy Database System      -->
+<!--           Faculty of Information Technology                  -->
+<!--           Brno University of Technology                      -->
+<!--                                                              -->
+<!--  File:    familytree-help.component.html                     -->
+<!--  Date:    2019 – 2020                                        -->
+<!--  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>        -->
+<!------------------------------------------------------------------>
+
+
+<div fxLayout="column" fxFlex="100%">
+    <h3 mat-dialog-title>Nápověda</h3>
+    <mat-dialog-content fxLayout="column">
+
+        <div fxLayout="row wrap" fxLayout.lt-sm="row-reverse wrap" fxFlex="100%">
+            <div fxFlex="50%" fxFlex.lt-sm="100%" class="block-half">
+                <img class="w-100" src="../../../../assets/img/help_img1.png" />
+            </div>
+            <div fxFlex="50%" fxFlex.lt-sm="100%" class="block-half">
+                <h3 mat-dialog-title>Krok 1</h3>
+                Klikněte na vybranou osobu v&nbsp;rodokmenu se&nbsp;kterou chcete provádět příslušné operace:
+                <ul>
+                    <li>Zobrazit více informací o osobě</li>
+                    <li>Přidat k ní příbuznou osobu</li>
+                    <li>Odstranit osobu z rodokmenu</li>
+                </ul>
+            </div>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+            <h3 mat-dialog-title>Krok 2</h3>
+            Ve spodní části obrazovky se vám zobrazí navigační panel:
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center start">
+            <img src="../../../../assets/img/help_img2.png" style="width: 70%;" />
+        </div>
+        <div>
+            Ikony mají následující funkce:
+            <ul class="no-bullet">
+                <li>
+                    <span class="material-icons txt-grey">info</span> Zobrazí podrobné informace o osobě v levé části
+                    prohlížeče (funguje i kliknutí na jméno). Osobu lze dále upravovat, zobrazit podrobnosti o svatbách
+                    nebo si prohlédnout matriční záznamy osoby.
+                </li>
+                <li>
+                    <span class="material-icons txt-grey">add_circle</span> Spuštění procesu přidávání nové osoby do
+                    rodokmenu.
+                </li>
+                <li>
+                    <span class="material-icons txt-grey">remove_circle</span> Odebrání vybrané osoby ze stávajícího
+                    rodokmenu.
+                </li>
+            </ul>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions class="w-100">
+        <button mat-stroked-button matDialogClose class="w-100">Zavřít</button>
+    </mat-dialog-actions>
+</div>

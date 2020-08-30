@@ -1,0 +1,82 @@
+<!------------------------------------------------------------------>
+<!--  Project: Bachelor's thesis – Genealogy Database System      -->
+<!--           Faculty of Information Technology                  -->
+<!--           Brno University of Technology                      -->
+<!--                                                              -->
+<!--  File:    familytree-create.component.html                   -->
+<!--  Date:    2019 – 2020                                        -->
+<!--  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>        -->
+<!------------------------------------------------------------------>
+
+<mat-horizontal-stepper #stepper [linear]="true">
+
+    <!-- Filling familytree informations -->
+    <mat-step [completed]="(familytree.title)">
+        <ng-template matStepLabel>Údaje rodokmenu</ng-template>
+        <div *ngIf='familytree'>
+            <h3>Založení rodokmenu</h3>
+            <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Název</mat-label>
+                <input rquired matInput [(ngModel)]="familytree.title" pattern="[A-Za-zá-žÁ-Ž-_0-9 ]+"
+                    placeholder="Název" #title="ngModel" />
+            </mat-form-field>
+            <label>Typ rodokmenu: <sup>*</sup></label>
+            <mat-radio-group aria-label="Výběr typu rodokmenu" class="radio-button-group" [(ngModel)]="familytree.type"
+                (ngModelChange)="person.isPrivate = (familytree.type == 0)? true : false">
+                <mat-radio-button [value]="1">Veřejný <sup>1</sup></mat-radio-button>
+                <mat-radio-button [value]="2">Neveřejný <sup>2</sup></mat-radio-button>
+                <mat-radio-button [value]="0">Privátní <sup>3</sup></mat-radio-button>
+            </mat-radio-group>
+            <p class="bottom-text">
+                * Typ rodokmenu není možné později měnit
+                <br>
+                <sup>1</sup> Do vašeho rodokmenu mohou nahlížet i ostatní uživatelé a jeho obsah mohou kopírovat.
+                Probíhá porovnávání mezi rodokmeny kvůli vzniku případných konfliktů.
+                <br>
+                <sup>2</sup> Stále probíhá porovnávání pro případné odhalení kolizí, do Vašeho rodokmenu můžete nahlížet
+                pouze Vy.
+                <br>
+                <sup>3</sup> Do vašeho rodokmenu nikdo jiný nevidí a neprobíhá ani porovnávání s ostatními rodokmeny.
+            </p>
+            <div fxLayout="row" fxLayoutAlign="end end" mat-dialog-actions>
+                <button fxFlex="15%" fxFlex.lt-sm="30%" mat-stroked-button (click)="close();">Zrušit</button>
+                <button mat-raised-button matStepperNext fxFlex="25%" fxFlex.lt-sm="60%" color="accent"
+                    [disabled]="!(title.valid && familytree.title)">Pokračovat</button>
+            </div>
+        </div>
+    </mat-step>
+
+    <!-- Filling person's informations -->
+    <mat-step [completed]="isFormValid">
+        <ng-template matStepLabel>Údaje o první osobě</ng-template>
+        <app-person-create (formValid)="formValid($event)" [selectedRelationship]="null" [person]="person"
+            (change)="callSimiliarPersonSearch()">
+        </app-person-create>
+        <mat-dialog-actions fxLayout="row" fxLayoutAlign="end start">
+            <button mat-stroked-button matStepperPrevious fxFlex.lt-sm="35%">Zpět</button>
+            <button mat-button matStepperNext *ngIf="familytree.type != 0" fxFlex="25%" fxFlex.lt-sm="60%"
+                mat-raised-button color="accent" [disabled]="!(isFormValid)"
+                (click)="callSimiliarPersonSearch()">Pokračovat</button>
+            <button mat-button matStepperNext *ngIf="familytree.type == 0" fxFlex="25%" fxFlex.lt-sm="60%"
+                mat-raised-button color="accent" [disabled]="!(isFormValid)"
+                (click)="createTree(this.person)">Založit</button>
+        </mat-dialog-actions>
+    </mat-step>
+
+    <!-- Selecting from existing persons -->
+    <mat-step *ngIf="familytree.type != 0">
+        <ng-template matStepLabel>Výběr z existujících</ng-template>
+        <app-person-select-similiar [person]="person" (existingPersonChange)="newSelectedExistingPerson($event)">
+        </app-person-select-similiar>
+
+        <mat-dialog-actions fxLayout="row" fxLayoutAlign="end start">
+            <button mat-stroked-button matStepperPrevious fxFlex.lt-sm="35%">Zpět</button>
+            <button matStepperNext fxFlex="25%" fxFlex.lt-sm="60%" mat-raised-button class="btn-blue"
+                [disabled]="!person" (click)="createTree(this.person)">Založit s novou osobu</button>
+            <button matStepperNext fxFlex="35%" fxFlex.lt-sm="60%" mat-raised-button color="accent"
+                [disabled]="!personFromExistingRecords" (click)="createTree(this.personFromExistingRecords)">Založit s
+                vybranou osobou</button>
+        </mat-dialog-actions>
+    </mat-step>
+
+</mat-horizontal-stepper>

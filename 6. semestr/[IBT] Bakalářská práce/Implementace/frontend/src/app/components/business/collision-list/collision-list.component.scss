@@ -1,0 +1,31 @@
+/*******************************************************************/
+/*  Project: Bachelor's thesis – Genealogy Database System         */
+/*           Faculty of Information Technology                     */
+/*           Brno University of Technology                         */
+/*                                                                 */
+/*  File:    collision-list.component.scss                         */
+/*  Date:    2019 – 2020                                           */
+/*  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>           */
+/*******************************************************************/
+
+th,
+td {
+    padding: 0 20px !important;
+}
+
+.txt-red {
+    color: rgb(145, 0, 0);
+}
+
+.txt-green {
+    color: green;
+}
+
+.btn-column {
+    padding: 0 !important;
+    direction: rtl;
+}
+
+.actions {
+    padding-top: 15px;
+}

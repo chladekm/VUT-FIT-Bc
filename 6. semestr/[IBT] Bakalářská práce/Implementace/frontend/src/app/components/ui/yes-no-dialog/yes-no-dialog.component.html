@@ -1,0 +1,20 @@
+<!------------------------------------------------------------------>
+<!--  Project: Bachelor's thesis – Genealogy Database System      -->
+<!--           Faculty of Information Technology                  -->
+<!--           Brno University of Technology                      -->
+<!--                                                              -->
+<!--  File:    yes-no-dialog.component.html                       -->
+<!--  Date:    2019 – 2020                                        -->
+<!--  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>        -->
+<!------------------------------------------------------------------>
+
+<div fxLayout="column" style="min-width: 250px;">
+
+    <h3 mat-dialog-title>Jste si jist(á)?</h3>
+    <p style="padding: 5px 0;">&nbsp;</p>
+    <div fxFlex="100%" fxLayout="row wrap" fxLayoutAlign="space-between start">
+        <button fxFlex="45%" mat-stroked-button color="primary" (click)="no()">Ne</button>
+        <button fxFlex="45%" mat-stroked-button color="primary" (click)="yes()">Ano</button>
+    </div>
+
+</div>

@@ -1,0 +1,98 @@
+/*******************************************************************/
+/*  Project: Bachelor's thesis – Genealogy Database System         */
+/*           Faculty of Information Technology                     */
+/*           Brno University of Technology                         */
+/*                                                                 */
+/*  File:    familytree-style.scss                                 */
+/*  Date:    2019 – 2020                                           */
+/*  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>           */
+/*******************************************************************/
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+// Lines between persons
+.linage {
+  fill: none;
+  stroke: black;
+}
+
+.marriage {
+  fill: none;
+  stroke: black;
+}
+
+// Bubble with person
+@mixin bubble {
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 80%;
+  display: block;
+  position: relative;
+
+  &:hover {
+    filter: brightness(90%);
+  }
+}
+
+.node-text-style {
+  padding: 0 10px;
+}
+
+.years {
+  padding-top: 5px;
+  font-size: x-small;
+  overflow: hidden;
+  color: grey;
+  font-size: x-small;
+
+  .node-text-birthyear {
+    float: left;
+  }
+
+  .node-text-deathyear {
+    float: right;
+  }
+}
+
+.man {
+  @include bubble;
+  background-color: lightblue;
+}
+
+.woman {
+  @include bubble;
+  background-color: pink;
+}
+
+.undefined {
+  @include bubble;
+  font-size: 200%;
+  background-color: rgb(228, 228, 228);
+  padding: 0 10px;
+  text-align: center;
+  vertical-align: middle;
+  color: rgb(177, 177, 177);
+
+  &:before {
+    content: "+";
+  }
+}
+
+svg {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  max-height: calc(90vh - 60px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+  background-image: linear-gradient(whitesmoke 2px, transparent 2px), linear-gradient(90deg, whitesmoke 2px, transparent 2px);
+  background-image: -webkit-linear-gradient(whitesmoke 2px, whitesmoke 2px), -webkit-linear-gradient(0, whitesmoke 2px, whitesmoke 2px), 
+                    -moz-linear-gradient(0, whitesmoke 2px, transparent 2px), -moz-linear-gradient(whitesmoke 2px, transparent 2px);
+}

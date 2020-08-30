@@ -1,0 +1,140 @@
+<!------------------------------------------------------------------>
+<!--  Project: Bachelor's thesis – Genealogy Database System      -->
+<!--           Faculty of Information Technology                  -->
+<!--           Brno University of Technology                      -->
+<!--                                                              -->
+<!--  File:    person-select-similiar.component.html              -->
+<!--  Date:    2019 – 2020                                        -->
+<!--  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>        -->
+<!------------------------------------------------------------------>
+
+<div *ngIf="!similiarPersons || similiarPersons.length == 0">
+  <h3 mat-dialog-title>Žádná podobná osoba nebyla nalezena.</h3>
+  <p class="subtitle">Založte prosím novou osobu</p>
+</div>
+
+<div class="table-container" [hidden]="!similiarPersons || similiarPersons.length == 0">
+  <h3 mat-dialog-title>Vyberte prosím jednu z existujících osob.</h3>
+  <p class="subtitle">Pokud nenaleznete žádnou shodu, založte novou osobu</p>
+
+  <table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
+
+
+    <!-- Tag -->
+    <ng-container matColumnDef=" ">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+      <td mat-cell *matCellDef="let row" style="max-width: 15px;">
+        <span *ngIf="selectedExistingPerson && selectedExistingPerson.id == row.id"><span matTooltip="Zvolená osoba"
+            matTooltipPosition="below" class="material-icons checked-icon" color="warn">lens</span></span>
+      </td>
+    </ng-container>
+
+    <!-- Name -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Jména </th>
+      <td mat-cell *matCellDef="let row">
+        <span *ngFor="let name of row.personNames">
+          <span *ngIf='name.isFirstName'>{{name.name}} </span>
+        </span>
+      </td>
+    </ng-container>
+
+    <!-- Surname -->
+    <ng-container matColumnDef="surname">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Příjmení </th>
+      <td mat-cell *matCellDef="let row">
+        <span *ngFor="let name of row.personNames">
+          <span *ngIf='!(name.isFirstName)'>{{name.name}} </span>
+        </span>
+      </td>
+    </ng-container>
+
+    <!-- Birth Place -->
+    <ng-container matColumnDef="birthPlace">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Obec </th>
+      <td mat-cell *matCellDef="let row" [ngClass]="(row.birthPlace == null) ? 'no-birthplace' : ''">
+        <span>{{(row.birthPlace) ? row.birthPlace : '&nbsp;&nbsp;–'}}</span>
+      </td>
+    </ng-container>
+
+    <!-- Birth Date -->
+    <ng-container matColumnDef="birthDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Datum narození </th>
+      <td mat-cell *matCellDef="let row"> {{row.birthDate | date:'d. M. y'}} </td>
+    </ng-container>
+
+    <!-- Baptism Date -->
+    <ng-container matColumnDef="baptismDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Datum křtu </th>
+      <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.baptismDate | date:'d. M. y'}} </td>
+    </ng-container>
+
+    <!-- Death Date -->
+    <ng-container matColumnDef="deathDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Datum úmrtí </th>
+      <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.deathDate | date:'d. M. y'}} </td>
+    </ng-container>
+
+    <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+    <ng-container matColumnDef="expandedDetail">
+      <td mat-cell *matCellDef="let row" [attr.colspan]="displayedColumns.length">
+        <div class="element-detail" [@detailExpand]="row == expandedElement ? 'expanded' : 'collapsed'">
+          <div fxLayout="row wrap" class="element-description" fxLayoutAlign="space-between start" fxFlex="100%">
+            <div>
+              <table>
+                <tr>
+                  <td>
+                    Matriční záznamy:
+                  </td>
+                  <td>
+                    <ng-container *ngIf="row.originalRecords.length != 0; else noRecords">
+                      <span *ngFor="let reference of row.originalRecords"><a target="_blank"
+                          href="http://perun.fit.vutbr.cz/demos/api/birth-ids/?acode=d396173a554a4ab8a379cb988f3c5ce8&id1={{reference.recordId}}">
+                          {{reference.recordId}}</a>,
+                      </span>
+                    </ng-container>
+                    <ng-template #noRecords>
+                      <span style="opacity: 0.7;">není k dispozici</span>
+                    </ng-template>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    V rodokmenech:
+                  </td>
+                  <td>
+                    <ng-container *ngIf="row.familyTreePerson.length != 0; else noTrees">
+                      <span *ngFor="let reference of row.familyTreePerson"><a target="_blank"
+                          [routerLink]="['/familytree/', reference.familyTreeId]">{{reference.familyTreeId}}</a>,
+                      </span>
+                    </ng-container>
+                    <ng-template #noTrees>
+                      <span style="opacity: 0.7;">pouze v neveřejných rodokmenech</span>
+                    </ng-template>
+
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <button *ngIf="!selectedExistingPerson || (selectedExistingPerson && selectedExistingPerson.id != row.id)"
+              mat-stroked-button color="warn"
+              (click)="newSelectedExistingPerson(row); selectedExistingPerson = row">Vybrat osobu</button>
+            <button *ngIf="selectedExistingPerson && selectedExistingPerson.id == row.id" mat-stroked-button
+              color="warn" (click)="newSelectedExistingPerson(null); selectedExistingPerson = null">Odebrat
+              výběr</button>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="element-row"
+      [class.expanded-row]="expandedElement === row" (click)="expandedElement = expandedElement === row ? null : row">
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-row"></tr>
+
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>

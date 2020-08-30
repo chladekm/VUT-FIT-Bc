@@ -1,0 +1,151 @@
+<!------------------------------------------------------------------>
+<!--  Project: Bachelor's thesis – Genealogy Database System      -->
+<!--           Faculty of Information Technology                  -->
+<!--           Brno University of Technology                      -->
+<!--                                                              -->
+<!--  File:    person-add.component.html                          -->
+<!--  Date:    2019 – 2020                                        -->
+<!--  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>        -->
+<!------------------------------------------------------------------>
+
+<mat-horizontal-stepper #stepper [linear]="true" *ngIf="sourcePerson" ngClass.xs="hide-stepper">
+
+    <!-- Relationship selection -->
+    <mat-step [completed]="(selectedRelationship!=undefined)">
+        <ng-template matStepLabel>Typ vztahu</ng-template>
+        <div *ngIf="selectedPerson && sourcePerson">
+            <h3 mat-dialog-title>Nový vztah pro <span *ngIf="selectedPerson.name == ''">neznámou
+                    osobu</span>{{selectedPerson.name}}</h3>
+            <mat-dialog-content>
+                <section id="relationship-definition" class="section">
+                    <label>Přidat:</label>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Typ vztahu:</mat-label>
+                        <mat-select required name="relSelect" (selectionChange)="setGender(this.selectedRelationship)"
+                            *ngIf="sourcePerson.ancestorOrHusbandRelationship || sourcePerson.descendantOrWifeRelationship"
+                            #relSelect="ngModel" [(ngModel)]="this.selectedRelationship">
+                            <!-- If person is not top person or in marriage with him/her -> those two options are not allowed -->
+                            <mat-option
+                                *ngIf="(getMother(sourcePerson) == null) && personService.belongPersonToTribe(sourcePerson, familytree, allRelationships)"
+                                [value]="0">Matka</mat-option>
+                            <mat-option
+                                *ngIf="(getFather(sourcePerson) == null) && personService.belongPersonToTribe(sourcePerson, familytree, allRelationships)"
+                                [value]="1">Otec</mat-option>
+                            <mat-option [value]="2">Potomek</mat-option>
+                            <!-- Only if mother and father is already added -->
+                            <mat-option *ngIf="personService.personHasMotherOrFatherInFamilyTree(sourcePerson)"
+                                [value]="3">Sourozenec
+                            </mat-option>
+                            <!-- Person must belong to the tribe (by blood) -->
+                            <mat-option
+                                *ngIf="sourcePerson.isFemale && personService.belongPersonToTribe(sourcePerson, familytree, allRelationships)"
+                                [value]="4">
+                                Manžel</mat-option>
+                            <mat-option
+                                *ngIf="!(sourcePerson.isFemale) && personService.belongPersonToTribe(sourcePerson, familytree, allRelationships)"
+                                [value]="5">Manželka</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </section>
+            </mat-dialog-content>
+        </div>
+        <mat-dialog-actions fxLayout="row" fxLayoutAlign="end start">
+            <button fxFlex="15%" fxFlex.lt-sm="35%" mat-stroked-button (click)="close();">Zrušit</button>
+            <button mat-button matStepperNext fxFlex="25%" fxFlex.lt-sm="60%" mat-raised-button color="accent"
+                (click)="prepareWifesOrHusbands(sourcePerson)"
+                [disabled]="!(selectedRelationship!=undefined)">Pokračovat</button>
+        </mat-dialog-actions>
+    </mat-step>
+
+
+    <!-- Filling personal informations -->
+    <mat-step [completed]="isFormValid">
+        <ng-template matStepLabel>Údaje osoby vztahu</ng-template>
+        <app-person-create *ngIf="selectedRelationship != undefined" (formValid)="formValid($event)" [person]="person"
+            [selectedRelationship]="selectedRelationship" (change)="callSimiliarPersonSearch()"></app-person-create>
+        <mat-dialog-actions fxLayout="row" fxLayoutAlign="end start">
+            <button mat-stroked-button matStepperPrevious fxFlex.lt-sm="35%">Zpět</button>
+            <button mat-button matStepperNext fxFlex="25%" fxFlex.lt-sm="60%" mat-raised-button color="accent"
+                [disabled]="!(isFormValid)"
+                (click)="callSimiliarPersonSearch(); personFromExistingRecords = null">Pokračovat</button>
+        </mat-dialog-actions>
+    </mat-step>
+
+
+    <!-- Similiar person selection -->
+    <mat-step *ngIf="familytree.type != 0">
+        <ng-template matStepLabel>Vyberte z existujících osob</ng-template>
+
+        <app-person-select-similiar [person]="person" (existingPersonChange)="newSelectedExistingPerson($event)">
+        </app-person-select-similiar>
+        <mat-dialog-actions fxLayout="row" fxLayoutAlign="end start">
+            <button mat-stroked-button matStepperPrevious fxFlex.lt-sm="35%">Zpět</button>
+            <button matStepperNext fxFlex="25%" fxFlex.lt-sm="60%" mat-raised-button class="btn-blue"
+                [disabled]="!person" (click)="person.id = null; personFromExistingRecords = null">Založit novou
+                osobu</button>
+            <button matStepperNext fxFlex="35%" fxFlex.lt-sm="60%" mat-raised-button color="accent"
+                [disabled]="!personFromExistingRecords">Pokračovat s vybranou
+                osobou</button>
+        </mat-dialog-actions>
+    </mat-step>
+
+
+    <!-- Process finishing -->
+    <mat-step>
+        <ng-template matStepLabel>Dokončit</ng-template>
+
+        <div *ngIf="sourcePersonSpouses.length > 0" fxLayout="column">
+            <h3 mat-dialog-title>Vyberte <span *ngIf="sourcePerson.isFemale; else displayMother">otce</span>
+                <ng-template #displayMother>matku</ng-template>:
+            </h3>
+            <div>
+                <mat-radio-group aria-label="Vyberte otce/matku" [(ngModel)]="selectedSpouseId" required
+                    fxLayout="column">
+                    <mat-radio-button *ngFor="let spouse of sourcePersonSpouses" [value]="spouse.id"
+                        style="padding-bottom: 10px;">
+                        <span *ngIf="spouse.isUndefined">Neznámá osoba</span>
+                        <span *ngIf="!spouse.isUndefined"><span *ngFor="let name of spouse.personNames">{{name.name}}
+                            </span></span>
+                    </mat-radio-button>
+                    <mat-radio-button
+                        *ngIf="personService.belongPersonToTribe(sourcePerson, familytree, allRelationships) && !(sourcePersonHasUndefinedSpouse()) && !sourcePerson.isUndefined"
+                        [value]="-1">Někdo jiný
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
+
+        <div *ngIf="sourcePersonSpouses.length == 0" fxLayout="column">
+            <h3 mat-dialog-title>Doplňující informace</h3>
+            <div *ngIf="(selectedRelationship == 4 || selectedRelationship == 5) && marriage">
+                <p class="subtitle">Prosím doplňte informace o svatbě</p>
+                <div>
+                    <mat-form-field appearance="fill" ngStyle.lt-sm="width : 100%" ngStyle.gt-xs="width:40%">
+                        <mat-label>Datum svatby</mat-label>
+                        <input matInput [(ngModel)]="marriage.marriageDate" [matDatepicker]="mDate"
+                            (change)="transformDate(marriageDate.value)" #marriageDate>
+                        <mat-datepicker-toggle matSuffix [for]="mDate"></mat-datepicker-toggle>
+                        <mat-datepicker #mDate startView="year" [startAt]="marriageStartDate"></mat-datepicker>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill" ngStyle.lt-sm="width : 100%" ngStyle.gt-xs="width:40%">
+                        <mat-label>Místo svatby</mat-label>
+                        <input matInput name="address" pattern="[A-Za-zá-žÁ-Ž0-9-:/ ]+" #lastName="ngModel"
+                            [(ngModel)]="marriage.marriageAddress" placeholder="Místo svatby" />
+                    </mat-form-field>
+                </div>
+            </div>
+            <p *ngIf="selectedRelationship != 4 && selectedRelationship != 5" class="subtitle">Nejsou potřeba žádné
+                doplňující informace</p>
+
+        </div>
+
+        <mat-dialog-actions fxLayout="row" fxLayoutAlign="end start">
+            <button fxFlex="15%" fxFlex.lt-sm="20%" mat-stroked-button (click)="close();">Zrušit</button>
+            <button mat-stroked-button matStepperPrevious fxFlex.lt-sm="20%">Zpět</button>
+            <button mat-button matStepperNext fxFlex="25%" fxFlex.lt-sm="55%" mat-raised-button
+                (click)="addPersonToFamilyTree()" color="accent"
+                [disabled]="!person || ((sourcePersonSpouses === null || sourcePersonSpouses.length == 0) ? false : !selectedSpouseId)">Dokončit</button>
+        </mat-dialog-actions>
+    </mat-step>
+</mat-horizontal-stepper>

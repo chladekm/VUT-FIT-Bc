@@ -1,0 +1,39 @@
+<!------------------------------------------------------------------>
+<!--  Project: Bachelor's thesis – Genealogy Database System      -->
+<!--           Faculty of Information Technology                  -->
+<!--           Brno University of Technology                      -->
+<!--                                                              -->
+<!--  File:    user-detail-edit.component.html                    -->
+<!--  Date:    2019 – 2020                                        -->
+<!--  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>        -->
+<!------------------------------------------------------------------>
+
+<mat-card *ngIf='userEdit'>
+    <mat-card-content fxLayout="row wrap">
+        <div fxFlex="20%" fxFlex.lt-sm="35%">Jméno</div>
+        <div fxFlex="0 1 80%" fxFlex.lt-sm="65%">
+            <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Jméno</mat-label>
+                <input matInput [(ngModel)]="userEdit.name" placeholder="Jméno" />
+            </mat-form-field>
+        </div>
+        <div fxFlex="20%" fxFlex.lt-sm="35%">Příjmení</div>
+        <div fxFlex="0 1 80%" fxFlex.lt-sm="65%">
+            <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Příjmení</mat-label>
+                <input matInput [(ngModel)]="userEdit.surname" placeholder="Příjmení" />
+            </mat-form-field>
+        </div>
+        <div fxFlex="20%" fxFlex.lt-sm="35%">Email</div>
+        <div fxFlex="0 1 80%" fxFlex.lt-sm="65%">
+            <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Email</mat-label>
+                <input matInput [(ngModel)]="userEdit.email" placeholder="Email" />
+            </mat-form-field>
+        </div>
+    </mat-card-content>
+    <mat-card-actions fxLayoutAlign="end end">
+        <button mat-stroked-button (click)="goBack()">Zpět</button>
+        <button mat-raised-button color="accent" fxFlex="25%" fxFlex.lt-sm="100%" (click)="save()">Uložit</button>
+    </mat-card-actions>
+</mat-card>

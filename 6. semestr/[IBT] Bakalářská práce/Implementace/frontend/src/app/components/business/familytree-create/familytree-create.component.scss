@@ -1,0 +1,31 @@
+/*******************************************************************/
+/*  Project: Bachelor's thesis – Genealogy Database System         */
+/*           Faculty of Information Technology                     */
+/*           Brno University of Technology                         */
+/*                                                                 */
+/*  File:    familytree-create.component.scss                      */
+/*  Date:    2019 – 2020                                           */
+/*  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>           */
+/*******************************************************************/
+
+.radio-button-group {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-top: 10px;
+
+    mat-radio-button {
+        padding: 5px;
+    }
+}
+
+mat-radio-button sup,
+label sup {
+    opacity: 0.7;
+}
+
+.bottom-text {
+    opacity: 0.7;
+    font-size: 80%;
+    padding-top: 20px;
+}

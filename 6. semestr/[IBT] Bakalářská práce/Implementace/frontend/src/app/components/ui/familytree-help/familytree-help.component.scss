@@ -1,0 +1,26 @@
+/*******************************************************************/
+/*  Project: Bachelor's thesis – Genealogy Database System         */
+/*           Faculty of Information Technology                     */
+/*           Brno University of Technology                         */
+/*                                                                 */
+/*  File:    familytree-help.component.scss                        */
+/*  Date:    2019 – 2020                                           */
+/*  Author:  Martin Chládek <xchlad16@stud.fit.vutbr.cz>           */
+/*******************************************************************/
+
+mat-divider {
+    margin: 15px;
+}
+
+.no-bullet {
+    list-style-type: none;
+
+    li {
+        padding: 10px 0;
+        vertical-align: middle;
+    }
+
+    li span {
+        vertical-align: middle;
+    }
+}
