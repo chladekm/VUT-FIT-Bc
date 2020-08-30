@@ -1,11 +1,13 @@
-# Projekty na VUT FIT
+# Přehled
 
 Tento repozitář obsahuje projekty vytvořené v rámci bakalářského studia na Fakultě informačních technologií Vysokého učení technického v Brně.
 
 - Studijní obor: Informační technologie
 - Období studia: 2017-2020
 
-# Přehled zapsaných předmětů
+&nbsp;\
+
+# Zapsané předměty
 
 ## 1. semestr (zimní)
 
