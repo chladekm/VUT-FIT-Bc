@@ -2,6 +2,6 @@
 
 ### Hodnocení 
 
-Údajně se špatně se zobrazuje formulář s newsletterem 
+Údajně se špatně zobrazuje formulář s newsletterem 
 
 Získáno bodů: 25 / 30

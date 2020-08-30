@@ -2,7 +2,7 @@
 
 ### Zadání 
 
-viz. zadani.pdf
+viz zadani.pdf
 
 ### Hodnocení 
 

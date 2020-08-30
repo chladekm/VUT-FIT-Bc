@@ -2,11 +2,11 @@
 
 ### Zadání
 
-Navrhněte, implementujte, dokumentujte a testujte sadu skriptů pro interpretaci nestrukturovaného imperativního jazyka IPPcode19. K implementaci vytvořte odpovídající stručnou programovou doku- mentaci. Projekt se skládá ze dvou úloh. 
+Navrhněte, implementujte, dokumentujte a testujte sadu skriptů pro interpretaci nestrukturovaného imperativního jazyka IPPcode19. K implementaci vytvořte odpovídající stručnou programovou dokumentaci. Projekt se skládá ze dvou úloh. 
 
 První úloha se skládá ze skriptu parse.php v jazyce PHP 7.3 a dokumentace k tomuto skriptu. Druhá úloha se skládá ze skriptu interpret.py v jazyce Python 3.6, testovacího skriptu test.php v jazyce PHP 7.3 a dokumentace těchto dvou skriptů.
 
-Podrobnost: viz. zadani.pdf
+Podrobnosti: viz zadani.pdf
 
 ### Hodnocení 
 

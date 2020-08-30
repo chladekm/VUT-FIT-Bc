@@ -1,4 +1,4 @@
-## [INP] Projekt č.2 – Jednoduchá shluková analýza
+## [INP] Projekt č.2 – VHDL procesor
 
 ### Zadání
 
