@@ -5,9 +5,7 @@ Tento repozitář obsahuje projekty vytvořené v rámci bakalářského studia 
 - Studijní obor: Informační technologie
 - Období studia: 2017-2020
 
-&nbsp;\
-
-# Zapsané předměty
+&nbsp;
 
 ## 1. semestr (zimní)
 
